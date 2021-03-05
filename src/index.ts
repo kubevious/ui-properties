@@ -1,2 +1,2 @@
-
-export const MY_COMPONENT = 0;
+export { Properties } from './Properties'
+export { Summary } from './Summary'
