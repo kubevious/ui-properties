@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import cx from 'classnames'
 import { Controlled as CodeMirrorEditor } from 'react-codemirror2'
 const _ = require('the-lodash')
-const jsyaml = require('js-yaml')
+import jsyaml from 'js-yaml';
 import './styles.scss'
 
 import 'codemirror/theme/darcula.css'
@@ -21,7 +21,7 @@ export const Config = ({ config, dn, language }: { config: Annotations, dn: stri
     const [indent, setIndent] = useState<number>(2)
     const [editMode, setEditMode] = useState<boolean>(false)
 
-    const [code, setCode] = useState<string>(jsyaml.safeDump(config, { indent }))
+    const [code, setCode] = useState<string>(jsyaml.dump(config, { indent }))
     const [editedConfig, setEditedConfig] = useState<string>(code)
 
     const [fileName, setFileName] = useState<string>('config.yaml')
@@ -53,8 +53,8 @@ export const Config = ({ config, dn, language }: { config: Annotations, dn: stri
 
     useEffect(() => {
         try {
-            setCode(jsyaml.safeDump(config, { indent }))
-            setEditedConfig(jsyaml.safeDump(jsyaml.load(editedConfig), { indent }))
+            setCode(jsyaml.dump(config, { indent }))
+            setEditedConfig(jsyaml.dump(jsyaml.load(editedConfig), { indent }))
         } catch (error) {
             sharedState.set('is_error', true)
             sharedState.set('error', { data: error })
@@ -79,7 +79,7 @@ export const Config = ({ config, dn, language }: { config: Annotations, dn: stri
             for (let p of PATHS_TO_UNSET) {
                 _.unset(conf, p);
             }
-            setEditedConfig(jsyaml.safeDump(conf, { indent }))
+            setEditedConfig(jsyaml.dump(conf, { indent }))
         }
     }
 
