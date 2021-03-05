@@ -27,7 +27,6 @@ export class Properties extends ClassComponent<{}, PropertiesState> {
     propertyExpanderHandleClick(
         event: React.MouseEvent<HTMLButtonElement, MouseEvent>
     ): void {
-        console.log(event.currentTarget)
         const target = event.currentTarget
         target.classList.toggle("active")
         const contentsElem =

@@ -39,12 +39,15 @@ export const PropertiesTable = ({
     }
 
     const renderRow = (row: Row | string, column: Column): JSX.Element => {
-        const cell: string = column.name
-            ? row[column.name]
-            : _.isString(row)
-            ? row
-            : ""
-
+        let cell: string
+        if (column.name) {
+            cell = row[column.name]
+        } else if (typeof row === 'string') {
+            cell = row
+        } else {
+            cell = ''
+        }
+            
         return (
             <td key={column.name}>
                 {column.formatter
