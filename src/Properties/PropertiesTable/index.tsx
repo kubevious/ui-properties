@@ -7,7 +7,6 @@ import { Column, Config, Row, Header } from "./types"
 import { DnOptions } from "../../types"
 import { DnShortcutComponent } from '@kubevious/ui-components';
 import { PropertiesValue } from "../helpers"
-const _ = require('the-lodash')
 
 export const PropertiesTable = ({
     config,
