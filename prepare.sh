@@ -7,4 +7,6 @@ rm -rf node_modules/
 rm -rf dist/
 
 npm install
-npm update @kubevious/ui-alerts the-lodash @kubevious/ui-framework @kubevious/ui-components
+npm update the-lodash @kubevious/ui-framework @kubevious/ui-components @kubevious/ui-alerts
+
+${MY_DIR}/build.sh
