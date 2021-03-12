@@ -4,7 +4,7 @@ import { faDownload, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import cx from 'classnames'
 import { Controlled as CodeMirrorEditor } from 'react-codemirror2'
-const _ = require('the-lodash')
+import _ from 'the-lodash'
 import jsyaml from 'js-yaml';
 import './styles.scss'
 

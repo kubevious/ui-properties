@@ -1,6 +1,6 @@
 import React from "react"
 import { ClassComponent } from "@kubevious/ui-framework"
-const _ = require('the-lodash')
+import _ from 'the-lodash'
 import { PropertyGroup } from "./PropertyGroup"
 import { DnPath } from '@kubevious/ui-components';
 import cx from "classnames"

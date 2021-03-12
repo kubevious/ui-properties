@@ -1,44 +1,62 @@
-const _ = require('the-lodash')
+import _ from 'the-lodash'
 import React from "react"
 
 import "./styles.scss"
 
 // value: { unit?: string, value: number } | string | number
 export const PropertiesValue = (value: any): JSX.Element => {
-    if (_.isObject(value) && _.isNotNullOrUndefined(value.value)) {
-        value = formatValue(value)
-        return (
-            <span>
-                {formatValue(value.value || value)}
-                {value.unit && <span>{value.unit}</span>}
-            </span>
-        )
-    } else {
-        return <span>{_.toString(value)}</span>
+    if (_.isNullOrUndefined(value.value)) {
+        return <span></span>
     }
+
+    if (_.isArray(value))
+    {
+        return <span>_.stableStringify(value)</span>
+    }
+
+    if (_.isObject(value)) {
+        if (_.isNotNullOrUndefined((value as any).value))
+        {
+            const formattedValue = formatValue(value as ValueField)
+            return (
+                <span>
+                    {formattedValue.value}
+                    {formattedValue.unit && <span>{formattedValue.unit}</span>}
+                </span>
+            )
+        }
+        return <span>_.stableStringify(value)</span>
+    } 
+    
+    return <span>{_.toString(value)}</span>
 }
 
-function formatValue(value: {
-    unit: string
+interface ValueField
+{
     value: number
-}):
-    | number
-    | "0 Bytes"
-    | { value: number; unit: string }
-    | { value: string; unit: string } {
+    unit?: string
+}
+
+interface FormattedValueField
+{
+    value: string
+    unit?: string
+}
+
+function formatValue(value: ValueField) : FormattedValueField {
     switch (value.unit) {
         case "%":
             return {
-                value: (value.value * 100).toFixed(2),
+                value: ((value.value as number) * 100).toFixed(2),
                 unit: "%",
             }
         case "bytes":
-            return formatMemory(value.value, 2)
+            return formatMemory(value.value as number, 2)
 
         default:
-            const result =
-                value.value || value.value === 0 ? value.value : value
-            return result
+            return {
+                value: value.value.toFixed(2)
+            }
     }
 }
 
@@ -46,13 +64,16 @@ const MEMORY_SIZES = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"]
 function formatMemory(
     value: number,
     decimals: number
-): "0 Bytes" | { value: number; unit: string } {
-    if (value === 0) return "0 Bytes"
+): FormattedValueField {
+    if (value === 0) return {
+        value: '0',
+        unit: MEMORY_SIZES[0]
+    }
     const k = 1024
     const dm = decimals < 0 ? 0 : decimals
     const i = Math.floor(Math.log(value) / Math.log(k))
     return {
-        value: parseFloat((value / Math.pow(k, i)).toFixed(dm)),
+        value: (value / Math.pow(k, i)).toFixed(dm),
         unit: MEMORY_SIZES[i],
     }
 }
