@@ -45,6 +45,12 @@ interface FormattedValueField
 }
 
 function formatValue(value: ValueField) : FormattedValueField {
+    if (!_.isNumber(value.value)) {
+        return {
+            value: _.toString(value.value)
+        };
+    }
+
     switch (value.unit) {
         case "%":
             return {
