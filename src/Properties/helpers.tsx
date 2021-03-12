@@ -5,13 +5,13 @@ import "./styles.scss"
 
 // value: { unit?: string, value: number } | string | number
 export const PropertiesValue = (value: any): JSX.Element => {
-    if (_.isNullOrUndefined(value.value)) {
-        return <span></span>
+    if (_.isNullOrUndefined(value)) {
+        return <span>????</span>
     }
 
     if (_.isArray(value))
     {
-        return <span>_.stableStringify(value)</span>
+        return <span>{_.stableStringify(value)}</span>
     }
 
     if (_.isObject(value)) {
@@ -25,7 +25,7 @@ export const PropertiesValue = (value: any): JSX.Element => {
                 </span>
             )
         }
-        return <span>_.stableStringify(value)</span>
+        return <span>{_.stableStringify(value)}</span>
     } 
     
     return <span>{_.toString(value)}</span>

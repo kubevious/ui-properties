@@ -11,7 +11,7 @@ export const KeyValueList = ({ config }: { config: Config }): JSX.Element => {
                 const value =
                     typeof item[1] === "object" ? { ...item[1] } : item[1]
                 return (
-                    <div className="env-variable" key={index}>
+                    <div data-testid="key-value-property" className="env-variable" key={index}>
                         <div className="name">{item[0]}:</div>
                         <div className="value">{PropertiesValue(value)}</div>
                     </div>

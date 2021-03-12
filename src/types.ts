@@ -4,7 +4,7 @@ export type Group = {
     kind: string
     config: any
     order?: number
-    options: string[]
+    options?: string[]
 }
 
 export type DnOptions = {
