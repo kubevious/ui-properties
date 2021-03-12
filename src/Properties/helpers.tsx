@@ -3,7 +3,6 @@ import React from "react"
 
 import "./styles.scss"
 
-// value: { unit?: string, value: number } | string | number
 export const PropertiesValue = (value: any): JSX.Element => {
     if (_.isNullOrUndefined(value)) {
         return <span>????</span>
@@ -54,33 +53,36 @@ function formatValue(value: ValueField) : FormattedValueField {
     switch (value.unit) {
         case "%":
             return {
-                value: ((value.value as number) * 100).toFixed(2),
+                value: formatNumber((value.value as number) * 100),
                 unit: "%",
             }
         case "bytes":
-            return formatMemory(value.value as number, 2)
+            return formatMemory(value.value as number)
 
         default:
             return {
-                value: value.value.toFixed(2)
+                value: formatNumber(value.value)
             }
     }
 }
 
 const MEMORY_SIZES = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"]
 function formatMemory(
-    value: number,
-    decimals: number
+    value: number
 ): FormattedValueField {
     if (value === 0) return {
         value: '0',
         unit: MEMORY_SIZES[0]
     }
     const k = 1024
-    const dm = decimals < 0 ? 0 : decimals
     const i = Math.floor(Math.log(value) / Math.log(k))
     return {
-        value: (value / Math.pow(k, i)).toFixed(dm),
+        value: formatNumber(value / Math.pow(k, i)),
         unit: MEMORY_SIZES[i],
     }
+}
+
+function formatNumber(value : number) : string
+{
+  return (Math.round(value * 100) / 100).toString();
 }
