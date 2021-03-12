@@ -11,7 +11,8 @@ export const PropertiesValue = (value: any): JSX.Element => {
 
     if (_.isArray(value))
     {
-        return <span>{_.stableStringify(value)}</span>
+        const str = (value as any[]).map(x => _.toString(x)).join(', ');
+        return <span>{str}</span>
     }
 
     if (_.isObject(value)) {
