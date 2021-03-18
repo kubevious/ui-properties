@@ -121,13 +121,13 @@
     width: 20px;
     height: 20px;
     border-radius: 2px;
-    background: #292a2f url("../img/popup.svg") center center no-repeat;
+    background: #292a2f url("/img/popup.svg") center center no-repeat;
     background-size: 16px;
     border: 0px;
 }
 
 .property-group-popup:hover {
-    background: #fcbd3f url("../img/popup.svg") center center no-repeat;
+    background: #fcbd3f url("/img/popup.svg") center center no-repeat;
     transition: all ease 0.4s;
     background-size: 16px;
 }
@@ -139,7 +139,7 @@
     width: 20px;
     height: 20px;
     border-radius: 2px;
-    background: #292a2f url("../img/info.svg") center center no-repeat;
+    background: #292a2f url("/img/info.svg") center center no-repeat;
     background-size: 14px;
     border: 0px;
 }
@@ -159,7 +159,7 @@
 }
 
 .property-group-info:hover {
-    background: #fcbd3f url("../img/info.svg") center center no-repeat;
+    background: #fcbd3f url("/img/info.svg") center center no-repeat;
     transition: all ease 0.4s;
     background-size: 14px;
 
@@ -181,11 +181,11 @@
 }
 
 .properties-checkbox.checked {
-    background-image: url("../img/check/true.svg");
+    background-image: url("/img/check/true.svg");
 }
 
 .properties-checkbox.unchecked {
-    background-image: url("../img/check/false.svg");
+    background-image: url("/img/check/false.svg");
 }
 
 div {
