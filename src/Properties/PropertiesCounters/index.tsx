@@ -7,14 +7,19 @@ export const PropertiesCounters = ({ config }: { config: Config }) => {
     return (
         <div className="counters-container">
             {config &&
-                config.map((element) => (
+                config.map((element) => {
+                    const propertiesValue = {
+                        value: typeof element.value === 'object' ? element.value.value : element.value,
+                        unit: element.unit || ''
+                    }
+                    return (
                     <div className="counter-block" key={element.title}>
                         <label>{element.title}</label>
                         <div className="counter-value">
-                            {PropertiesValue({ ...element })}
+                            {PropertiesValue(propertiesValue)}
                         </div>
                     </div>
-                ))}
+                )})}
         </div>
     )
 }
