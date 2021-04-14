@@ -122,7 +122,7 @@
 
         &.cm-s-darcula {
             border: none;
-            background: inherit;
+            background: inherit !important;
             height: 100%;
         }
 
@@ -148,7 +148,7 @@
     }
 }
 
-.footer {
+.config-footer {
     display: flex;
     align-items: center;
     border-top: 1px solid #333333;

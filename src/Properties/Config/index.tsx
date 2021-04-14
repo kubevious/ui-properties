@@ -170,7 +170,7 @@ export const Config = ({ config, dn, language }: { config: Annotations, dn: stri
                 />}
             </div>
 
-            {editMode && <div className="footer">
+            {editMode && <div className="config-footer">
                 <span className="run-command">$ {kubectlCommand}</span>
 
                 <CopyClipboard text={kubectlCommand} />
