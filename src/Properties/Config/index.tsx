@@ -1,31 +1,38 @@
-import React, { useEffect, useState } from 'react'
-import hljs from 'highlight.js'
+import React, { FC, useEffect, useState } from 'react';
+import hljs from 'highlight.js';
 import { faDownload, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import cx from 'classnames'
-import { Controlled as CodeMirrorEditor } from 'react-codemirror2'
-import _ from 'the-lodash'
+import cx from 'classnames';
+import { Controlled as CodeMirrorEditor } from 'react-codemirror2';
+import _ from 'the-lodash';
 import jsyaml from 'js-yaml';
-import './styles.scss'
 
-import 'codemirror/theme/darcula.css'
-import 'codemirror/lib/codemirror.css'
+import 'codemirror/theme/darcula.css';
+import 'codemirror/lib/codemirror.css';
 import { CopyClipboard, DnComponent } from '@kubevious/ui-components';
 import { Annotations } from './types';
 import { Editor, EditorChange } from 'codemirror';
-import { app } from "@kubevious/ui-framework"
+import { app } from '@kubevious/ui-framework';
 
-export const sharedState = app.sharedState
+import styles from './styles.module.css';
 
-export const Config = ({ config, dn, language }: { config: Annotations, dn: string, language?: string }) => {
-    const [indent, setIndent] = useState<number>(2)
-    const [editMode, setEditMode] = useState<boolean>(false)
+export const sharedState = app.sharedState;
 
-    const [code, setCode] = useState<string>(jsyaml.dump(config, { indent }))
-    const [editedConfig, setEditedConfig] = useState<string>(code)
+export interface ConfigProps {
+    config: Annotations;
+    dn: string;
+    language?: string;
+}
 
-    const [fileName, setFileName] = useState<string>('config.yaml')
-    const [kubectlCommand, setKubectlCommand] = useState<string>('')
+export const Config: FC<ConfigProps> = ({ config, dn, language }) => {
+    const [indent, setIndent] = useState<number>(2);
+    const [editMode, setEditMode] = useState<boolean>(false);
+
+    const [code, setCode] = useState<string>(jsyaml.dump(config, { indent }));
+    const [editedConfig, setEditedConfig] = useState<string>(code);
+
+    const [fileName, setFileName] = useState<string>('config.yaml');
+    const [kubectlCommand, setKubectlCommand] = useState<string>('');
 
     useEffect(() => {
         const namespace: string = _.get(config, 'metadata.namespace');
@@ -33,36 +40,36 @@ export const Config = ({ config, dn, language }: { config: Annotations, dn: stri
         nameParts.push(_.get(config, 'kind'));
         nameParts.push(namespace);
         nameParts.push(_.get(config, 'metadata.name'));
-        nameParts = nameParts.filter(x => x);
+        nameParts = nameParts.filter((x) => x);
 
         if (nameParts.length === 0) {
             nameParts.push('config');
         }
 
-        nameParts = nameParts.map(x => x.toLocaleLowerCase());
+        nameParts = nameParts.map((x) => x.toLocaleLowerCase());
 
-        let fn = nameParts.join('-') + '.yaml';
-        setFileName(fn)
+        const fn = nameParts.join('-') + '.yaml';
+        setFileName(fn);
 
         let command = `kubectl apply -f ${fn}`;
         if (namespace) {
             command = command + ` -n ${namespace}`;
         }
-        setKubectlCommand(command)
-    }, [])
+        setKubectlCommand(command);
+    }, []);
 
     useEffect(() => {
         try {
-            setCode(jsyaml.dump(config, { indent }))
-            setEditedConfig(jsyaml.dump(jsyaml.load(editedConfig), { indent }))
+            setCode(jsyaml.dump(config, { indent }));
+            setEditedConfig(jsyaml.dump(jsyaml.load(editedConfig), { indent }));
         } catch (error) {
-            sharedState.set('is_error', true)
-            sharedState.set('error', { data: error })
+            sharedState.set('is_error', true);
+            sharedState.set('error', { data: error });
         }
-    }, [indent, config])
+    }, [indent, config]);
 
     const handleEditedMode = (): void => {
-        setEditMode(!editMode)
+        setEditMode(!editMode);
 
         const PATHS_TO_UNSET = [
             'metadata.uid',
@@ -71,110 +78,112 @@ export const Config = ({ config, dn, language }: { config: Annotations, dn: stri
             'metadata.generation',
             'metadata.creationTimestamp',
             'metadata.managedFields',
-            'status'
-        ]
+            'status',
+        ];
 
         if (!editMode) {
-            const conf = _.cloneDeep(config)
+            const conf = _.cloneDeep(config);
             for (let p of PATHS_TO_UNSET) {
                 _.unset(conf, p);
             }
-            setEditedConfig(jsyaml.dump(conf, { indent }))
+            setEditedConfig(jsyaml.dump(conf, { indent }));
         }
-    }
+    };
 
     const renderCode = (): JSX.Element => {
-        const result = language ? hljs.highlight(language, code) : ''
+        const result = language ? hljs.highlight(language, code) : '';
 
-        return (
-            <pre>
-                {result && result.value && <code dangerouslySetInnerHTML={{ __html: result.value }} />}
-            </pre>
-        )
-    }
+        return <pre>{result && result.value && <code dangerouslySetInnerHTML={{ __html: result.value }} />}</pre>;
+    };
 
     const downloadFile = (): void => {
-        const blob = new Blob([editMode ? editedConfig : code], { type: 'application/yaml' })
-        const exportElem = document.getElementById('exportAnchor')
-        exportElem?.setAttribute('href', window.URL.createObjectURL(blob))
-        exportElem?.setAttribute('download', fileName)
-        exportElem?.click()
-    }
+        const blob = new Blob([editMode ? editedConfig : code], { type: 'application/yaml' });
+        const exportElem = document.getElementById('exportAnchor');
+        exportElem?.setAttribute('href', window.URL.createObjectURL(blob));
+        exportElem?.setAttribute('download', fileName);
+        exportElem?.click();
+    };
 
     const handleChangeConfig = ({ value }: { value: string }): void => {
-        setEditedConfig(value)
-    }
+        setEditedConfig(value);
+    };
 
     return (
         <div className="Config-wrapper">
-            {dn && <div className="Config-header">
-                <div className="cluster">
-                    <DnComponent dn={dn} />
-                </div>
+            {dn && (
+                <div className={styles.configHeader}>
+                    <div className={styles.cluster}>
+                        <DnComponent dn={dn} />
+                    </div>
 
-                <div className="header">
-                    <a id='exportAnchor' style={{ display: 'none' }} />
-                    <h3>Config</h3>
-                    <div className="buttons-group">
-                        <span className="tab-label">
-                            Tab Size
-                        </span>
+                    <div className={styles.blockHeader}>
+                        <a id="exportAnchor" style={{ display: 'none' }} />
+                        <h3>Config</h3>
+                        <div className="buttons-group">
+                            <span className={styles.tabLabel}>Tab Size</span>
 
-                        <button
-                            className={cx('config-btn', { 'selected': indent === 2 })}
-                            onClick={() => setIndent(2)}
-                            title="Set tab size to 2 spaces"
-                        >
-                            2
-                        </button>
+                            <button
+                                className={cx(styles.configBtn, { [styles.selected]: indent === 2 })}
+                                onClick={() => setIndent(2)}
+                                title="Set tab size to 2 spaces"
+                            >
+                                2
+                            </button>
 
-                        <button
-                            className={cx('config-btn mr-25', { 'selected': indent === 4 })}
-                            onClick={() => setIndent(4)}
-                            title="Set tab size to 4 spaces"
-                        >
-                            4
-                        </button>
+                            <button
+                                className={cx(styles.configBtn, styles.mr25, { [styles.selected]: indent === 4 })}
+                                onClick={() => setIndent(4)}
+                                title="Set tab size to 4 spaces"
+                            >
+                                4
+                            </button>
 
-                        <button
-                            className={cx('config-btn mr-25', { 'selected': editMode })}
-                            onClick={() => handleEditedMode()}
-                            title={`${editMode ? 'Disable' : 'Enable'} configuration editor`}
-                        >
-                            <FontAwesomeIcon icon={faPencilAlt} />
-                        </button>
+                            <button
+                                className={cx(styles.configBtn, styles.mr25, { [styles.selected]: editMode })}
+                                onClick={handleEditedMode}
+                                title={`${editMode ? 'Disable' : 'Enable'} configuration editor`}
+                            >
+                                <FontAwesomeIcon icon={faPencilAlt} />
+                            </button>
 
-                        <button
-                            className="config-btn download mr-25"
-                            onClick={() => downloadFile()}
-                            title="Download"
-                        >
-                            <FontAwesomeIcon icon={faDownload} />
-                        </button>
+                            <button
+                                className={cx(styles.configBtn, styles.download, styles.mr25)}
+                                onClick={downloadFile}
+                                title="Download"
+                            >
+                                <FontAwesomeIcon icon={faDownload} />
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>}
+            )}
 
-            <div className={cx('Config-container', { 'edit-mode': editMode })}>
+            <div className={cx(styles.configContainer, { [styles.editMode]: editMode })}>
                 <CopyClipboard text={editMode ? editedConfig : code} />
 
                 {!editMode && renderCode()}
 
-                {editMode && <CodeMirrorEditor
-                    value={editedConfig}
-                    options={{
-                        mode: 'yaml',
-                        theme: 'darcula',
-                    }}
-                    onBeforeChange={(_editor: Editor, _data: EditorChange, value: string) => handleChangeConfig({ value })}
-                />}
+                {editMode && (
+                    <CodeMirrorEditor
+                        value={editedConfig}
+                        options={{
+                            mode: 'yaml',
+                            theme: 'darcula',
+                        }}
+                        onBeforeChange={(_editor: Editor, _data: EditorChange, value: string) =>
+                            handleChangeConfig({ value })
+                        }
+                    />
+                )}
             </div>
 
-            {editMode && <div className="config-footer">
-                <span className="run-command">$ {kubectlCommand}</span>
+            {editMode && (
+                <div className={styles.configFooter}>
+                    <span className="run-command">$ {kubectlCommand}</span>
 
-                <CopyClipboard text={kubectlCommand} />
-            </div>}
+                    <CopyClipboard text={kubectlCommand} />
+                </div>
+            )}
         </div>
-    )
-}
+    );
+};

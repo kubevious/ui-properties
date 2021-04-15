@@ -1,0 +1,165 @@
+.propertyGroup {
+    margin: 0 0 1px;
+}
+
+.propertyGroup :global(.dn-path span) {
+    line-height: 25px;
+}
+
+.expander {
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    background: #35373e;
+    color: #fff;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    line-height: 20px;
+    padding: 10px 10px 9px;
+}
+
+.expanderContents {
+    padding: 10px;
+    display: none;
+    overflow: hidden;
+    border-right: solid 2px #35373e;
+    color: #fff;
+    font-size: 11px;
+}
+
+.expanderContents:global(.expander-open) {
+    display: block;
+    margin: -2px 0 0;
+    overflow-x: auto;
+}
+
+.propertyGroupOpenClose {
+    display: block;
+    float: right;
+    width: 20px;
+    height: 20px;
+    background: #292a2f;
+    border-radius: 2px;
+}
+
+.propertyGroupOpenClose:hover {
+    background: #fcbd3f;
+    transition: all ease 0.4s;
+}
+
+.expander .propertyGroupOpenClose:after {
+    content: "";
+    font-size: 13px;
+    color: #777;
+    float: right;
+    display: block;
+    width: 8px;
+    height: 8px;
+    border: solid #fff;
+    border-width: 1px 1px 0 0;
+    transform: rotate(135deg);
+    margin: 4px 6px 0 5px;
+}
+
+.expander:global(.active) {
+    transition: none;
+}
+
+.expander:global(.active) .propertyGroupOpenClose:after {
+    transform: rotate(-45deg);
+    margin: 8px 6px 0 0;
+}
+
+.expander-open {
+    display: block;
+    margin: -2px 0 0;
+    overflow-x: auto;
+}
+
+.propertyGroupPopup {
+    display: block;
+    float: right;
+    margin: 0 10px 0 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+    background: #292a2f url("/img/popup.svg") center center no-repeat;
+    background-size: 16px;
+    border: 0;
+}
+
+.propertyGroupPopup:hover {
+    background: #fcbd3f url("/img/popup.svg") center center no-repeat;
+    transition: all ease 0.4s;
+    background-size: 16px;
+}
+
+.propertyTooltiptext {
+    display: none;
+    width: fit-content;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 6px;
+    position: absolute;
+    pointer-events: none;
+    z-index: 1000;
+    font-size: 12px;
+}
+
+.propertyGroupInfo {
+    display: block;
+    float: right;
+    margin: 0 10px 0 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+    background: #292a2f url("/img/info.svg") center center no-repeat;
+    background-size: 14px;
+    border: 0;
+}
+
+.propertyGroupInfo:hover {
+    background: #fcbd3f url("/img/info.svg") center center no-repeat;
+    transition: all ease 0.4s;
+    background-size: 14px;
+}
+
+.propertyGroupInfo:hover + .propertyTooltiptext {
+    display: flex;
+    right: 0;
+}
+
+.scrollbar {
+    width: 100%;
+    border: 0 solid #35373e;
+    max-height: 300px;
+    overflow-y: hidden;
+
+}
+
+.scrollbar:hover {
+    overflow-y: overlay;
+}
+
+
+.containerHeader {
+    margin-bottom: 20px;
+}
+
+.containerHeader :global(.dn-path) {
+    font-size: 14pt;
+}
+
+.containerHeader :global(.dn-path .kind) {
+    font-size: 12pt;
+}
+
+.containerHeader h3 {
+    font-size: 20px;
+    margin-top: 20px;
+}

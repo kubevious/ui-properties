@@ -1,7 +1,7 @@
-import { Group } from "../types"
+import { Group } from '../types';
 
 export type SummaryState = {
     data: {
-        [container: string]: Group
-    }
-}
+        [container: string]: Group;
+    };
+};

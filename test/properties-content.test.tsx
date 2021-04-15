@@ -1,30 +1,20 @@
 import 'jest';
 
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, RenderResult } from '@testing-library/react';
 
 import { PropertiesContents } from '../src';
 
-import { KEY_VALUE_PROPS } from './mock-data'
+import { KEY_VALUE_PROPS } from './mock-data';
 
+export const renderComponent = (): RenderResult => render(<PropertiesContents group={KEY_VALUE_PROPS} />);
 
 describe('PropertiesContents', () => {
-  
-  test('key-value', async () => {
-    const { findAllByTestId } = render(<PropertiesContents group={KEY_VALUE_PROPS}  />);
+    test('should render key-value content', async () => {
+        const { findAllByTestId } = renderComponent();
 
-    // expect(component);
-    // console.log(component);
-    const keyValueProps = await findAllByTestId('key-value-property');
+        const keyValueProps = await findAllByTestId('key-value-property');
 
-    for(let x of keyValueProps)
-    {
-      console.log(x.innerHTML);
-    }
-    // const storageClass = _.first(keyValueProps.filter(x => ))
-
-    expect(keyValueProps);
-  });
-
-
+        expect(keyValueProps).toBeTruthy();
+    });
 });

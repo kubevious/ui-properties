@@ -1,10 +1,10 @@
-import { Alert } from "../../types";
+import { Alert } from '../../types';
 
 export type Config = {
-    targets: string[]
-    alert: Alert
-}
+    targets: string[];
+    alert: Alert;
+};
 
 export type PropertiesAlertListProps = {
-    config: Config[]
-}
+    config: Config[];
+};

@@ -1,0 +1,20 @@
+.container {
+    font-size: 14px;
+}
+
+.propertiesCheckbox {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+}
+
+.propertiesCheckbox.checked {
+    background-image: url("/img/check/true.svg");
+}
+
+.propertiesCheckbox.unchecked {
+    background-image: url("/img/check/false.svg");
+}

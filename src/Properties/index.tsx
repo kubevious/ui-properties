@@ -1,90 +1,81 @@
-import React from "react"
-import { ClassComponent } from "@kubevious/ui-framework"
-import _ from 'the-lodash'
-import { PropertyGroup } from "./PropertyGroup"
+import React, { ReactNode } from 'react';
+import { ClassComponent } from '@kubevious/ui-framework';
+import _ from 'the-lodash';
+import { PropertyGroup } from './PropertyGroup';
 import { DnPath } from '@kubevious/ui-components';
-import cx from "classnames"
-import * as DnUtils from "@kubevious/helpers/dist/dn-utils"
+import cx from 'classnames';
+import * as DnUtils from '@kubevious/helpers/dist/dn-utils';
 
-import "./styles.scss"
-import { Group } from "../types"
-import { PropertiesState } from "./types"
+import { Group } from '../types';
+import { PropertiesState } from './types';
+
+import './styles.scss';
 
 export class Properties extends ClassComponent<{}, PropertiesState> {
     constructor(props: {} | Readonly<{}>) {
-        super(props)
+        super(props);
 
         this.state = {
-            selectedDn: "",
+            selectedDn: '',
             dnParts: [],
-            dnKind: "",
+            dnKind: '',
             selectedObjectProps: [],
-        }
+        };
 
-        this._renderContent = this._renderContent.bind(this)
+        this._renderContent = this._renderContent.bind(this);
     }
 
-    propertyExpanderHandleClick(
-        event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-    ): void {
-        const target = event.currentTarget
-        target.classList.toggle("active")
+    propertyExpanderHandleClick(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {
+        const target = event.currentTarget;
+        target.classList.toggle('active');
         const contentsElem =
-            target.parentElement &&
-            target.parentElement.getElementsByClassName("expander-contents")[0]
-        contentsElem && contentsElem.classList.toggle("expander-open")
+            target.parentElement && target.parentElement.getElementsByClassName('expander-contents')[0];
+        contentsElem && contentsElem.classList.toggle('expander-open');
     }
 
-    _renderPropertiesNodeDn(): JSX.Element {
-        const { dnParts } = this.state
+    _renderPropertiesNodeDn(): ReactNode {
+        const { dnParts } = this.state;
+
         return (
             <div className="properties-owner">
                 <DnPath dnParts={dnParts} includeLogo bigLogo />
             </div>
-        )
+        );
     }
 
-    _renderContent(): JSX.Element {
-        const { selectedDn, selectedObjectProps, dnKind } = this.state
-        const propertyGroups = _.orderBy(selectedObjectProps, (x: { order: number; }) => {
+    _renderContent(): ReactNode {
+        const { selectedDn, selectedObjectProps, dnKind } = this.state;
+        const propertyGroups = _.orderBy(selectedObjectProps, (x: { order: number }) => {
             if (x.order) {
-                return x.order
+                return x.order;
             }
-            return 100
-        })
+            return 100;
+        });
 
-        return (
-            <>
-                {propertyGroups.map((item: Group, index: number) => {
-                    const isExpanded = index === 0
+        return propertyGroups.map((item: Group, index: number) => {
+            const isExpanded = index === 0;
 
-                    return (
-                        <PropertyGroup
-                            key={index}
-                            title={item.title || ""}
-                            extraClassTitle={isExpanded ? "active" : ""}
-                            extraClassContents={
-                                isExpanded ? "expander-open" : ""
-                            }
-                            dn={selectedDn}
-                            dnKind={dnKind}
-                            groupName={item.id}
-                            group={item}
-                            propertyExpanderHandleClick={
-                                this.propertyExpanderHandleClick
-                            }
-                        />
-                    )
-                })}
-            </>
-        )
+            return (
+                <PropertyGroup
+                    key={index}
+                    title={item.title || ''}
+                    extraClassTitle={isExpanded ? 'active' : ''}
+                    extraClassContents={isExpanded ? 'expander-open' : ''}
+                    dn={selectedDn}
+                    dnKind={dnKind}
+                    groupName={item.id}
+                    group={item}
+                    propertyExpanderHandleClick={this.propertyExpanderHandleClick}
+                />
+            );
+        });
     }
 
     renderUserView(): JSX.Element {
-        const { selectedDn, selectedObjectProps } = this.state
+        const { selectedDn, selectedObjectProps } = this.state;
 
         if (!selectedDn && !selectedObjectProps) {
-            return <div className="message-empty">No object selected.</div>
+            return <div className="message-empty">No object selected.</div>;
         }
 
         return (
@@ -92,22 +83,22 @@ export class Properties extends ClassComponent<{}, PropertiesState> {
                 {selectedDn && this._renderPropertiesNodeDn()}
                 {selectedObjectProps && this._renderContent()}
             </>
-        )
+        );
     }
 
     componentDidMount() {
         this.subscribeToSharedState(
-            ["selected_dn", "selected_object_props"],
+            ['selected_dn', 'selected_object_props'],
             ({ selected_dn, selected_object_props }) => {
-                let dnParts: DnUtils.RnInfo[] = []
+                let dnParts: DnUtils.RnInfo[] = [];
                 if (selected_dn) {
-                    dnParts = DnUtils.parseDn(selected_dn)
+                    dnParts = DnUtils.parseDn(selected_dn);
                 }
 
-                let dnKind = ""
+                let dnKind = '';
                 if (dnParts.length > 0) {
-                    const lastDn = _.last(dnParts)
-                    dnKind = lastDn ? lastDn.kind : ""
+                    const lastDn = _.last(dnParts);
+                    dnKind = lastDn ? lastDn.kind : '';
                 }
 
                 this.setState({
@@ -115,24 +106,24 @@ export class Properties extends ClassComponent<{}, PropertiesState> {
                     dnParts: dnParts,
                     dnKind: dnKind,
                     selectedObjectProps: selected_object_props,
-                })
-            }
-        )
+                });
+            },
+        );
     }
 
     render() {
-        const { selectedDn, selectedObjectProps } = this.state
+        const { selectedDn, selectedObjectProps } = this.state;
 
         return (
             <div
                 data-testid="properties"
                 id="propertiesComponent"
-                className={cx("properties", {
+                className={cx('properties', {
                     empty: !selectedDn && !selectedObjectProps,
                 })}
             >
                 {this.renderUserView()}
             </div>
-        )
+        );
     }
 }

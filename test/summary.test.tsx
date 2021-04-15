@@ -1,20 +1,18 @@
 import 'jest';
 
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, RenderResult } from '@testing-library/react';
 
 import { Summary } from '../src';
 
-function renderSummary() {
-  return render(<Summary />);
-}
+const renderComponent = (): RenderResult => render(<Summary />);
 
 describe('Summary', () => {
-  test('Should check that the component Summary is rendered', async () => {
-    const { findByTestId } = renderSummary();
+    test('should check that the component Summary is rendered', async () => {
+        const { findByTestId } = renderComponent();
 
-    const summary = await findByTestId('summary');
+        const summary = await findByTestId('summary');
 
-    expect(summary);
-  });
+        expect(summary).toBeTruthy();
+    });
 });

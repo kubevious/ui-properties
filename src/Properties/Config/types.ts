@@ -1,39 +1,39 @@
 export type Annotations = {
-    metadata: Metadata
-    kind: string
+    metadata: Metadata;
+    kind: string;
     spec: {
-        type: string
+        type: string;
         ports: [
             {
-                port: number
-                protocol: string
-                targetPort: number
-            }
-        ]
+                port: number;
+                protocol: string;
+                targetPort: number;
+            },
+        ];
         selector: {
-            app: string
-        }
-        clusterIP: string
-        sessionAffinity: string
-    }
+            app: string;
+        };
+        clusterIP: string;
+        sessionAffinity: string;
+    };
     status: {
-        loadBalancer: {}
-    }
-}
+        loadBalancer: {};
+    };
+};
 
 export type Metadata = {
-    uid: string
-    name: string
+    uid: string;
+    name: string;
     labels: {
-        name: string
-    }
-    selfLink: string
-    namespace: string
+        name: string;
+    };
+    selfLink: string;
+    namespace: string;
     annotations: {
-        [name: string]: string
-    }
-    resourceVersion: string
-    creationTimestamp: Date
-    apiVersion: string
-    kind: string
-}
+        [name: string]: string;
+    };
+    resourceVersion: string;
+    creationTimestamp: Date;
+    apiVersion: string;
+    kind: string;
+};

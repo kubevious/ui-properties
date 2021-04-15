@@ -1,7 +1,7 @@
 export type Config = {
-    dn: string
+    dn: string;
     alertCount: {
-        error: number
-        warn: number
-    }
-}
+        error: number;
+        warn: number;
+    };
+};
