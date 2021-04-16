@@ -3,6 +3,10 @@
     overflow: hidden;
 }
 
+.summary:hover {
+    overflow-y: overlay;
+}
+
 .summaryContainer {
     margin: 20px 20px 0 50px;
     font-family: 'Montserrat', sans-serif;
