@@ -38,7 +38,7 @@ export class Properties extends ClassComponent<{}, PropertiesState> {
 
         return (
             <div className="properties-owner">
-                <DnPath dnParts={dnParts} includeLogo bigLogo />
+                <DnPath dnParts={dnParts} includeLogo />
             </div>
         );
     }
