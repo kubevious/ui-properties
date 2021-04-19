@@ -27,7 +27,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@fortawesome/react-fontawesome": "^0.1.12",
     "@kubevious/ui-alerts": "^1.0.19",
-    "@kubevious/ui-components": "^1.0.60",
+    "@kubevious/ui-components": "^1.0.61",
     "@kubevious/ui-framework": "^1.0.40",
     "bootstrap": "^5.0.0-beta3",
     "classnames": "^2.2.6",
