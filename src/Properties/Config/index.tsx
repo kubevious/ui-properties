@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, ReactNode, useEffect, useState } from 'react';
 import hljs from 'highlight.js';
 import { faDownload, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -7,12 +7,13 @@ import { Controlled as CodeMirrorEditor } from 'react-codemirror2';
 import _ from 'the-lodash';
 import jsyaml from 'js-yaml';
 
-import 'codemirror/theme/darcula.css';
-import 'codemirror/lib/codemirror.css';
 import { CopyClipboard, DnComponent } from '@kubevious/ui-components';
 import { Annotations } from './types';
 import { Editor, EditorChange } from 'codemirror';
 import { app } from '@kubevious/ui-framework';
+
+import 'codemirror/theme/darcula.css';
+import 'codemirror/lib/codemirror.css';
 
 import styles from './styles.module.css';
 
@@ -35,8 +36,8 @@ export const Config: FC<ConfigProps> = ({ config, dn, language }) => {
     const [kubectlCommand, setKubectlCommand] = useState<string>('');
 
     useEffect(() => {
-        const namespace: string = _.get(config, 'metadata.namespace');
-        let nameParts: string[] = [];
+        const namespace = _.get(config, 'metadata.namespace');
+        let nameParts = [];
         nameParts.push(_.get(config, 'kind'));
         nameParts.push(namespace);
         nameParts.push(_.get(config, 'metadata.name'));
@@ -90,7 +91,7 @@ export const Config: FC<ConfigProps> = ({ config, dn, language }) => {
         }
     };
 
-    const renderCode = (): JSX.Element => {
+    const renderCode = (): ReactNode => {
         const result = language ? hljs.highlight(language, code) : '';
 
         return <pre>{result && result.value && <code dangerouslySetInnerHTML={{ __html: result.value }} />}</pre>;
@@ -166,6 +167,8 @@ export const Config: FC<ConfigProps> = ({ config, dn, language }) => {
                 {editMode && (
                     <CodeMirrorEditor
                         value={editedConfig}
+                        // autoScroll={false}
+                        editorDidMount={(editor) => editor.refresh()}
                         options={{
                             mode: 'yaml',
                             theme: 'darcula',

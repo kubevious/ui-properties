@@ -1,4 +1,4 @@
-:global(.popup-contents .Config-container) {
+:global(.popup-contents) .configContainer {
     padding: 24px;
 }
 
@@ -8,7 +8,7 @@
 
 .configHeader {
     color: white;
-    font-family: "Montserrat", monospace;
+    font-family: 'Montserrat', monospace;
 }
 
 .configHeader .cluster {
@@ -83,7 +83,7 @@
 .configContainer.editMode {
     background: rgba(24, 24, 25, 0.84);
     height: calc(100% - 160px);
-    padding: 20px;
+    padding: 0;
 }
 
 .configContainer:hover {
@@ -100,12 +100,20 @@
     font-size: 14px;
 }
 
+.configContainer :global(div.copy-icon) {
+    position: absolute;
+    right: 35px;
+    top: 135px;
+}
+
 :global(.hljs-attr) {
     color: white;
 }
 
-:global(.react-codemirror2) {
+.configContainer :global(.react-codemirror2) {
     overflow: hidden;
+    height: 100%;
+    min-height: 100%;
 }
 
 :global(.CodeMirror) {
@@ -114,10 +122,15 @@
     width: 85vw;
 }
 
-:global(.CodeMirror.cm-s-darcula) {
+.editMode :global(.CodeMirror.cm-s-darcula) {
     border: none;
     background: inherit !important;
-    height: 100%;
+    min-height: 100%;
+    width: 100%;
+}
+
+.editMode :global(.CodeMirror.cm-s-darcula .CodeMirror-vscrollbar) {
+    display: none !important;
 }
 
 :global(.CodeMirror .CodeMirror-code) {
@@ -134,9 +147,19 @@
     color: #ffcd22;
 }
 
-:global(.CodeMirror .CodeMirror-code span[role="presentation"],
-.cm-string) {
+:global(.CodeMirror .CodeMirror-code span[role='presentation'], .cm-string) {
     color: #ec7600;
+}
+
+.editMode :global(.CodeMirror-scroll) {
+    min-height: 100%;
+    width: 100%;
+    overflow-x: auto !important;
+    padding: 0;
+}
+
+.editMode :global(.CodeMirror-lines) {
+    padding: 20px;
 }
 
 .configFooter {
@@ -147,7 +170,8 @@
     padding: 0 25px;
 }
 
-.configFooter :global(.icon-wrapper) {
+.configFooter :global(.copy-icon) {
+    position: unset;
     width: 16px;
     height: 16px;
     margin-left: 10px;
