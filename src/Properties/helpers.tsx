@@ -29,17 +29,17 @@ export const PropertiesValue = (value: any): JSX.Element => {
     return <span>{_.toString(value)}</span>;
 };
 
-interface ValueField {
+export interface ValueField {
     value: number;
     unit?: string;
 }
 
-interface FormattedValueField {
+export interface FormattedValueField {
     value: string;
     unit?: string;
 }
 
-function formatValue(value: ValueField): FormattedValueField {
+export function formatValue(value: ValueField): FormattedValueField {
     if (!_.isNumber(value.value)) {
         return {
             value: _.toString(value.value),
@@ -62,9 +62,9 @@ function formatValue(value: ValueField): FormattedValueField {
     }
 }
 
-const MEMORY_SIZES = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+export const MEMORY_SIZES = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
 
-function formatMemory(value: number): FormattedValueField {
+export function formatMemory(value: number): FormattedValueField {
     if (value === 0)
         return {
             value: '0',
@@ -78,6 +78,6 @@ function formatMemory(value: number): FormattedValueField {
     };
 }
 
-function formatNumber(value: number): string {
+export function formatNumber(value: number): string {
     return (Math.round(value * 100) / 100).toString();
 }
