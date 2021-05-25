@@ -81,3 +81,13 @@ export function formatMemory(value: number): FormattedValueField {
 export function formatNumber(value: number): string {
     return (Math.round(value * 100) / 100).toString();
 }
+
+export const camelCase = (str: string): string => {
+    if (!str) {
+        return "";
+    }
+    return str.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, (match, index) => {
+        if (+match === 0) return '';
+        return index === 0 ? match.toLowerCase() : match.toUpperCase();
+    });
+}
