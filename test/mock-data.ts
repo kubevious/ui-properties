@@ -496,6 +496,10 @@ export const SUMMARY_DATA = {
         order: 10,
         config: [
             {
+                title: 'Clusters',
+                value: 3,
+            },
+            {
                 title: 'Namespaces',
                 value: 30,
             },
@@ -520,8 +524,7 @@ export const SUMMARY_DATA = {
                 value: 3,
             },
             {
-                title: 'Volumes',
-                value: 52,
+                title: 'Volumes'
             },
             {
                 title: 'Cluster CPU',
