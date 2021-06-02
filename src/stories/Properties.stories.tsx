@@ -45,7 +45,7 @@ export const NoSelection: Story = () => (
                 app.sharedState.set("selected_object_props", null)
             }}
             />
-        <div style={{ background: '#1e1e1e', padding: '10px' }}>
+        <div style={{ background: '#1e1e1e', padding: '10px', height: '300px' }}>
             <Properties />
         </div>
     </>

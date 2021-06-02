@@ -99,28 +99,28 @@ export class Properties extends ClassComponent<{}, PropertiesState> {
         );
     }
 
-    renderProps(props: Group[]): JSX.Element {
+    renderProps(): JSX.Element {
+        const { selectedObjectProps } = this.state;
+
         return (
             <>
                 { this._renderPropertiesNodeDn()}
-                {props && this._renderContent()}
+                {selectedObjectProps && this._renderContent()}
             </>
         );
     }
 
     render() {
-        const { isDnSelected, selectedDn, selectedObjectProps } = this.state;
+        const { isDnSelected } = this.state;
 
         return (
             <div
                 data-testid="properties"
                 id="propertiesComponent"
-                className={cx('properties', {
-                    empty: !selectedDn && !selectedObjectProps,
-                })}
+                className={'properties'}
             >
 
-                { isDnSelected && this.renderProps(selectedObjectProps) }
+                { isDnSelected && this.renderProps() }
 
                 { !isDnSelected && <>
                     <div className="empty">No object selected.</div>
