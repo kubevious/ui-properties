@@ -3,7 +3,6 @@ import React, { ReactNode } from 'react';
 import { ClassComponent } from '@kubevious/ui-framework';
 import { PropertyGroup } from './PropertyGroup';
 import { DnPath } from '@kubevious/ui-components';
-import cx from 'classnames';
 import * as DnUtils from '@kubevious/helpers/dist/dn-utils';
 
 import { Group } from '../types';
