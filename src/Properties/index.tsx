@@ -1,6 +1,6 @@
+import _ from 'the-lodash';
 import React, { ReactNode } from 'react';
 import { ClassComponent } from '@kubevious/ui-framework';
-import _ from 'the-lodash';
 import { PropertyGroup } from './PropertyGroup';
 import { DnPath } from '@kubevious/ui-components';
 import cx from 'classnames';
@@ -16,6 +16,7 @@ export class Properties extends ClassComponent<{}, PropertiesState> {
         super(props);
 
         this.state = {
+            isDnSelected: false,
             selectedDn: '',
             dnParts: [],
             dnKind: '',
@@ -71,20 +72,6 @@ export class Properties extends ClassComponent<{}, PropertiesState> {
         });
     }
 
-    renderUserView(): JSX.Element {
-        const { selectedDn, selectedObjectProps } = this.state;
-
-        if (!selectedDn && !selectedObjectProps) {
-            return <div className="message-empty">No object selected.</div>;
-        }
-
-        return (
-            <>
-                {selectedDn && this._renderPropertiesNodeDn()}
-                {selectedObjectProps && this._renderContent()}
-            </>
-        );
-    }
 
     componentDidMount() {
         this.subscribeToSharedState(
@@ -102,6 +89,7 @@ export class Properties extends ClassComponent<{}, PropertiesState> {
                 }
 
                 this.setState({
+                    isDnSelected: _.isNotNullOrUndefined(selected_dn),
                     selectedDn: selected_dn,
                     dnParts: dnParts,
                     dnKind: dnKind,
@@ -111,8 +99,17 @@ export class Properties extends ClassComponent<{}, PropertiesState> {
         );
     }
 
+    renderProps(props: Group[]): JSX.Element {
+        return (
+            <>
+                { this._renderPropertiesNodeDn()}
+                {props && this._renderContent()}
+            </>
+        );
+    }
+
     render() {
-        const { selectedDn, selectedObjectProps } = this.state;
+        const { isDnSelected, selectedDn, selectedObjectProps } = this.state;
 
         return (
             <div
@@ -122,7 +119,13 @@ export class Properties extends ClassComponent<{}, PropertiesState> {
                     empty: !selectedDn && !selectedObjectProps,
                 })}
             >
-                {this.renderUserView()}
+
+                { isDnSelected && this.renderProps(selectedObjectProps) }
+
+                { !isDnSelected && <>
+                    <div className="empty">No object selected.</div>
+                </> }
+
             </div>
         );
     }
