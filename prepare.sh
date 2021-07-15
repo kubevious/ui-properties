@@ -6,7 +6,12 @@ cd $MY_DIR
 rm -rf node_modules/
 rm -rf dist/
 
-npm install
-npm update the-lodash @kubevious/ui-framework @kubevious/ui-components @kubevious/ui-alerts
+yarn
+
+yarn upgrade --latest \
+    the-lodash \
+    @kubevious/ui-framework \
+    @kubevious/ui-components \
+    @kubevious/ui-alerts
 
 ${MY_DIR}/build.sh
