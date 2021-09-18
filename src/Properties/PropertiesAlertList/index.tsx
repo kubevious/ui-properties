@@ -6,10 +6,6 @@ import { Config, PropertiesAlertListProps } from './types';
 import { Alert } from '../../types';
 
 export class PropertiesAlertList extends ClassComponent<PropertiesAlertListProps> {
-    clickDn = (dn: string): void => {
-        this.sharedState.set('selected_dn', dn);
-        this.sharedState.set('auto_pan_to_selected_dn', true);
-    };
 
     openRule = (ruleName: string): void => {
         this.sharedState.set('rule_editor_selected_rule_id', ruleName);
@@ -41,7 +37,7 @@ export class PropertiesAlertList extends ClassComponent<PropertiesAlertListProps
         const parsedAlerts = this.configureAlerts();
 
         return (
-            <AlertView alerts={parsedAlerts} clickDn={this.clickDn} openRule={this.openRule} groupPreset="message" />
+            <AlertView alerts={parsedAlerts} openRule={this.openRule} groupPreset="message" />
         );
     }
 }
