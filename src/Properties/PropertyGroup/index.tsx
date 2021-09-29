@@ -1,13 +1,15 @@
 import cx from 'classnames';
 import React from 'react';
-import { propertyGroupTooltip } from '@kubevious/helpers/dist/docs';
 import _ from 'the-lodash';
 import { ClassComponent } from '@kubevious/ui-framework';
 import { DnComponent } from '@kubevious/ui-components';
 import { PropertiesContents } from '../PropertiesContents';
 import { PropertyGroupProps } from './types';
 
+import { PROPS_TOOLTIPS } from '@kubevious/entity-meta';
+
 import styles from './styles.module.css';
+import { PropsComplexTooltipValue } from '@kubevious/entity-meta/dist/prop-tooltips';
 
 export class PropertyGroup extends ClassComponent<PropertyGroupProps> {
     tooltip: string;
@@ -25,12 +27,21 @@ export class PropertyGroup extends ClassComponent<PropertyGroupProps> {
     renderTooltip(): void {
         const { group, dnKind } = this.props;
 
-        const tooltipInfo = propertyGroupTooltip(group.id);
-        if (tooltipInfo && _.isObject(tooltipInfo)) {
-            const str: string = _.get(tooltipInfo, 'owner.' + dnKind);
-            this.tooltip = str ? str : _.get(tooltipInfo, 'default');
-        } else if (tooltipInfo && _.isString(tooltipInfo)) {
-            this.tooltip = tooltipInfo;
+        const tooltipInfo = PROPS_TOOLTIPS.get(group.id as any);
+        if (!tooltipInfo) {
+            this.tooltip = '';
+        } else {
+            if (_.isString(tooltipInfo)) {
+                this.tooltip = tooltipInfo as string;
+            } else {
+                const tooltipComplexInfo = tooltipInfo as PropsComplexTooltipValue;
+                const str = tooltipComplexInfo.owner[dnKind];
+                if (str) {
+                    this.tooltip = str;
+                } else {
+                    this.tooltip = tooltipComplexInfo.default;
+                }
+            }
         }
     }
 

@@ -3,7 +3,7 @@ import React, { ReactNode } from 'react';
 import { ClassComponent } from '@kubevious/ui-framework';
 import { PropertyGroup } from './PropertyGroup';
 import { DnPath } from '@kubevious/ui-components';
-import * as DnUtils from '@kubevious/helpers/dist/dn-utils';
+import { Dn, parseDn, NodeKind } from '@kubevious/entity-meta';
 
 import { Group } from '../types';
 import { PropertiesState } from './types';
@@ -18,7 +18,7 @@ export class Properties extends ClassComponent<{}, PropertiesState> {
             isDnSelected: false,
             selectedDn: '',
             dnParts: [],
-            dnKind: '',
+            dnKind: NodeKind.root,
             selectedObjectProps: [],
         };
 
@@ -38,7 +38,7 @@ export class Properties extends ClassComponent<{}, PropertiesState> {
 
         return (
             <div className="properties-owner">
-                <DnPath dnParts={dnParts} includeLogo iconSize="xs" />
+                <DnPath dn={dnParts} includeLogo iconSize="xs" />
             </div>
         );
     }
@@ -76,15 +76,14 @@ export class Properties extends ClassComponent<{}, PropertiesState> {
         this.subscribeToSharedState(
             ['selected_dn', 'selected_object_props'],
             ({ selected_dn, selected_object_props }) => {
-                let dnParts: DnUtils.RnInfo[] = [];
+                let dnParts: Dn = [];
                 if (selected_dn) {
-                    dnParts = DnUtils.parseDn(selected_dn);
+                    dnParts = parseDn(selected_dn);
                 }
 
-                let dnKind = '';
+                let dnKind = NodeKind.root;
                 if (dnParts.length > 0) {
-                    const lastDn = _.last(dnParts);
-                    dnKind = lastDn ? lastDn.kind : '';
+                    dnKind = _.last(dnParts)!.kind;
                 }
 
                 this.setState({

@@ -1,10 +1,10 @@
-import * as DnUtils from '@kubevious/helpers/dist/dn-utils';
+import { Dn, NodeKind } from '@kubevious/entity-meta';
 import { Group } from '../types';
 
 export type PropertiesState = {
     isDnSelected: boolean;
     selectedDn: string;
-    dnParts: DnUtils.RnInfo[];
-    dnKind: string;
+    dnParts: Dn;
+    dnKind: NodeKind;
     selectedObjectProps: Group[];
 };
