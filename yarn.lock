@@ -1537,6 +1537,13 @@
   dependencies:
     the-lodash "^2.0.9"
 
+"@kubevious/entity-meta@^1.0.15":
+  version "1.0.15"
+  resolved "https://registry.yarnpkg.com/@kubevious/entity-meta/-/entity-meta-1.0.15.tgz#577d806e235b177cd784b5594327f13e1ceafbde"
+  integrity sha512-0mATfcBOvuiWtW/kGlWIe6tPcV9ItUAjPL+fNNUeemT1ZTd7VMiUPQvdbR9Pc41MMbmrR22vA+Hjbycl5PtmLg==
+  dependencies:
+    the-lodash "^2.0.9"
+
 "@kubevious/http-client@^1.0.15":
   version "1.0.15"
   resolved "https://registry.yarnpkg.com/@kubevious/http-client/-/http-client-1.0.15.tgz#7b7b79545826b866c2061b2f418f4986ddce985d"
@@ -1547,10 +1554,10 @@
     the-promise "^2.0.12"
     uuid "^8.3.2"
 
-"@kubevious/ui-alerts@^1.0.30":
-  version "1.0.30"
-  resolved "https://registry.yarnpkg.com/@kubevious/ui-alerts/-/ui-alerts-1.0.30.tgz#7e15ddcc9398cebdb40ea640ba73c10bda16d969"
-  integrity sha512-SD067EAQLTSLFx6FfQY8ZSXXlX9e2tAY0IVk+Zraoc1hc3r9CupzT9PoTWezRCpUR+aENQ6/yG4LYHYRUu/CBA==
+"@kubevious/ui-alerts@^1.0.31":
+  version "1.0.31"
+  resolved "https://registry.yarnpkg.com/@kubevious/ui-alerts/-/ui-alerts-1.0.31.tgz#e2f9920cce5ed2314fd49ff67bc4f36afc3e546d"
+  integrity sha512-6X9dhOrK2lM7nLklf3EK1ttVBrhg8jQCCXZs2SzLjASxSLfF7CLwAWqVv5+hGZ3c4hVsfOd3l2Xn5ue/TQ0tTQ==
   dependencies:
     "@kubevious/ui-components" "^1.0.161"
     "@kubevious/ui-framework" "^1.0.50"
