@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { ClassComponent } from '@kubevious/ui-framework';
-import { AlertView } from '@kubevious/ui-alerts';
-import { Config, PropertiesAlertListProps } from './types';
+import { AlertView, MESSAGE_GROUP } from '@kubevious/ui-alerts';
+import { PropertiesAlertListProps } from './types';
 import { Alert } from '../../types';
 
 export class PropertiesAlertList extends ClassComponent<PropertiesAlertListProps> {
@@ -16,19 +16,19 @@ export class PropertiesAlertList extends ClassComponent<PropertiesAlertListProps
         const { config } = this.props;
         let alerts: Alert[] = [];
 
-        config.map((elem: Config) => {
+        for(const elem of config)
+        {
             alerts = [
                 ...alerts,
                 ...elem.targets.map((dn: string) => ({
                     dn,
-                    id: elem.alert.source.id || 'Missing',
+                    id: elem.alert.id,
                     msg: elem.alert.msg,
                     severity: elem.alert.severity,
-                    source: elem.alert.source,
-                    uiKey: `${dn}-${elem.alert.severity}-${elem.alert.source.id}-${elem.alert.msg}`,
+                    source: elem.alert.source
                 })),
             ];
-        });
+        }
 
         return alerts;
     };
@@ -37,7 +37,7 @@ export class PropertiesAlertList extends ClassComponent<PropertiesAlertListProps
         const parsedAlerts = this.configureAlerts();
 
         return (
-            <AlertView alerts={parsedAlerts} openRule={this.openRule} groupPreset="message" />
+            <AlertView alerts={parsedAlerts} openRule={this.openRule} groupPreset={MESSAGE_GROUP} hideGroupSelector />
         );
     }
 }
