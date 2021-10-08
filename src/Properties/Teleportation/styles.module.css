@@ -1,0 +1,18 @@
+.innerList {
+    margin-left: 25px;
+}
+
+.entry {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.entryDirection {
+    color: white;
+    margin-right: 10px;
+}
+
+.entryDnExtra {
+    flex-grow: 1;
+}

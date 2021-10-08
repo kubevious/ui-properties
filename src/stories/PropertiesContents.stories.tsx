@@ -6,6 +6,7 @@ import {
     DN_LIST_PROPS,
     KEY_VALUE_PROPS,
     OBJECT_LIST_PROPS, TABLE_PROPS,
+    TELEPORTATION_PROPS,
     YAML_PROPS,
 } from '../../test/mock-data';
 import React from 'react';
@@ -53,5 +54,12 @@ export const YamlProperties: Story = () => (
 export const TableProperties: Story = () => (
     <div style={{ background: '#1e1e1e', padding: '10px' }}>
         <PropertiesContents group={TABLE_PROPS} />
+    </div>
+);
+
+
+export const TeleportationProperties: Story = () => (
+    <div style={{ background: '#1e1e1e', padding: '10px' }}>
+        <PropertiesContents group={TELEPORTATION_PROPS} />
     </div>
 );

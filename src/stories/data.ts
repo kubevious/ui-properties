@@ -1,5 +1,6 @@
+import { SOURCE_LINKS_PROPS, TARGET_LINKS_PROPS, TELEPORTATION_PROPS } from "../../test/mock-data";
 
-export const SAMPLE_DN = 'root/ns-[book]/app-[book-app]';
+export const SAMPLE_DN = 'root/logic/ns-[book]/app-[book-app]';
 
 export const SAMPLE_PROPS_DATA = [
     {
@@ -8,9 +9,9 @@ export const SAMPLE_PROPS_DATA = [
         title: 'Shared With',
         order: 5,
         config: [
-            'root/ns-[kubevious]/app-[kubevious-ui]/cont-[kubevious-ui]/configmap-[kubevious-mysql-client]',
-            'root/ns-[kube-system]/app-[calico-node]/launcher-[DaemonSet]',
-            'root/ns-[kube-system]/app-[calico-node]/vol-[Volumes]',
+            'root/logic/ns-[kubevious]/app-[kubevious-ui]/cont-[kubevious-ui]/configmap-[kubevious-mysql-client]',
+            'root/logic/ns-[kube-system]/app-[calico-node]/launcher-[DaemonSet]',
+            'root/logic/ns-[kube-system]/app-[calico-node]/vol-[Volumes]',
         ],
         tooltip: 'Other objects that also use this configuration.',
     },
@@ -442,4 +443,7 @@ export const SAMPLE_PROPS_DATA = [
             ],
         },
     },
+    SOURCE_LINKS_PROPS,
+    TARGET_LINKS_PROPS,
+    TELEPORTATION_PROPS
 ];

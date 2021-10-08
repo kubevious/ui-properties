@@ -7,6 +7,7 @@ import { PropertiesAlertList } from '../PropertiesAlertList';
 import { PropertiesCounters } from '../PropertiesCounters';
 import { PropertiesObjectList } from '../PropertiesObjectList';
 import { PropertiesTable } from '../PropertiesTable';
+import { Teleportation } from '../Teleportation';
 
 export const PropertiesContents = ({ group, dn }: { group: Group; dn?: string }) => {
     switch (group.kind) {
@@ -24,6 +25,8 @@ export const PropertiesContents = ({ group, dn }: { group: Group; dn?: string })
             return <Config config={group.config} language={group.kind} dn={dn || ''} />;
         case 'table':
             return <PropertiesTable config={group.config} />;
+        case 'teleportation':
+            return <Teleportation config={group.config} />;
         default:
             return <div>No data presented</div>;
     }
