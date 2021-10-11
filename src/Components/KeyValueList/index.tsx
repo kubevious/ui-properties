@@ -10,7 +10,7 @@ export interface KeyValueListProps {
 }
 
 export const KeyValueList: FC<KeyValueListProps> = ({ config }) => (
-    <div className="KeyValueList-container text-white">
+    <div>
         {Object.entries(config).map((item, index) => {
             const value = item[1];
             return (

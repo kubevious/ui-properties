@@ -1530,21 +1530,7 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@kubevious/entity-meta@^1.0.18", "@kubevious/entity-meta@^1.0.21":
-  version "1.0.21"
-  resolved "https://registry.yarnpkg.com/@kubevious/entity-meta/-/entity-meta-1.0.21.tgz#a2141d365b2ed8283c0ea6e5a0d5a8e8bf68792c"
-  integrity sha512-M+ULbR0BnF1qIARlBmdiR0YgqNMCCt5I5yBpKkLmBU1fCOv+3f1kl1Ftd+k0kM3ag8TPQmIZ4DPwkH/n998N/w==
-  dependencies:
-    the-lodash "^2.0.9"
-
-"@kubevious/entity-meta@^1.0.23":
-  version "1.0.23"
-  resolved "https://registry.yarnpkg.com/@kubevious/entity-meta/-/entity-meta-1.0.23.tgz#9369cd4fab6df0b1b94543c69bd908efa16f867f"
-  integrity sha512-gnHkP4XvMe0bDT3N6HyE+vP40FBbXK5/F4QmWAyy6eNt3S8eZJRf7fjq3lOlb+IVhU2fsIJ7k13o4bECW83Dnw==
-  dependencies:
-    the-lodash "^2.0.9"
-
-"@kubevious/entity-meta@^1.0.24":
+"@kubevious/entity-meta@^1.0.21", "@kubevious/entity-meta@^1.0.23", "@kubevious/entity-meta@^1.0.24":
   version "1.0.24"
   resolved "https://registry.yarnpkg.com/@kubevious/entity-meta/-/entity-meta-1.0.24.tgz#4e6e50b005536b3c16ae2484807503ade78dd763"
   integrity sha512-fkqV4sshJtr1IHu0DDiQRLySAer7JuJudOjoYraQTQ9ziclgOt9Yz6bLrjRENXI9tJpTaRDi4TZ0XwLy/JRwHg==
@@ -1574,35 +1560,7 @@
     postcss "^8.2.10"
     the-lodash "^2.0.9"
 
-"@kubevious/ui-components@^1.0.170":
-  version "1.0.170"
-  resolved "https://registry.yarnpkg.com/@kubevious/ui-components/-/ui-components-1.0.170.tgz#5dfa5d457fc6a4ba3119c598cf290308944c34ce"
-  integrity sha512-tastCES538+n16nvjer8Eo0Hoe4jzmNjoRKwbcN2zzDlJp4p38GG6fgiz0IdZk0fH/xnrRXv/j+XWj6l4VJFaw==
-  dependencies:
-    "@fortawesome/fontawesome-svg-core" "^1.2.35"
-    "@fortawesome/free-regular-svg-icons" "^5.15.1"
-    "@fortawesome/free-solid-svg-icons" "^5.15.3"
-    "@fortawesome/react-fontawesome" "^0.1.14"
-    "@kubevious/entity-meta" "^1.0.18"
-    "@kubevious/ui-framework" "^1.0.50"
-    "@kubevious/ui-middleware" "^1.0.39"
-    bootstrap "^5.0.0"
-    classnames "^2.2.6"
-    codemirror "^5.60.0"
-    golden-layout "^1.5.9"
-    jquery "^3.5.1"
-    popper.js "^1.16.1"
-    react "^17.0.2"
-    react-bootstrap "^2.0.0-beta.4"
-    react-codemirror2 "^7.2.1"
-    react-dom "^17.0.2"
-    react-router-dom "^5.2.0"
-    react-select "^4.3.1"
-    the-lodash "^2.0.9"
-    the-promise "^2.0.13"
-    uuid "^8.3.2"
-
-"@kubevious/ui-components@^1.0.171":
+"@kubevious/ui-components@^1.0.170", "@kubevious/ui-components@^1.0.171":
   version "1.0.171"
   resolved "https://registry.yarnpkg.com/@kubevious/ui-components/-/ui-components-1.0.171.tgz#f9fc25f02d25d2f961575b98c4dc7c0b2fcfb429"
   integrity sha512-RnSfs2GK2rqIVNjp2p8zBWKjk6bD5nZvJXb5bWNUiQwbY3v3tUClNixNbK67/OgeRezVvdY6odOeDzxLbP2shQ==
