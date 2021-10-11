@@ -17,6 +17,8 @@ import 'codemirror/lib/codemirror.css';
 
 import styles from './styles.module.css';
 
+import './hljs-styles.scss';
+
 export const sharedState = app.sharedState;
 
 export interface ConfigProps {

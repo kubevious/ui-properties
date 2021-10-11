@@ -1,5 +1,5 @@
 import { Story } from '@storybook/react';
-import { PropertiesContents } from '../Properties/PropertiesContents';
+import { PropertiesContents } from '../PropertiesContents';
 import {
     ALERT_TARGET_LIST_PROPS,
     COUNTERS_PROPS,

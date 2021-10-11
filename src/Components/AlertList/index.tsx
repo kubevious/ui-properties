@@ -2,10 +2,10 @@ import React from 'react';
 
 import { ClassComponent } from '@kubevious/ui-framework';
 import { AlertView, MESSAGE_GROUP } from '@kubevious/ui-alerts';
-import { PropertiesAlertListProps } from './types';
+import { AlertListProps } from './types';
 import { Alert } from '../../types';
 
-export class PropertiesAlertList extends ClassComponent<PropertiesAlertListProps> {
+export class AlertList extends ClassComponent<AlertListProps> {
 
     openRule = (ruleName: string): void => {
         this.sharedState.set('rule_editor_selected_rule_id', ruleName);

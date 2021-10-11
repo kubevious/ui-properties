@@ -1,27 +1,18 @@
 import _ from 'the-lodash';
 import React, { FC } from 'react';
-import { DnLink, DnShortcutComponent } from '@kubevious/ui-components';
+import { DnLink, DnShortcutComponent, IconBox } from '@kubevious/ui-components';
 import { parseDn, makeDn } from '@kubevious/entity-meta';
+import { TOP_ROOTS } from '@kubevious/entity-meta';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignInAlt, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
  
 import styles from './styles.module.css';
-
-export type Direction = 'source' | 'target';
-
-export interface Item {
-    direction: Direction;
-    dn: string;
-}
-
-export interface TeleportationProps {
-    config: Item[];
-}
+import { TeleportationProps, TeleportationItem } from './types';
 
 export const Teleportation: FC<TeleportationProps> = ({ config }) => {
 
-    const groups : Record<string, Item[]> = {};
+    const groups : Record<string, TeleportationItem[]> = {};
 
     for(const item of config)
     {
@@ -32,7 +23,11 @@ export const Teleportation: FC<TeleportationProps> = ({ config }) => {
         groups[rootDn].push(item);
     }
 
-    const rootDns = _.keys(groups);
+    const rootDns = TOP_ROOTS.map(x => x.dn).filter(x => groups[x]);
+
+    const setupTooltipContents = (item: TeleportationItem) => {
+        return `Direction: ${item.direction}`;
+    }
 
     return <>
 
@@ -41,11 +36,12 @@ export const Teleportation: FC<TeleportationProps> = ({ config }) => {
                 <DnLink dn={rootDn} />
                 <div className={styles.innerList}>
                     {groups[rootDn].map((item, index) => 
-                        // <DnLink dn={item.dn} key={index} />
                         <div className={styles.entry}>
                             <div className={styles.entryDirection}>
-                                {(item.direction == 'source') && <FontAwesomeIcon icon={faSignInAlt} />}
-                                {(item.direction == 'target') && <FontAwesomeIcon icon={faSignOutAlt} />}
+                                <IconBox tooltipContentsFetcher={() => setupTooltipContents(item)} >
+                                    {(item.direction == 'source') && <FontAwesomeIcon icon={faSignInAlt} />}
+                                    {(item.direction == 'target') && <FontAwesomeIcon icon={faSignOutAlt} />}
+                                </IconBox>
                             </div>
 
                             <div className={styles.entryDnExtra}>

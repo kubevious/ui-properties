@@ -2,11 +2,11 @@ import React, { FC } from 'react';
 import { Config } from './types';
 import { DnShortcutComponent } from '@kubevious/ui-components';
 
-export interface PropertiesObjectListProps {
+export interface ObjectListProps {
     config: Config[];
 }
 
-export const PropertiesObjectList: FC<PropertiesObjectListProps> = ({ config }) => (
+export const ObjectList: FC<ObjectListProps> = ({ config }) => (
     <>
         {config.map((element: Config) => (
             <div key={element.dn}>

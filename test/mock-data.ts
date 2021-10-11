@@ -717,7 +717,18 @@ export const TARGET_LINKS_PROPS: Group = {
                 "dn": "root/k8s/ns-[hipster]/version-[v1]/kind-[ServiceAccount]/resource-[default]",
                 "kind": "service-account",
                 "resolved": false
+            },
+            {
+                "dn": "root/logic/ns-[hipster]/app-[checkoutservice]/service-[checkoutservice]",
+                "kind": "service-account",
+                "resolved": false
+            },
+            {
+                "dn": "root/infra/k8s/api-[apps]/version-[v1]/kind-[ReplicaSet]/ns-[hipster]",
+                "kind": "service-account",
+                "resolved": false
             }
+
         ],
         "headers": [
             "kind",

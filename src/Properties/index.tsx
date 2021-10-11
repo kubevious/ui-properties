@@ -1,12 +1,14 @@
 import _ from 'the-lodash';
 import React, { ReactNode } from 'react';
 import { ClassComponent } from '@kubevious/ui-framework';
-import { PropertyGroup } from './PropertyGroup';
+import { PropertyGroup } from '../PropertyGroup';
 import { DnPath } from '@kubevious/ui-components';
 import { Dn, parseDn, NodeKind } from '@kubevious/entity-meta';
 
 import { Group } from '../types';
 import { PropertiesState } from './types';
+
+import { PropsEnhancer } from '../logic/props-exhancer';
 
 import './styles.scss';
 
@@ -86,12 +88,14 @@ export class Properties extends ClassComponent<{}, PropertiesState> {
                     dnKind = _.last(dnParts)!.kind;
                 }
 
+                const enhancer = new PropsEnhancer();
+
                 this.setState({
                     isDnSelected: _.isNotNullOrUndefined(selected_dn),
                     selectedDn: selected_dn,
                     dnParts: dnParts,
                     dnKind: dnKind,
-                    selectedObjectProps: selected_object_props,
+                    selectedObjectProps: enhancer.enhance(selected_object_props),
                 });
             },
         );

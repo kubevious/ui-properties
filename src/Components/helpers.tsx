@@ -1,8 +1,6 @@
 import _ from 'the-lodash';
 import React from 'react';
 
-import './styles.scss';
-
 export const PropertiesValue = (value: any): JSX.Element => {
     if (_.isNullOrUndefined(value)) {
         return <span>????</span>;

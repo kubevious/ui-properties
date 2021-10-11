@@ -5,6 +5,6 @@ export type Config = {
     alert: Alert;
 };
 
-export type PropertiesAlertListProps = {
+export type AlertListProps = {
     config: Config[];
 };

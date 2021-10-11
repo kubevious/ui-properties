@@ -4,11 +4,11 @@ import { Config } from './types';
 
 import styles from './style.module.css';
 
-export interface PropertiesCountersProps {
+export interface CountersProps {
     config: Config;
 }
 
-export const PropertiesCounters: FC<PropertiesCountersProps> = ({ config }) => (
+export const Counters: FC<CountersProps> = ({ config }) => (
     <div className="d-flex flex-wrap">
         {config.map((item, index) => {
             const formattedValue = formatValue(item as ValueField);

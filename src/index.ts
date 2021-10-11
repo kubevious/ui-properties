@@ -1,7 +1,7 @@
 export { Properties } from './Properties';
-export { PropertiesContents } from './Properties/PropertiesContents';
+export { PropertiesContents } from './PropertiesContents';
 export { Summary } from './Summary';
 
 export { Group } from './types';
 
-export * from './Properties/helpers'
+export * from './Components/helpers'

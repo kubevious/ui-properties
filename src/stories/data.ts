@@ -1,4 +1,4 @@
-import { SOURCE_LINKS_PROPS, TARGET_LINKS_PROPS, TELEPORTATION_PROPS } from "../../test/mock-data";
+import { SOURCE_LINKS_PROPS, TARGET_LINKS_PROPS } from "../../test/mock-data";
 
 export const SAMPLE_DN = 'root/logic/ns-[book]/app-[book-app]';
 
@@ -444,6 +444,5 @@ export const SAMPLE_PROPS_DATA = [
         },
     },
     SOURCE_LINKS_PROPS,
-    TARGET_LINKS_PROPS,
-    TELEPORTATION_PROPS
+    TARGET_LINKS_PROPS
 ];

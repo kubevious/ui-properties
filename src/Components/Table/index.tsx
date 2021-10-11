@@ -7,7 +7,7 @@ import { PropertiesValue } from '../helpers';
 
 import styles from './styles.module.css';
 
-export const PropertiesTable = ({ config, options }: { config: Config; options?: DnOptions }) => {
+export const Table = ({ config, options }: { config: Config; options?: DnOptions }) => {
     const tableHeaders = (): Column[] => {
         return config.headers.map((x: Header | string) => {
             const column: Column = {};

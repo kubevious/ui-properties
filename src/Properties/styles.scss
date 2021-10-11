@@ -13,24 +13,9 @@
   color: #a1a1a1;
 }
 
-/***************************************/
-
 .properties-owner {
   padding: 7px 5px 6px;
   margin: 1px 0;
-}
-
-.properties-owner .dn-path {
-  font-size: 13px;
-}
-
-.properties-owner .dn-path .kind {
-  font-size: 11px;
-}
-
-.properties-owner .dn-path span {
-  margin: 0 4px 0 0;
-  line-height: 20px;
 }
 
 /****** EXPANDER BEGIN **********/
@@ -38,104 +23,4 @@
 .expander-popup {
   width: 16px;
   height: 16px;
-}
-
-/****** EXPANDER END **********/
-
-div {
-  box-sizing: border-box;
-}
-
-pre {
-  color: #fff;
-  margin: 0;
-}
-
-/**
- * Obsidian style
- * ported by Alexander Marenin (http://github.com/ioncreature)
- */
-
-.hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
-  background: #282b2e;
-}
-
-.hljs-keyword,
-.hljs-selector-tag,
-.hljs-literal,
-.hljs-selector-id {
-  color: #93c763;
-}
-
-.hljs-number {
-  color: #ffcd22;
-}
-
-.hljs {
-  color: #e0e2e4;
-}
-
-.hljs-attribute {
-  color: #668bb0;
-}
-
-.hljs-code,
-.hljs-class .hljs-title,
-.hljs-section {
-  color: white;
-}
-
-.hljs-regexp,
-.hljs-link {
-  color: #d39745;
-}
-
-.hljs-meta {
-  color: #557182;
-}
-
-.hljs-tag,
-.hljs-name,
-.hljs-bullet,
-.hljs-subst,
-.hljs-emphasis,
-.hljs-type,
-.hljs-built_in,
-.hljs-selector-attr,
-.hljs-selector-pseudo,
-.hljs-addition,
-.hljs-variable,
-.hljs-template-tag,
-.hljs-template-variable {
-  color: #8cbbad;
-}
-
-.hljs-string,
-.hljs-symbol {
-  color: #ec7600;
-}
-
-.hljs-comment,
-.hljs-quote,
-.hljs-deletion {
-  color: #818e96;
-}
-
-.hljs-selector-class {
-  color: #a082bd;
-}
-
-.hljs-keyword,
-.hljs-selector-tag,
-.hljs-literal,
-.hljs-doctag,
-.hljs-title,
-.hljs-section,
-.hljs-type,
-.hljs-name,
-.hljs-strong {
-  font-weight: bold;
 }

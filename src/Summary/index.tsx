@@ -1,6 +1,6 @@
 import React from 'react';
 import { ClassComponent } from '@kubevious/ui-framework';
-import { PropertiesContents } from '../Properties/PropertiesContents';
+import { PropertiesContents } from '../PropertiesContents';
 
 import { isEmptyObject } from '../util';
 import { SummaryState } from './types';
