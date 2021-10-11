@@ -1,6 +1,6 @@
 import _ from 'the-lodash';
 import React, { FC } from 'react';
-import { DnLink, DnShortcutComponent, IconBox } from '@kubevious/ui-components';
+import { DnComponent, DnShortcutComponent, IconBox } from '@kubevious/ui-components';
 import { parseDn, makeDn } from '@kubevious/entity-meta';
 import { TOP_ROOTS } from '@kubevious/entity-meta';
 
@@ -33,7 +33,8 @@ export const Teleportation: FC<TeleportationProps> = ({ config }) => {
 
         {rootDns.map((rootDn) => 
             <div key={rootDn}>
-                <DnLink dn={rootDn} />
+                <DnComponent dn={rootDn} options={{ relativeTo: 'root'}} />
+                
                 <div className={styles.innerList}>
                     {groups[rootDn].map((item, index) => 
                         <div className={styles.entry}>

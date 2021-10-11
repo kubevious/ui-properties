@@ -39,7 +39,7 @@ export class PropsEnhancer
             return;
         }
 
-        const teleportationItems : TeleportationItem[] = [];
+        let teleportationItems : TeleportationItem[] = [];
         for(const props of linkProps)
         {
             for(const row of props.group.config?.rows)
@@ -49,6 +49,8 @@ export class PropsEnhancer
                     dn: row.dn 
                 });
             }
+
+            teleportationItems = _.orderBy(teleportationItems, x => x.dn);
         }
 
         dict["teleportation"] = {
