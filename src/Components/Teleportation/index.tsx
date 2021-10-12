@@ -4,9 +4,6 @@ import { DnComponent, DnShortcutComponent, IconBox } from '@kubevious/ui-compone
 import { parseDn, makeDn } from '@kubevious/entity-meta';
 import { TOP_ROOTS } from '@kubevious/entity-meta';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignInAlt, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
- 
 import styles from './styles.module.css';
 import { TeleportationProps, TeleportationItem } from './types';
 
@@ -26,7 +23,16 @@ export const Teleportation: FC<TeleportationProps> = ({ config }) => {
     const rootDns = TOP_ROOTS.map(x => x.dn).filter(x => groups[x]);
 
     const setupTooltipContents = (item: TeleportationItem) => {
-        return `Direction: ${item.direction}`;
+        if (item.direction === 'source') {
+            return 'Direction: Source';
+        }
+        if (item.direction === 'target') {
+            return 'Direction: Target';
+        }
+        if (item.direction === 'bidir') {
+            return 'Direction: Bidirectional';
+        }
+        return "";
     }
 
     return <>
@@ -37,11 +43,11 @@ export const Teleportation: FC<TeleportationProps> = ({ config }) => {
                 
                 <div className={styles.innerList}>
                     {groups[rootDn].map((item, index) => 
-                        <div className={styles.entry}>
+                        <div className={styles.entry} key={index}>
                             <div className={styles.entryDirection}>
                                 <IconBox tooltipContentsFetcher={() => setupTooltipContents(item)} >
-                                    {(item.direction == 'source') && <FontAwesomeIcon icon={faSignInAlt} />}
-                                    {(item.direction == 'target') && <FontAwesomeIcon icon={faSignOutAlt} />}
+                                    <img src={`/img/props/teleport/${item.direction}.svg`} 
+                                         className={styles.entryDirectionIcon} />
                                 </IconBox>
                             </div>
 

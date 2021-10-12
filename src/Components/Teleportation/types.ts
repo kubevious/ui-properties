@@ -1,5 +1,5 @@
 
-export type TeleportationDirection = 'source' | 'target';
+export type TeleportationDirection = 'source' | 'target' | 'bidir';
 
 export interface TeleportationItem {
     direction: TeleportationDirection;

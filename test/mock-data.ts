@@ -719,6 +719,11 @@ export const TARGET_LINKS_PROPS: Group = {
                 "resolved": false
             },
             {
+                "dn": "root/k8s/ns-[hipster]/api-[apps]/version-[v1]/kind-[Deployment]/resource-[checkoutservice]",
+                "kind": "test-1234",
+                "resolved": false
+            },
+            {
                 "dn": "root/logic/ns-[hipster]/app-[checkoutservice]/service-[checkoutservice]",
                 "kind": "service-account",
                 "resolved": false
@@ -753,7 +758,7 @@ export const TELEPORTATION_PROPS: Group = {
             dn: "root/logic/ns-[hipster]/app-[checkoutservice]/service-[checkoutservice]"
         },
         {
-            direction: 'source',
+            direction: 'bidir',
             dn: "root/k8s/ns-[hipster]/api-[apps]/version-[v1]/kind-[Deployment]/resource-[checkoutservice]"
         },
         {

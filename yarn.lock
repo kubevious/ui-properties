@@ -1560,10 +1560,10 @@
     postcss "^8.2.10"
     the-lodash "^2.0.9"
 
-"@kubevious/ui-components@^1.0.170", "@kubevious/ui-components@^1.0.172":
-  version "1.0.172"
-  resolved "https://registry.yarnpkg.com/@kubevious/ui-components/-/ui-components-1.0.172.tgz#40e92973eec8ceea2b2e112a06d4657e913e4067"
-  integrity sha512-dZ+qEknLBelQSRZhXmm57W3LgS8I1HFhrTvVJvx/YdsL7Yd0mzvdrwnrZdXtPdWEQRtTjYGu5q1naxn+vqAZQA==
+"@kubevious/ui-components@^1.0.170", "@kubevious/ui-components@^1.0.173":
+  version "1.0.173"
+  resolved "https://registry.yarnpkg.com/@kubevious/ui-components/-/ui-components-1.0.173.tgz#c755ed32216431a11eb7cb78aa1f1ce0116e3cf9"
+  integrity sha512-W6Nk2/i4nIyzHJSExHjPt+cyIIIFE5N008xO5Df7VqK1g47Wcebk2aUbllA6bmYqGREtp3FTVjzmTkhSr0q6sw==
   dependencies:
     "@fortawesome/fontawesome-svg-core" "^1.2.35"
     "@fortawesome/free-regular-svg-icons" "^5.15.1"
