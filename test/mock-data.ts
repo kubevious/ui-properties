@@ -4,8 +4,6 @@ import { SnapshotPropsConfig } from '@kubevious/state-registry';
 export const KEY_VALUE_PROPS: SnapshotPropsConfig = {
     kind: PropsKind.keyValue,
     id: PropsId.properties,
-    title: 'Properties',
-    order: 5,
     config: {
         StorageClass: 'standard',
         Status: 'Bound',
@@ -22,8 +20,6 @@ export const KEY_VALUE_PROPS: SnapshotPropsConfig = {
 export const YAML_PROPS: SnapshotPropsConfig = {
     kind: PropsKind.yaml,
     id: PropsId.config,
-    title: 'Config',
-    order: 10,
     config: {
         apiVersion: 'v1',
         kind: 'PersistentVolumeClaim',
@@ -64,10 +60,7 @@ export const YAML_PROPS: SnapshotPropsConfig = {
 
 export const COUNTERS_PROPS: SnapshotPropsConfig = {
     kind: PropsKind.counters,
-    id: PropsId.infraCounters, // TODO: Fix Me
-    // id: 'infra-counters',
-    title: '',
-    order: 11,
+    id: PropsId.infraCounters,
     config: [
         {
             title: 'Nodes',
@@ -93,8 +86,6 @@ export const COUNTERS_PROPS: SnapshotPropsConfig = {
 export const OBJECT_LIST_PROPS: SnapshotPropsConfig = {
     kind: PropsKind.objectList,
     id: PropsId.topIssueNamespaces,
-    title: '',
-    order: 12,
     config: [
         {
             dn: 'root/logic/ns-[kube-system]',
@@ -123,8 +114,6 @@ export const OBJECT_LIST_PROPS: SnapshotPropsConfig = {
 export const ALERT_TARGET_LIST_PROPS: SnapshotPropsConfig = {
     kind: PropsKind.alertTargetList,
     id: PropsId.topIssues,
-    title: '',
-    order: 13,
     config: [
         {
             alert: {
@@ -229,8 +218,6 @@ export const ALERT_TARGET_LIST_PROPS: SnapshotPropsConfig = {
 export const DN_LIST_PROPS : SnapshotPropsConfig = {
     kind: PropsKind.dnList,
     id: PropsId.sharedWith,
-    title: 'Shared With',
-    order: 5,
     config: [
         'root/logic/ns-[kubevious]/app-[kubevious-ui]/cont-[kubevious-ui]/configmap-[kubevious-mysql-client]',
         'root/logic/ns-[kube-system]/app-[calico-node]/launcher-[DaemonSet]',
@@ -241,8 +228,6 @@ export const DN_LIST_PROPS : SnapshotPropsConfig = {
 export const TABLE_PROPS : SnapshotPropsConfig = {
     kind: PropsKind.table,
     id: PropsId.resourceRoleMatrix,
-    title: 'Resource Role Matrix',
-    order: 8,
     config: {
         headers: [
             {
@@ -493,7 +478,6 @@ export const SUMMARY_DATA = {
     'app-counters': {
         kind: PropsKind.counters,
         id: PropsId.appCounters,
-        order: 10,
         config: [
             {
                 title: 'Clusters',
@@ -516,8 +500,6 @@ export const SUMMARY_DATA = {
     'infra-counters': {
         kind: 'counters',
         id: 'infra-counters',
-        title: 'Infrastructure Summary',
-        order: 11,
         config: [
             {
                 title: 'Nodes',
@@ -541,8 +523,6 @@ export const SUMMARY_DATA = {
     'top-issue-namespaces': {
         kind: 'object-list',
         id: 'top-issue-namespaces',
-        title: 'Top Namespaces with Issues',
-        order: 12,
         config: [
             {
                 dn: 'root/logic/ns-[kube-system]',
@@ -570,8 +550,6 @@ export const SUMMARY_DATA = {
     'top-issues': {
         kind: 'alert-target-list',
         id: 'top-issues',
-        title: 'Top Issues',
-        order: 13,
         config: [
             {
                 alert: {
@@ -678,8 +656,6 @@ export const SUMMARY_DATA = {
 export const TARGET_LINKS_PROPS: SnapshotPropsConfig = {
     kind: PropsKind.links,
     id: PropsId.targetLinks,
-    "order": 8,
-    "title": "Target Links",
     "config": {
         "service": [
             {
@@ -708,10 +684,7 @@ export const TARGET_LINKS_PROPS: SnapshotPropsConfig = {
 
 export const TELEPORTATION_PROPS: SnapshotPropsConfig = {
     "kind": PropsKind.teleportation,
-    "id": PropsId.config, // TOOD: Fix me
-    // "id": PropsId.teleportation,
-    "order": 1,
-    "title": "Teleportation",
+    "id": PropsId.config,
     "config": [
         {
             direction: "target",
