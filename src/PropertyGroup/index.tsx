@@ -46,7 +46,7 @@ export class PropertyGroup extends ClassComponent<PropertyGroupProps> {
     }
 
     openMaximized(): void {
-        const { dn, group } = this.props;
+        const { dn, group, title } = this.props;
 
         this.sharedState.set('popup_window', {
             title: 'Properties: ' + group,
@@ -56,7 +56,7 @@ export class PropertyGroup extends ClassComponent<PropertyGroupProps> {
                         {dn && (
                             <div className={styles.containerHeader}>
                                 <DnComponent dn={dn} />
-                                <h3>{group.title}</h3>
+                                <h3>{title}</h3>
                             </div>
                         )}
                         <PropertiesContents group={group} />

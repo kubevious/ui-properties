@@ -26,8 +26,8 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.1",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@fortawesome/react-fontawesome": "^0.1.12",
-    "@kubevious/entity-meta": "^1.0.33",
-    "@kubevious/state-registry": "^1.0.10",
+    "@kubevious/entity-meta": "^1.0.34",
+    "@kubevious/state-registry": "^1.0.11",
     "@kubevious/ui-alerts": "^1.0.34",
     "@kubevious/ui-components": "^1.0.175",
     "@kubevious/ui-framework": "^1.0.50",
@@ -91,7 +91,7 @@
     "@kubevious/ui-framework": "^1.0.50",
     "@kubevious/ui-components": "^1.0.175",
     "@kubevious/ui-alerts": "^1.0.34",
-    "@kubevious/entity-meta": "^1.0.33",
-    "@kubevious/state-registry": "^1.0.10"
+    "@kubevious/entity-meta": "^1.0.34",
+    "@kubevious/state-registry": "^1.0.11"
   }
 }

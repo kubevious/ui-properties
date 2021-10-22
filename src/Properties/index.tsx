@@ -9,6 +9,7 @@ import { SnapshotPropsConfig } from '@kubevious/state-registry';
 import { PropertiesState } from './types';
 
 import { PropsEnhancer } from '../logic/props-exhancer';
+import { PROPS_TITLES } from '@kubevious/entity-meta';
 
 import './styles.scss';
 
@@ -63,7 +64,7 @@ export class Properties extends ClassComponent<{}, PropertiesState> {
             return (
                 <PropertyGroup
                     key={index}
-                    title={item.title || ''}
+                    title={PROPS_TITLES.get(item.id)}
                     extraClassTitle={isExpanded ? 'active' : ''}
                     extraClassContents={isExpanded ? 'expander-open' : ''}
                     dn={selectedDn}
