@@ -1,7 +1,7 @@
-import { Group } from '../types';
+import { SnapshotPropsConfig } from '@kubevious/state-registry';
 
 export type SummaryState = {
     data: {
-        [container: string]: Group;
+        [container: string]: SnapshotPropsConfig;
     };
 };

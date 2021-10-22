@@ -1,8 +1,9 @@
-import { Group } from '../src';
+import { PropsId, PropsKind } from '@kubevious/entity-meta';
+import { SnapshotPropsConfig } from '@kubevious/state-registry';
 
-export const KEY_VALUE_PROPS: Group = {
-    kind: 'key-value',
-    id: 'properties',
+export const KEY_VALUE_PROPS: SnapshotPropsConfig = {
+    kind: PropsKind.keyValue,
+    id: PropsId.properties,
     title: 'Properties',
     order: 5,
     config: {
@@ -18,9 +19,9 @@ export const KEY_VALUE_PROPS: Group = {
     },
 };
 
-export const YAML_PROPS: Group = {
-    kind: 'yaml',
-    id: 'config',
+export const YAML_PROPS: SnapshotPropsConfig = {
+    kind: PropsKind.yaml,
+    id: PropsId.config,
     title: 'Config',
     order: 10,
     config: {
@@ -61,10 +62,11 @@ export const YAML_PROPS: Group = {
     },
 };
 
-export const COUNTERS_PROPS: Group = {
-    kind: 'counters',
-    id: 'infra-counters',
-    title: 'Infrastructure Summary',
+export const COUNTERS_PROPS: SnapshotPropsConfig = {
+    kind: PropsKind.counters,
+    id: PropsId.infraCounters, // TODO: Fix Me
+    // id: 'infra-counters',
+    title: '',
     order: 11,
     config: [
         {
@@ -88,10 +90,10 @@ export const COUNTERS_PROPS: Group = {
     ],
 };
 
-export const OBJECT_LIST_PROPS: Group = {
-    kind: 'object-list',
-    id: 'top-issue-namespaces',
-    title: 'Top Namespaces with Issues',
+export const OBJECT_LIST_PROPS: SnapshotPropsConfig = {
+    kind: PropsKind.objectList,
+    id: PropsId.topIssueNamespaces,
+    title: '',
     order: 12,
     config: [
         {
@@ -118,10 +120,10 @@ export const OBJECT_LIST_PROPS: Group = {
     ],
 };
 
-export const ALERT_TARGET_LIST_PROPS: Group = {
-    kind: 'alert-target-list',
-    id: 'top-issues',
-    title: 'Top Issues',
+export const ALERT_TARGET_LIST_PROPS: SnapshotPropsConfig = {
+    kind: PropsKind.alertTargetList,
+    id: PropsId.topIssues,
+    title: '',
     order: 13,
     config: [
         {
@@ -224,22 +226,21 @@ export const ALERT_TARGET_LIST_PROPS: Group = {
     ],
 };
 
-export const DN_LIST_PROPS = {
-    kind: 'dn-list',
-    id: 'shared-with',
+export const DN_LIST_PROPS : SnapshotPropsConfig = {
+    kind: PropsKind.dnList,
+    id: PropsId.sharedWith,
     title: 'Shared With',
     order: 5,
     config: [
         'root/logic/ns-[kubevious]/app-[kubevious-ui]/cont-[kubevious-ui]/configmap-[kubevious-mysql-client]',
         'root/logic/ns-[kube-system]/app-[calico-node]/launcher-[DaemonSet]',
         'root/logic/ns-[kube-system]/app-[calico-node]/vol-[Volumes]',
-    ],
-    tooltip: 'Other objects that also use this configuration.',
+    ]
 };
 
-export const TABLE_PROPS = {
-    kind: 'table',
-    id: 'resource-role-matrix',
+export const TABLE_PROPS : SnapshotPropsConfig = {
+    kind: PropsKind.table,
+    id: PropsId.resourceRoleMatrix,
     title: 'Resource Role Matrix',
     order: 8,
     config: {
@@ -490,9 +491,8 @@ export const TABLE_PROPS = {
 
 export const SUMMARY_DATA = {
     'app-counters': {
-        kind: 'counters',
-        id: 'app-counters',
-        title: 'Configuration Summary',
+        kind: PropsKind.counters,
+        id: PropsId.appCounters,
         order: 10,
         config: [
             {
@@ -675,81 +675,41 @@ export const SUMMARY_DATA = {
 };
 
 
-
-export const SOURCE_LINKS_PROPS: Group = {
-    "id": "source-links",
-    "kind": "table",
-    "order": 9,
-    "title": "Source Links",
-    "config": {
-        "rows": [
-            {
-                "dn": "root/k8s/ns-[hipster]/api-[apps]/version-[v1]/kind-[Deployment]/resource-[checkoutservice]",
-                "kind": "app",
-                "resolved": true
-            },
-            {
-                "dn": "root/k8s/ns-[hipster]/version-[v1]/kind-[Service]/resource-[checkoutservice]",
-                "kind": "app",
-                "resolved": true
-            }
-        ],
-        "headers": [
-            "kind",
-            {
-                "id": "dn",
-                "kind": "shortcut",
-                "label": "Application"
-            },
-            "resolved"
-        ]
-    }
-};
-
-export const TARGET_LINKS_PROPS: Group = {
-    "id": "target-links",
-    "kind": "table",
+export const TARGET_LINKS_PROPS: SnapshotPropsConfig = {
+    kind: PropsKind.links,
+    id: PropsId.targetLinks,
     "order": 8,
     "title": "Target Links",
     "config": {
-        "rows": [
+        "service": [
             {
-                "dn": "root/k8s/ns-[hipster]/version-[v1]/kind-[ServiceAccount]/resource-[default]",
-                "kind": "service-account",
-                "resolved": false
-            },
-            {
-                "dn": "root/k8s/ns-[hipster]/api-[apps]/version-[v1]/kind-[Deployment]/resource-[checkoutservice]",
-                "kind": "test-1234",
-                "resolved": false
-            },
-            {
-                "dn": "root/logic/ns-[hipster]/app-[checkoutservice]/service-[checkoutservice]",
-                "kind": "service-account",
-                "resolved": false
-            },
-            {
-                "dn": "root/infra/k8s/api-[apps]/version-[v1]/kind-[ReplicaSet]/ns-[hipster]",
-                "kind": "service-account",
-                "resolved": false
+                "dn": "root/k8s/ns-[gitlab]/version-[v1]/kind-[Service]/resource-[gitlab-nginx-ingress-controller]",
+                "path": "gitlab-nginx-ingress-controller"
             }
-
         ],
-        "headers": [
-            "kind",
+        "image": [
             {
-                "id": "dn",
-                "kind": "shortcut",
-                "label": "Application"
-            },
-            "resolved"
+                "dn": "root/images/repo-[quay.io]/image-[kubernetes-ingress-controller/nginx-ingress-controller]/tag-[0.21.0]/ns-[gitlab]/app-[gitlab-nginx-ingress-controller]",
+                "path": "cont-nginx-ingress-controller"
+            }
+        ],
+        "volume": [
+            {
+                "dn": "root/logic/ns-[gitlab]/app-[gitlab-prometheus-server]/vols-[Volumes]/vol-[config-volume]"
+            }
+        ],
+        "k8s-owner": [
+            {
+                "dn": "root/k8s/ns-[hipster]/api-[apps]/version-[v1]/kind-[ReplicaSet]/resource-[adservice-84b8749d65]"
+            }
         ]
     }
 }
 
-export const TELEPORTATION_PROPS: Group = {
-    "id": "teleportation",
-    "kind": "teleportation",
+export const TELEPORTATION_PROPS: SnapshotPropsConfig = {
+    "kind": PropsKind.teleportation,
+    "id": PropsId.config, // TOOD: Fix me
+    // "id": PropsId.teleportation,
     "order": 1,
     "title": "Teleportation",
     "config": [

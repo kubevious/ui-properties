@@ -1,0 +1,34 @@
+.innerList {
+    margin-left: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.entry {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.entryDirection {
+    color: white;
+    margin-right: 10px;
+}
+
+.entryDirectionIcon {
+    background-image: url('/img/props/teleport/target.svg');
+    width: 20px;
+    height: 20px;
+}
+
+.entryDnExtra {
+    flex-grow: 1;
+}
+
+.tooltip {
+}
+
+.tooltipEmphasize {
+    font-weight: 700;
+}

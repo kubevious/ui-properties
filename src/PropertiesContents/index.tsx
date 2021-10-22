@@ -1,5 +1,4 @@
-import React from 'react';
-import { Group } from '../types';
+import React, { FC } from 'react';
 import { Config } from '../Components/Config';
 import { DnList } from '../Components/DnList';
 import { KeyValueList } from '../Components/KeyValueList';
@@ -8,26 +7,55 @@ import { Counters } from '../Components/Counters';
 import { ObjectList } from '../Components/ObjectList';
 import { Table } from '../Components/Table';
 import { Teleportation } from '../Components/Teleportation';
+import { Links } from '../Components/Links';
 
-export const PropertiesContents = ({ group, dn }: { group: Group; dn?: string }) => {
-    switch (group.kind) {
-        case 'counters':
-            return <Counters config={group.config} />;
-        case 'object-list':
-            return <ObjectList config={group.config} />;
-        case 'alert-target-list':
-            return <AlertList config={group.config} />;
-        case 'key-value':
-            return <KeyValueList config={group.config} />;
-        case 'dn-list':
-            return <DnList config={group.config} />;
-        case 'yaml':
-            return <Config config={group.config} language={group.kind} dn={dn || ''} />;
-        case 'table':
-            return <Table config={group.config} />;
-        case 'teleportation':
-            return <Teleportation config={group.config} />;
-        default:
-            return <div>No data presented</div>;
-    }
+import { PropsKind } from '@kubevious/entity-meta';
+import { SnapshotPropsConfig } from '@kubevious/state-registry';
+
+import { PROPS_CONTROL_RESOLVER } from '../control-registry';
+
+
+PROPS_CONTROL_RESOLVER.setup(PropsKind.keyValue, (group) => {
+    return <KeyValueList config={group.config} />;
+})
+
+PROPS_CONTROL_RESOLVER.setup(PropsKind.dnList, (group) => {
+    return <DnList config={group.config} />;
+})
+
+PROPS_CONTROL_RESOLVER.setup(PropsKind.table, (group) => {
+    return <Table config={group.config} />;
+})
+
+PROPS_CONTROL_RESOLVER.setup(PropsKind.yaml, (group, dn) => {
+    return <Config config={group.config} language={group.kind} dn={dn || ''} />;
+})
+
+PROPS_CONTROL_RESOLVER.setup(PropsKind.teleportation, (group) => {
+    return <Teleportation config={group.config} />;
+})
+
+PROPS_CONTROL_RESOLVER.setup(PropsKind.counters, (group) => {
+    return <Counters config={group.config} />;
+})
+
+PROPS_CONTROL_RESOLVER.setup(PropsKind.objectList, (group) => {
+    return <ObjectList config={group.config} />;
+})
+
+PROPS_CONTROL_RESOLVER.setup(PropsKind.alertTargetList, (group) => {
+    return <AlertList config={group.config} />;
+})
+
+PROPS_CONTROL_RESOLVER.setup(PropsKind.links, (group) => {
+    return <Links config={group.config} />;
+})
+
+export interface PropertiesContentsProps {
+    group: SnapshotPropsConfig;
+    dn?: string 
+}
+
+export const PropertiesContents : FC<PropertiesContentsProps> = ({ group, dn }) => {
+    return PROPS_CONTROL_RESOLVER.resolve(group, dn);
 };

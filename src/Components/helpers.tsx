@@ -1,5 +1,6 @@
 import _ from 'the-lodash';
 import React from 'react';
+import { makeDn, parseDn } from '@kubevious/entity-meta/dist';
 
 export const PropertiesValue = (value: any): JSX.Element => {
     if (_.isNullOrUndefined(value)) {
@@ -88,4 +89,14 @@ export const camelCase = (str: string): string => {
         if (+match === 0) return '';
         return index === 0 ? match.toLowerCase() : match.toUpperCase();
     });
+}
+
+
+export function getRoot(dn: string)
+{   
+    const parts = parseDn(dn);
+    if (parts.length <= 2) {
+        return dn;
+    }
+    return makeDn(parts[0].rn, parts[1].rn);
 }

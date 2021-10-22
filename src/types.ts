@@ -1,12 +1,3 @@
-export type Group = {
-    id: string;
-    title?: string;
-    kind: string;
-    config: any;
-    order?: number;
-    options?: string[];
-};
-
 export type DnOptions = {
     relativeTo?: string;
 };

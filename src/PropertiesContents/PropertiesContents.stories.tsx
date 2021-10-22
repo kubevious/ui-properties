@@ -1,5 +1,5 @@
 import { Story } from '@storybook/react';
-import { PropertiesContents } from '../PropertiesContents';
+import { PropertiesContents } from './';
 import {
     ALERT_TARGET_LIST_PROPS,
     COUNTERS_PROPS,
@@ -8,6 +8,7 @@ import {
     OBJECT_LIST_PROPS, TABLE_PROPS,
     TELEPORTATION_PROPS,
     YAML_PROPS,
+    TARGET_LINKS_PROPS
 } from '../../test/mock-data';
 import React from 'react';
 
@@ -57,6 +58,11 @@ export const TableProperties: Story = () => (
     </div>
 );
 
+export const TargetLinksProperties: Story = () => (
+    <div style={{ background: '#1e1e1e', padding: '10px' }}>
+        <PropertiesContents group={TARGET_LINKS_PROPS} />
+    </div>
+);
 
 export const TeleportationProperties: Story = () => (
     <div style={{ background: '#1e1e1e', padding: '10px' }}>

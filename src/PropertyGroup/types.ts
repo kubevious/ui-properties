@@ -1,4 +1,4 @@
-import { Group } from '../../types';
+import { SnapshotPropsConfig } from '@kubevious/state-registry';
 
 export type PropertyGroupProps = {
     title: string;
@@ -7,6 +7,6 @@ export type PropertyGroupProps = {
     dn: string;
     dnKind: string;
     groupName: string;
-    group: Group;
+    group: SnapshotPropsConfig;
     propertyExpanderHandleClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 };

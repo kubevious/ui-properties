@@ -4,8 +4,8 @@ import { ClassComponent } from '@kubevious/ui-framework';
 import { PropertyGroup } from '../PropertyGroup';
 import { DnPath } from '@kubevious/ui-components';
 import { Dn, parseDn, NodeKind } from '@kubevious/entity-meta';
+import { SnapshotPropsConfig } from '@kubevious/state-registry';
 
-import { Group } from '../types';
 import { PropertiesState } from './types';
 
 import { PropsEnhancer } from '../logic/props-exhancer';
@@ -13,7 +13,8 @@ import { PropsEnhancer } from '../logic/props-exhancer';
 import './styles.scss';
 
 export class Properties extends ClassComponent<{}, PropertiesState> {
-    constructor(props: {} | Readonly<{}>) {
+    constructor(props: {} | Readonly<{}>)
+    {
         super(props);
 
         this.state = {
@@ -35,7 +36,7 @@ export class Properties extends ClassComponent<{}, PropertiesState> {
         contentsElem && contentsElem.classList.toggle('expander-open');
     }
 
-    _renderPropertiesNodeDn(): ReactNode {
+    private _renderPropertiesNodeDn(): ReactNode {
         const { dnParts } = this.state;
 
         return (
@@ -45,16 +46,18 @@ export class Properties extends ClassComponent<{}, PropertiesState> {
         );
     }
 
-    _renderContent(): ReactNode {
-        const { selectedDn, selectedObjectProps, dnKind } = this.state;
-        const propertyGroups = _.orderBy(selectedObjectProps, (x: { order: number }) => {
-            if (x.order) {
-                return x.order;
-            }
-            return 100;
-        });
+    private _getPropertyGroups() : SnapshotPropsConfig[]
+    {
+        const { selectedObjectProps } = this.state;
+        return selectedObjectProps;
+    }
 
-        return propertyGroups.map((item: Group, index: number) => {
+    private _renderContent(): ReactNode {
+        const { selectedDn, dnKind } = this.state;
+
+        const propertyGroups = this._getPropertyGroups();
+
+        return propertyGroups.map((item: SnapshotPropsConfig, index: number) => {
             const isExpanded = index === 0;
 
             return (
@@ -101,7 +104,7 @@ export class Properties extends ClassComponent<{}, PropertiesState> {
         );
     }
 
-    renderProps(): JSX.Element {
+    private _renderProps(): JSX.Element {
         const { selectedObjectProps } = this.state;
 
         return (
@@ -122,7 +125,7 @@ export class Properties extends ClassComponent<{}, PropertiesState> {
                 className={'properties'}
             >
 
-                { isDnSelected && this.renderProps() }
+                { isDnSelected && this._renderProps() }
 
                 { !isDnSelected && <>
                     <div className="empty">No object selected.</div>

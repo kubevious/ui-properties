@@ -9,7 +9,7 @@ import { PropertyGroupProps } from './types';
 import { PROPS_TOOLTIPS } from '@kubevious/entity-meta';
 
 import styles from './styles.module.css';
-import { PropsComplexTooltipValue } from '@kubevious/entity-meta/dist/prop-tooltips';
+import { PropsComplexTooltipValue } from '@kubevious/entity-meta/dist/props-tooltips';
 
 export class PropertyGroup extends ClassComponent<PropertyGroupProps> {
     tooltip: string;

@@ -1,10 +1,10 @@
 import { Dn, NodeKind } from '@kubevious/entity-meta';
-import { Group } from '../types';
+import { SnapshotPropsConfig } from '@kubevious/state-registry';
 
 export type PropertiesState = {
     isDnSelected: boolean;
     selectedDn: string;
     dnParts: Dn;
     dnKind: NodeKind;
-    selectedObjectProps: Group[];
+    selectedObjectProps: SnapshotPropsConfig[];
 };

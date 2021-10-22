@@ -6,6 +6,7 @@ REPO_DEPENDENCIES=(
     "@kubevious/ui-components"
     "@kubevious/ui-alerts"
     "@kubevious/entity-meta"
+    "@kubevious/state-registry"
 )
 
 FORCE_RESOLVE_DEPENDENCIES=(
@@ -14,4 +15,5 @@ FORCE_RESOLVE_DEPENDENCIES=(
     "@kubevious/ui-components"
     "@kubevious/ui-alerts"
     "@kubevious/entity-meta"
+    "@kubevious/state-registry"
 )

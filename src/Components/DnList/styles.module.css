@@ -1,5 +1,12 @@
-.container {
+.innerList {
+    margin-left: 30px;
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+.entry {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
