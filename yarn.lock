@@ -1530,10 +1530,10 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@kubevious/entity-meta@^1.0.21", "@kubevious/entity-meta@^1.0.25", "@kubevious/entity-meta@^1.0.34":
-  version "1.0.34"
-  resolved "https://registry.yarnpkg.com/@kubevious/entity-meta/-/entity-meta-1.0.34.tgz#2b34e4c05cd990a457e7a2d4aff1291f7c2c493c"
-  integrity sha512-E7K29+k8JmNG35xgxzNQMLesdRECHA2OFNiQJgXRLviXho4byXUa47YkZ46GTpEXqxVGAfPeZp/QaNDnPB1Bng==
+"@kubevious/entity-meta@^1.0.25", "@kubevious/entity-meta@^1.0.34", "@kubevious/entity-meta@^1.0.35":
+  version "1.0.35"
+  resolved "https://registry.yarnpkg.com/@kubevious/entity-meta/-/entity-meta-1.0.35.tgz#ac2b846279e2c7882a6b37326627d063d6daf99b"
+  integrity sha512-YbUwx34L/Gw/3u5uZf178UGuLbE+ObDvP7y7oVdp9skiFO139jmjOQaS48eFdc48pUzUlvGUVgoZiQNDA6tmHw==
   dependencies:
     the-lodash "^2.0.9"
 
@@ -1557,20 +1557,20 @@
     the-logger "^2.0.10"
     the-promise "^2.0.13"
 
-"@kubevious/ui-alerts@^1.0.34":
-  version "1.0.34"
-  resolved "https://registry.yarnpkg.com/@kubevious/ui-alerts/-/ui-alerts-1.0.34.tgz#847c82cc36e6bd7a1ec8486f5ee3fbc7348dae94"
-  integrity sha512-/Ivjl4WlvqNp5nVuacFAUyB0GowjLzm6oaxpOQpvJ48bvaseH6bYyCtoz49fHpN50g9TsSaeueHjQMG3NvoeBQ==
+"@kubevious/ui-alerts@^1.0.35":
+  version "1.0.35"
+  resolved "https://registry.yarnpkg.com/@kubevious/ui-alerts/-/ui-alerts-1.0.35.tgz#491377e1c792651a41b1f960ccdf719d34504563"
+  integrity sha512-eUiERdfw9Qukd13mZ5P8HwxT5mrPnWuF/CObzYp7Ql07cKwSWjkIzlFDP4ljOuVGkvydazq12/k/ERFgojSRjg==
   dependencies:
-    "@kubevious/entity-meta" "^1.0.21"
-    "@kubevious/ui-components" "^1.0.170"
+    "@kubevious/entity-meta" "^1.0.34"
+    "@kubevious/ui-components" "^1.0.175"
     "@kubevious/ui-framework" "^1.0.50"
     classnames "^2.2.6"
     popper.js "^1.16.1"
     postcss "^8.2.10"
     the-lodash "^2.0.9"
 
-"@kubevious/ui-components@^1.0.170", "@kubevious/ui-components@^1.0.175":
+"@kubevious/ui-components@^1.0.175":
   version "1.0.175"
   resolved "https://registry.yarnpkg.com/@kubevious/ui-components/-/ui-components-1.0.175.tgz#49010c122cf9c4ef737ed292c15939a2fdc5c85c"
   integrity sha512-CfRljFPqQ9MKC1sIq2wfoiHxVMSnoP6v4/RHht3T6eJcBSI8XMPQZjS7AstWyt6f/GByrfL8v2uvgNxly4fB2g==

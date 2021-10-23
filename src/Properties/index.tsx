@@ -29,14 +29,6 @@ export class Properties extends ClassComponent<{}, PropertiesState> {
         this._renderContent = this._renderContent.bind(this);
     }
 
-    propertyExpanderHandleClick(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {
-        const target = event.currentTarget;
-        target.classList.toggle('active');
-        const contentsElem =
-            target.parentElement && target.parentElement.getElementsByClassName('expander-contents')[0];
-        contentsElem && contentsElem.classList.toggle('expander-open');
-    }
-
     private _renderPropertiesNodeDn(): ReactNode {
         const { dnParts } = this.state;
 
@@ -59,19 +51,14 @@ export class Properties extends ClassComponent<{}, PropertiesState> {
         const propertyGroups = this._getPropertyGroups();
 
         return propertyGroups.map((item: SnapshotPropsConfig, index: number) => {
-            const isExpanded = index === 0;
-
             return (
                 <PropertyGroup
                     key={index}
                     title={PROPS_TITLES.get(item.id)}
-                    extraClassTitle={isExpanded ? 'active' : ''}
-                    extraClassContents={isExpanded ? 'expander-open' : ''}
                     dn={selectedDn}
                     dnKind={dnKind}
                     groupName={item.id}
                     group={item}
-                    propertyExpanderHandleClick={this.propertyExpanderHandleClick}
                 />
             );
         });

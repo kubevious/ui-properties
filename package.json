@@ -26,9 +26,9 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.1",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@fortawesome/react-fontawesome": "^0.1.12",
-    "@kubevious/entity-meta": "^1.0.34",
+    "@kubevious/entity-meta": "^1.0.35",
     "@kubevious/state-registry": "^1.0.11",
-    "@kubevious/ui-alerts": "^1.0.34",
+    "@kubevious/ui-alerts": "^1.0.35",
     "@kubevious/ui-components": "^1.0.175",
     "@kubevious/ui-framework": "^1.0.50",
     "bootstrap": "^5.0.0-beta3",
@@ -90,8 +90,8 @@
     "the-lodash": "^2.0.9",
     "@kubevious/ui-framework": "^1.0.50",
     "@kubevious/ui-components": "^1.0.175",
-    "@kubevious/ui-alerts": "^1.0.34",
-    "@kubevious/entity-meta": "^1.0.34",
+    "@kubevious/ui-alerts": "^1.0.35",
+    "@kubevious/entity-meta": "^1.0.35",
     "@kubevious/state-registry": "^1.0.11"
   }
 }
