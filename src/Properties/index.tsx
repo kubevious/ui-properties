@@ -53,7 +53,7 @@ export class Properties extends ClassComponent<{}, PropertiesState> {
         return propertyGroups.map((item: SnapshotPropsConfig, index: number) => {
             return (
                 <PropertyGroup
-                    key={index}
+                    key={`${index}-${item.id}`}
                     title={PROPS_TITLES.get(item.id)}
                     dn={selectedDn}
                     dnKind={dnKind}

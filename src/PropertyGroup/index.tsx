@@ -4,12 +4,14 @@ import _ from 'the-lodash';
 import { PropertiesContents } from '../PropertiesContents';
 import { PropertyGroupProps } from './types';
 
-import { PROPS_TOOLTIPS, PROPS_EXPANDED } from '@kubevious/entity-meta';
+import { PROPS_TOOLTIPS, PROPS_EXPANDED, PropsKind } from '@kubevious/entity-meta';
 
-import styles from './styles.module.css';
 import { PropsComplexTooltipValue } from '@kubevious/entity-meta/dist/props-tooltips';
 import { DnComponent } from '@kubevious/ui-components';
 import { app } from '@kubevious/ui-framework';
+
+import styles from './styles.module.css';
+
 
 export const PropertyGroup : FC<PropertyGroupProps> = ({ group, title, dn, dnKind }) => {
 
@@ -41,7 +43,7 @@ export const PropertyGroup : FC<PropertyGroupProps> = ({ group, title, dn, dnKin
         app.sharedState.set('popup_window', {
             title: 'Properties: ' + group,
             content:
-                group.kind !== 'yaml' ? (
+                (group.kind !== PropsKind.yaml) ? (
                     <div className={`Property-wrapper p-40 overflow-hide`}>
                         {dn && (
                             <div className={styles.containerHeader}>
