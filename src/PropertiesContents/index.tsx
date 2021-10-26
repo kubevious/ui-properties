@@ -19,8 +19,8 @@ PROPS_CONTROL_RESOLVER.setup(PropsKind.keyValue, (group) => {
     return <KeyValueList config={group.config} />;
 })
 
-PROPS_CONTROL_RESOLVER.setup(PropsKind.dnList, (group) => {
-    return <DnList config={group.config} />;
+PROPS_CONTROL_RESOLVER.setup(PropsKind.dnList, (group, dn) => {
+    return <DnList config={group.config} options={{ relativeTo: dn}} />;
 })
 
 PROPS_CONTROL_RESOLVER.setup(PropsKind.table, (group) => {

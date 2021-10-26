@@ -222,6 +222,11 @@ export const DN_LIST_PROPS : SnapshotPropsConfig = {
         'root/logic/ns-[kubevious]/app-[kubevious-ui]/cont-[kubevious-ui]/configmap-[kubevious-mysql-client]',
         'root/logic/ns-[kube-system]/app-[calico-node]/launcher-[DaemonSet]',
         'root/logic/ns-[kube-system]/app-[calico-node]/vol-[Volumes]',
+        'root/logic/ns-[addr]/app-[gprod-addr-main-app]',
+        'root/logic/ns-[addr]/app-[gprod-addr-main-web]',
+        "root/k8s/ns-[hipster]/api-[apps]/version-[v1]/kind-[Deployment]/resource-[checkoutservice]",
+        "root/k8s/ns-[hipster]/version-[v1]/kind-[Service]/resource-[checkoutservice]",
+        "root/k8s/ns-[hipster]/version-[v1]/kind-[ServiceAccount]/resource-[default]",
     ]
 };
 

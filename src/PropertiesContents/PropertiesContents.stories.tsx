@@ -41,8 +41,16 @@ export const KeyValueProperties: Story = () => (
 );
 
 export const DnListProperties: Story = () => (
-    <div style={{ background: '#1e1e1e', padding: '10px' }}>
-        <PropertiesContents group={DN_LIST_PROPS} />
+    <div style={{ background: '#AAAAAA', padding: '10px', margin: '10px' }}>
+
+        <div style={{ background: '#1e1e1e', padding: '10px', margin: '10px' }}>
+            <PropertiesContents group={DN_LIST_PROPS} dn='root/logic/ns-[addr]' />
+        </div>
+
+        <div style={{ background: '#1e1e1e', padding: '10px', margin: '10px' }}>
+            <PropertiesContents group={DN_LIST_PROPS} />
+        </div>
+
     </div>
 );
 

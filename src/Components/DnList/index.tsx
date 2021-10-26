@@ -12,7 +12,7 @@ export interface DnListProps {
     options?: DnOptions;
 }
 
-export const DnList: FC<DnListProps> = ({ config }) => {
+export const DnList: FC<DnListProps> = ({ config, options }) => {
     
     const groups : Record<string, string[]> = {};
 
@@ -34,18 +34,29 @@ export const DnList: FC<DnListProps> = ({ config }) => {
 
     return <>
         {rootDns.map((rootDn) => 
-            <div key={rootDn}>
-                <DnComponent dn={rootDn} options={{ relativeTo: 'root'}} />
-                
-                <div className={styles.innerList}>
-                    {groups[rootDn].map((item, index) => 
-                        <DnShortcutComponent dn={item} key={index} options={{
-                                relativeTo: rootDn
-                            }}
-                        />
-                    )}
+            {
+                let myItemsRoot = rootDn;
+                if (options?.relativeTo)
+                {
+                    if (options!.relativeTo!.startsWith(rootDn)) 
+                    {
+                        myItemsRoot = options!.relativeTo!;
+                    }
+                }
+
+                return <div key={rootDn}>
+                    <DnComponent dn={rootDn} options={{ relativeTo: 'root'}} />
+                    
+                    <div className={styles.innerList}>
+                        {groups[rootDn].map((item, index) => 
+                            <DnShortcutComponent dn={item} key={index} options={{
+                                    relativeTo: myItemsRoot
+                                }}
+                            />
+                        )}
+                    </div>
                 </div>
-            </div>
+            }
         )}
     </>
     
