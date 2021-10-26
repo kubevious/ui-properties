@@ -4,7 +4,7 @@ import { PropsKind } from '@kubevious/entity-meta';
 import { EnumDictionary } from '@kubevious/entity-meta';
 import { SnapshotPropsConfig } from '@kubevious/state-registry';
 
-export type PropsControlResolver = (group : SnapshotPropsConfig, dn?: string) => ReactElement;
+export type PropsControlResolver = (group : SnapshotPropsConfig, dn?: string, isMaximized? : boolean) => ReactElement;
 
 export class PropsControlRegistry
 {

@@ -25,9 +25,10 @@ export interface ConfigProps {
     config: Annotations;
     dn: string;
     language?: string;
+    isMaximized?: boolean;
 }
 
-export const Config: FC<ConfigProps> = ({ config, dn, language }) => {
+export const Config: FC<ConfigProps> = ({ config, dn, language, isMaximized }) => {
     const [indent, setIndent] = useState<number>(2);
     const [editMode, setEditMode] = useState<boolean>(false);
 
@@ -113,7 +114,7 @@ export const Config: FC<ConfigProps> = ({ config, dn, language }) => {
 
     return (
         <div className="Config-wrapper">
-            {dn && (
+            {isMaximized && (
                 <div className={styles.configHeader}>
                     <div className={styles.cluster}>
                         <DnComponent dn={dn} />

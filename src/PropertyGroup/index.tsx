@@ -51,10 +51,10 @@ export const PropertyGroup : FC<PropertyGroupProps> = ({ group, title, dn, dnKin
                                 <h3>{title}</h3>
                             </div>
                         )}
-                        <PropertiesContents group={group} dn={dn} />
+                        <PropertiesContents group={group} dn={dn} isMaximized />
                     </div>
                 ) : (
-                    <PropertiesContents group={group} dn={dn} />
+                    <PropertiesContents group={group} dn={dn} isMaximized />
                 ),
         });
 

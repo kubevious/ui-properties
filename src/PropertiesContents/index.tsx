@@ -27,8 +27,8 @@ PROPS_CONTROL_RESOLVER.setup(PropsKind.table, (group) => {
     return <Table config={group.config} />;
 })
 
-PROPS_CONTROL_RESOLVER.setup(PropsKind.yaml, (group, dn) => {
-    return <Config config={group.config} language={group.kind} dn={dn || ''} />;
+PROPS_CONTROL_RESOLVER.setup(PropsKind.yaml, (group, dn, isMaximized) => {
+    return <Config config={group.config} language={group.kind} dn={dn || ''} isMaximized={isMaximized} />;
 })
 
 PROPS_CONTROL_RESOLVER.setup(PropsKind.teleportation, (group) => {
@@ -53,7 +53,8 @@ PROPS_CONTROL_RESOLVER.setup(PropsKind.links, (group, dn) => {
 
 export interface PropertiesContentsProps {
     group: SnapshotPropsConfig;
-    dn?: string 
+    dn?: string;
+    isMaximized?: boolean;
 }
 
 export const PropertiesContents : FC<PropertiesContentsProps> = ({ group, dn }) => {
