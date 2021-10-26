@@ -57,6 +57,6 @@ export interface PropertiesContentsProps {
     isMaximized?: boolean;
 }
 
-export const PropertiesContents : FC<PropertiesContentsProps> = ({ group, dn }) => {
-    return PROPS_CONTROL_RESOLVER.resolve(group, dn);
+export const PropertiesContents : FC<PropertiesContentsProps> = ({ group, dn, isMaximized }) => {
+    return PROPS_CONTROL_RESOLVER.resolve(group, dn, isMaximized);
 };

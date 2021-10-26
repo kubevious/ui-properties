@@ -15,11 +15,11 @@ export class PropsControlRegistry
         this._dict[key] = cb;
     }
 
-    resolve(group : SnapshotPropsConfig, dn?: string) : ReactElement
+    resolve(group : SnapshotPropsConfig, dn?: string, isMaximized? : boolean) : ReactElement
     {
         const cb = this._dict[group.kind];
         if (cb) {
-            return cb(group, dn);
+            return cb(group, dn, isMaximized);
         }
 
         return (<div>No data presented</div>);

@@ -56,7 +56,13 @@ export const DnListProperties: Story = () => (
 
 export const YamlProperties: Story = () => (
     <div style={{ background: '#1e1e1e', padding: '10px' }}>
-        <PropertiesContents group={YAML_PROPS} />
+        <PropertiesContents group={YAML_PROPS} dn='root/logic/ns-[addr]' />
+    </div>
+);
+
+export const YamlPropertiesMaximized: Story = () => (
+    <div style={{ background: '#1e1e1e', padding: '10px' }}>
+        <PropertiesContents group={YAML_PROPS} dn='root/logic/ns-[addr]' isMaximized />
     </div>
 );
 
