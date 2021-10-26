@@ -1530,10 +1530,10 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@kubevious/entity-meta@^1.0.25", "@kubevious/entity-meta@^1.0.34", "@kubevious/entity-meta@^1.0.37":
-  version "1.0.37"
-  resolved "https://registry.yarnpkg.com/@kubevious/entity-meta/-/entity-meta-1.0.37.tgz#6d1d552b1cab2a035d929a553382211d6ec07e09"
-  integrity sha512-dNwvb/2j2wP2L6LaAqA89vqH4Kx3M34Xb+wCxegjfRdvCgRu0ekFFzEe4xPWFewv3K0IYJGUP8pw0q908z0nNA==
+"@kubevious/entity-meta@^1.0.25", "@kubevious/entity-meta@^1.0.34", "@kubevious/entity-meta@^1.0.38":
+  version "1.0.38"
+  resolved "https://registry.yarnpkg.com/@kubevious/entity-meta/-/entity-meta-1.0.38.tgz#a1f406ae0903458a3c9578d480fb33d24627fda1"
+  integrity sha512-fvxVb0NxOj4XgWR2WiXR/kfuVTy7Jsic2gbCLRk4TbGS4heETn/fFtg4uSdii1xJ7yd+TfwSmR5e5REVD5EyGA==
   dependencies:
     the-lodash "^2.0.9"
 
