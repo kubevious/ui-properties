@@ -4,7 +4,7 @@ import React from 'react';
 import { Properties } from '../Properties';
 import { CallbackHook } from '@kubevious/ui-components';
 
-import { SAMPLE_DN, SAMPLE_PROPS_DATA } from './data';
+import { SAMPLE_DN, SAMPLE_PROPS_DATA } from '../stories/data';
 
 export default {
     title: 'Properties',

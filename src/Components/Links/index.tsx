@@ -16,7 +16,7 @@ export interface ControlLinkInfo
     unresolved?: boolean;
 }
 
-export const Links: FC<LinksProps> = ({ config }) => {
+export const Links: FC<LinksProps> = ({ config, options }) => {
 
     const groups : Record<string, ControlLinkInfo[]> = {};
 
@@ -45,30 +45,40 @@ export const Links: FC<LinksProps> = ({ config }) => {
     }
 
     return <>
-
         {rootDns.map((rootDn) => 
-            <div key={rootDn}>
-                <DnComponent dn={rootDn} options={{ relativeTo: 'root'}} />
-                
-                <div className={styles.innerList}>
-                    {groups[rootDn].map((item, index) => 
-                        <div className={styles.entry} key={index}>
-                            <div className={styles.entryDirection}>
-                                <IconBox tooltipContentsFetcher={() => setupTooltipContents(item)} >
-                                    <div className={styles.entryDirectionIcon} />
-                                </IconBox>
-                            </div>
+            {
+                let myItemsRoot = rootDn;
+                if (options?.relativeTo)
+                {
+                    if (options!.relativeTo!.startsWith(rootDn)) 
+                    {
+                        myItemsRoot = options!.relativeTo!;
+                    }
+                }
 
-                            <div className={styles.entryDnExtra}>
-                                <DnShortcutComponent dn={item.dn} key={index} options={{
-                                        relativeTo: rootDn
-                                    }}
-                                 />
+                return <div key={rootDn}>
+                    <DnComponent dn={rootDn} options={{ relativeTo: 'root'}} />
+                    
+                    <div className={styles.innerList}>
+                        {groups[rootDn].map((item, index) => 
+                            <div className={styles.entry} key={index}>
+                                <div className={styles.entryDirection}>
+                                    <IconBox tooltipContentsFetcher={() => setupTooltipContents(item)} >
+                                        <div className={styles.entryDirectionIcon} />
+                                    </IconBox>
+                                </div>
+
+                                <div className={styles.entryDnExtra}>
+                                    <DnShortcutComponent dn={item.dn} key={index} options={{
+                                            relativeTo: myItemsRoot
+                                        }}
+                                    />
+                                </div>
                             </div>
-                        </div>
-                    )}
+                        )}
+                    </div>
                 </div>
-            </div>
+            }
         )}
 
         {/* {!isEmptyArray(config) &&

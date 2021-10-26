@@ -51,7 +51,7 @@ export const PropertyGroup : FC<PropertyGroupProps> = ({ group, title, dn, dnKin
                                 <h3>{title}</h3>
                             </div>
                         )}
-                        <PropertiesContents group={group} />
+                        <PropertiesContents group={group} dn={dn} />
                     </div>
                 ) : (
                     <PropertiesContents group={group} dn={dn} />
@@ -88,7 +88,7 @@ export const PropertyGroup : FC<PropertyGroupProps> = ({ group, title, dn, dnKin
             <div className={cx(styles.scrollbar, 'dark')}>
                 <div className="force-overflow">
                     <div className={cx(styles.expanderContents, { [styles.expanderOpen] : isExpanded } )}>
-                        <PropertiesContents group={group} />
+                        <PropertiesContents group={group} dn={dn} />
                     </div>
                 </div>
             </div>

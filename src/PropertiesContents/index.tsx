@@ -20,7 +20,7 @@ PROPS_CONTROL_RESOLVER.setup(PropsKind.keyValue, (group) => {
 })
 
 PROPS_CONTROL_RESOLVER.setup(PropsKind.dnList, (group, dn) => {
-    return <DnList config={group.config} options={{ relativeTo: dn}} />;
+    return <DnList config={group.config} options={{ relativeTo: dn }} />;
 })
 
 PROPS_CONTROL_RESOLVER.setup(PropsKind.table, (group) => {
@@ -47,8 +47,8 @@ PROPS_CONTROL_RESOLVER.setup(PropsKind.alertTargetList, (group) => {
     return <AlertList config={group.config} />;
 })
 
-PROPS_CONTROL_RESOLVER.setup(PropsKind.links, (group) => {
-    return <Links config={group.config} />;
+PROPS_CONTROL_RESOLVER.setup(PropsKind.links, (group, dn) => {
+    return <Links config={group.config} options={{ relativeTo: dn }} />;
 })
 
 export interface PropertiesContentsProps {

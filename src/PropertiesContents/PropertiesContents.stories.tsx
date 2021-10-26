@@ -67,8 +67,17 @@ export const TableProperties: Story = () => (
 );
 
 export const TargetLinksProperties: Story = () => (
-    <div style={{ background: '#1e1e1e', padding: '10px' }}>
-        <PropertiesContents group={TARGET_LINKS_PROPS} />
+
+    <div style={{ background: '#AAAAAA', padding: '10px', margin: '10px' }}>
+
+        <div style={{ background: '#1e1e1e', padding: '10px', margin: '10px' }}>
+            <PropertiesContents group={TARGET_LINKS_PROPS} dn='root/logic/ns-[book]' />
+        </div>
+
+        <div style={{ background: '#1e1e1e', padding: '10px', margin: '10px' }}>
+            <PropertiesContents group={TARGET_LINKS_PROPS} />
+        </div>
+
     </div>
 );
 

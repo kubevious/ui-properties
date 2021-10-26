@@ -1,4 +1,4 @@
-
+import { DnOptions } from '../../types';
 
 export interface LinkInfo 
 {
@@ -11,4 +11,5 @@ export type LinksConfig = { [ kind : string ] : LinkInfo[] };
 
 export interface LinksProps {
     config: LinksConfig;
+    options?: DnOptions;
 }

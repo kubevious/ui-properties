@@ -220,7 +220,7 @@ export const DN_LIST_PROPS : SnapshotPropsConfig = {
     id: PropsId.sharedWith,
     config: [
         'root/logic/ns-[kubevious]/app-[kubevious-ui]/cont-[kubevious-ui]/configmap-[kubevious-mysql-client]',
-        'root/logic/ns-[kube-system]/app-[calico-node]/launcher-[DaemonSet]',
+        'root/logic/ns-[book]/app-[book-app]/launcher-[DaemonSet]',
         'root/logic/ns-[kube-system]/app-[calico-node]/vol-[Volumes]',
         'root/logic/ns-[addr]/app-[gprod-addr-main-app]',
         'root/logic/ns-[addr]/app-[gprod-addr-main-web]',
@@ -676,7 +676,7 @@ export const TARGET_LINKS_PROPS: SnapshotPropsConfig = {
         ],
         "volume": [
             {
-                "dn": "root/logic/ns-[gitlab]/app-[gitlab-prometheus-server]/vols-[Volumes]/vol-[config-volume]"
+                "dn": "root/logic/ns-[book]/app-[book-app]/vols-[Volumes]/vol-[config-volume]"
             }
         ],
         "k8s-owner": [
