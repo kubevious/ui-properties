@@ -109,6 +109,7 @@
 .configFooter {
     display: flex;
     align-items: center;
+    justify-items: center;
     border-top: 1px solid #333333;
     height: 50px;
     padding: 0 25px;

@@ -141,7 +141,7 @@ export const Config: FC<ConfigProps> = ({ config, dn, language, isMaximized }) =
                     <CodeControl 
                         value={code}
                         syntax={(language === 'yaml') ? 'yaml' : 'json'}
-                        handleChange={setEditedConfig}
+                        indent={indent}
                         showCopyButton
                         />
                 )}
@@ -150,6 +150,7 @@ export const Config: FC<ConfigProps> = ({ config, dn, language, isMaximized }) =
                     <CodeControl 
                         value={editedConfig}
                         syntax={(language === 'yaml') ? 'yaml' : 'json'}
+                        indent={indent}
                         handleChange={setEditedConfig}
                         showCopyButton
                         />
@@ -160,7 +161,7 @@ export const Config: FC<ConfigProps> = ({ config, dn, language, isMaximized }) =
                 <div className={styles.configFooter}>
                     <span className={styles.runCommand}>$ {kubectlCommand}</span>
 
-                    <CopyClipboard text={kubectlCommand} />
+                    <CopyClipboard text={kubectlCommand} popupRight />
                 </div>
             )}
         </div>
