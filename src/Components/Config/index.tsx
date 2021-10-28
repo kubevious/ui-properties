@@ -1,23 +1,15 @@
-import React, { FC, ReactNode, useEffect, useState } from 'react';
-import hljs from 'highlight.js';
+import React, { FC, useEffect, useState } from 'react';
 import { faDownload, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import cx from 'classnames';
-import { Controlled as CodeMirrorEditor } from 'react-codemirror2';
 import _ from 'the-lodash';
 import jsyaml from 'js-yaml';
 
-import { CopyClipboard, DnComponent } from '@kubevious/ui-components';
+import { CodeControl, CopyClipboard, DnComponent } from '@kubevious/ui-components';
 import { Annotations } from './types';
-import { Editor, EditorChange } from 'codemirror';
 import { app } from '@kubevious/ui-framework';
 
-import 'codemirror/theme/darcula.css';
-import 'codemirror/lib/codemirror.css';
-
 import styles from './styles.module.css';
-
-import './hljs-styles.scss';
 
 export const sharedState = app.sharedState;
 
@@ -75,29 +67,14 @@ export const Config: FC<ConfigProps> = ({ config, dn, language, isMaximized }) =
     const handleEditedMode = (): void => {
         setEditMode(!editMode);
 
-        const PATHS_TO_UNSET = [
-            'metadata.uid',
-            'metadata.selfLink',
-            'metadata.resourceVersion',
-            'metadata.generation',
-            'metadata.creationTimestamp',
-            'metadata.managedFields',
-            'status',
-        ];
 
         if (!editMode) {
             const conf = _.cloneDeep(config);
-            for (let p of PATHS_TO_UNSET) {
+            for (const p of PATHS_TO_UNSET) {
                 _.unset(conf, p);
             }
             setEditedConfig(jsyaml.dump(conf, { indent }));
         }
-    };
-
-    const renderCode = (): ReactNode => {
-        const result = language ? hljs.highlight(language, code) : '';
-
-        return <pre>{result && result.value && <code dangerouslySetInnerHTML={{ __html: result.value }} />}</pre>;
     };
 
     const downloadFile = (): void => {
@@ -106,10 +83,6 @@ export const Config: FC<ConfigProps> = ({ config, dn, language, isMaximized }) =
         exportElem?.setAttribute('href', window.URL.createObjectURL(blob));
         exportElem?.setAttribute('download', fileName);
         exportElem?.click();
-    };
-
-    const handleChangeConfig = ({ value }: { value: string }): void => {
-        setEditedConfig(value);
     };
 
     return (
@@ -163,29 +136,29 @@ export const Config: FC<ConfigProps> = ({ config, dn, language, isMaximized }) =
             )}
 
             <div className={cx(styles.configContainer, { [styles.editMode]: editMode })}>
-                <CopyClipboard text={editMode ? editedConfig : code} />
 
-                {!editMode && renderCode()}
+                {!editMode && (
+                    <CodeControl 
+                        value={code}
+                        syntax={(language === 'yaml') ? 'yaml' : 'json'}
+                        handleChange={setEditedConfig}
+                        showCopyButton
+                        />
+                )}
 
                 {editMode && (
-                    <CodeMirrorEditor
+                    <CodeControl 
                         value={editedConfig}
-                        // autoScroll={false}
-                        editorDidMount={(editor) => editor.refresh()}
-                        options={{
-                            mode: 'yaml',
-                            theme: 'darcula',
-                        }}
-                        onBeforeChange={(_editor: Editor, _data: EditorChange, value: string) =>
-                            handleChangeConfig({ value })
-                        }
-                    />
+                        syntax={(language === 'yaml') ? 'yaml' : 'json'}
+                        handleChange={setEditedConfig}
+                        showCopyButton
+                        />
                 )}
             </div>
 
             {editMode && (
                 <div className={styles.configFooter}>
-                    <span className="run-command">$ {kubectlCommand}</span>
+                    <span className={styles.runCommand}>$ {kubectlCommand}</span>
 
                     <CopyClipboard text={kubectlCommand} />
                 </div>
@@ -193,3 +166,14 @@ export const Config: FC<ConfigProps> = ({ config, dn, language, isMaximized }) =
         </div>
     );
 };
+
+
+const PATHS_TO_UNSET = [
+    'metadata.uid',
+    'metadata.selfLink',
+    'metadata.resourceVersion',
+    'metadata.generation',
+    'metadata.creationTimestamp',
+    'metadata.managedFields',
+    'status',
+];

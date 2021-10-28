@@ -106,62 +106,6 @@
     top: 135px;
 }
 
-:global(.hljs-attr) {
-    color: white;
-}
-
-.configContainer :global(.react-codemirror2) {
-    overflow: hidden;
-    height: 100%;
-    min-height: 100%;
-}
-
-:global(.CodeMirror) {
-    background: inherit;
-    position: relative;
-    width: 85vw;
-}
-
-.editMode :global(.CodeMirror.cm-s-darcula) {
-    border: none;
-    background: inherit !important;
-    min-height: 100%;
-    width: 100%;
-}
-
-.editMode :global(.CodeMirror.cm-s-darcula .CodeMirror-vscrollbar) {
-    display: none !important;
-}
-
-:global(.CodeMirror .CodeMirror-code) {
-    font-family: Inconsolata, monospace;
-    font-size: 14px;
-    line-height: 21px;
-}
-
-:global(.CodeMirror .CodeMirror-code .cm-atom, .cm-meta) {
-    color: white;
-}
-
-:global(.CodeMirror .CodeMirror-code .cm-number) {
-    color: #ffcd22;
-}
-
-:global(.CodeMirror .CodeMirror-code span[role='presentation'], .cm-string) {
-    color: #ec7600;
-}
-
-.editMode :global(.CodeMirror-scroll) {
-    min-height: 100%;
-    width: 100%;
-    overflow-x: auto !important;
-    padding: 0;
-}
-
-.editMode :global(.CodeMirror-lines) {
-    padding: 20px;
-}
-
 .configFooter {
     display: flex;
     align-items: center;
@@ -177,4 +121,12 @@
     margin-left: 10px;
     margin-bottom: 5px;
     color: #999999;
+}
+
+.runCommand {
+    color: white;
+}
+
+:global(.CodeMirror) {
+    background: none !important;
 }
