@@ -1,6 +1,5 @@
 import React, { FC, useEffect, useState } from 'react';
-import { faDownload, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon, FASolidIcons } from '@kubevious/ui-components';
 import cx from 'classnames';
 import _ from 'the-lodash';
 import jsyaml from 'js-yaml';
@@ -120,7 +119,7 @@ export const Config: FC<ConfigProps> = ({ config, dn, language, isMaximized }) =
                                 onClick={handleEditedMode}
                                 title={`${editMode ? 'Disable' : 'Enable'} configuration editor`}
                             >
-                                <FontAwesomeIcon icon={faPencilAlt} />
+                                <FontAwesomeIcon icon={FASolidIcons.faPencilAlt} />
                             </button>
 
                             <button
@@ -128,7 +127,7 @@ export const Config: FC<ConfigProps> = ({ config, dn, language, isMaximized }) =
                                 onClick={downloadFile}
                                 title="Download"
                             >
-                                <FontAwesomeIcon icon={faDownload} />
+                                <FontAwesomeIcon icon={FASolidIcons.faDownload} />
                             </button>
                         </div>
                     </div>
