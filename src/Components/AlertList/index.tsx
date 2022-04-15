@@ -37,7 +37,11 @@ export class AlertList extends ClassComponent<AlertListProps> {
         const parsedAlerts = this.configureAlerts();
 
         return (
-            <AlertView alerts={parsedAlerts} openRule={this.openRule} groupPreset={MESSAGE_GROUP} hideGroupSelector />
+            <AlertView alerts={parsedAlerts}
+                       openRule={this.openRule}
+                       groupPreset={MESSAGE_GROUP}
+                       hideGroupSelector
+                       skipScrollbar />
         );
     }
 }
