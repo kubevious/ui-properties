@@ -182,6 +182,7 @@ const TOP_LEVEL_ORDER = [
     'apiVersion',
     'kind',
     'metadata',
+    'type',
     'spec',
     'data',
     'secrets',
