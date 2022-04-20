@@ -25,7 +25,7 @@
     "@kubevious/entity-meta": "^1.0.56",
     "@kubevious/state-registry": "^1.0.13",
     "@kubevious/ui-alerts": "^1.0.42",
-    "@kubevious/ui-components": "^1.0.221",
+    "@kubevious/ui-components": "^1.0.230",
     "@kubevious/ui-framework": "^1.0.59",
     "bootstrap": "^5.0.0-beta3",
     "classnames": "^2.2.6",
@@ -81,7 +81,7 @@
   "resolutions": {
     "the-lodash": "^2.0.9",
     "@kubevious/ui-framework": "^1.0.59",
-    "@kubevious/ui-components": "^1.0.221",
+    "@kubevious/ui-components": "^1.0.230",
     "@kubevious/ui-alerts": "^1.0.42",
     "@kubevious/entity-meta": "^1.0.56",
     "@kubevious/state-registry": "^1.0.13"

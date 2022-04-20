@@ -5,7 +5,6 @@ import _ from 'the-lodash';
 import jsyaml from 'js-yaml';
 
 import { CodeControl, CopyClipboard, DnComponent } from '@kubevious/ui-components';
-import { Annotations } from './types';
 import { app } from '@kubevious/ui-framework';
 
 import styles from './styles.module.css';
@@ -13,7 +12,7 @@ import styles from './styles.module.css';
 export const sharedState = app.sharedState;
 
 export interface ConfigProps {
-    config: Annotations;
+    config: any;
     dn: string;
     language?: string;
     isMaximized?: boolean;
@@ -23,8 +22,8 @@ export const Config: FC<ConfigProps> = ({ config, dn, language, isMaximized }) =
     const [indent, setIndent] = useState<number>(2);
     const [editMode, setEditMode] = useState<boolean>(false);
 
-    const [code, setCode] = useState<string>(jsyaml.dump(config, { indent }));
-    const [editedConfig, setEditedConfig] = useState<string>(code);
+    const [code, setCode] = useState<string>(configToString(config, indent));
+    const [editedConfig, setEditedConfig] = useState<string>('');
 
     const [fileName, setFileName] = useState<string>('config.yaml');
     const [kubectlCommand, setKubectlCommand] = useState<string>('');
@@ -55,8 +54,8 @@ export const Config: FC<ConfigProps> = ({ config, dn, language, isMaximized }) =
 
     useEffect(() => {
         try {
-            setCode(jsyaml.dump(config, { indent }));
-            setEditedConfig(jsyaml.dump(jsyaml.load(editedConfig), { indent }));
+            setCode(configToString(config, indent));
+            setEditedConfig(configToString(jsyaml.load(editedConfig), indent));
         } catch (error) {
             sharedState.set('is_error', true);
             sharedState.set('error', { data: error });
@@ -64,15 +63,16 @@ export const Config: FC<ConfigProps> = ({ config, dn, language, isMaximized }) =
     }, [indent, config]);
 
     const handleEditedMode = (): void => {
-        setEditMode(!editMode);
 
+        const newEditMode = !editMode;
+        setEditMode(newEditMode);
 
-        if (!editMode) {
+        if (newEditMode) {
             const conf = _.cloneDeep(config);
             for (const p of PATHS_TO_UNSET) {
                 _.unset(conf, p);
             }
-            setEditedConfig(jsyaml.dump(conf, { indent }));
+            setEditedConfig(configToString(conf, indent));
         }
     };
 
@@ -177,3 +177,42 @@ const PATHS_TO_UNSET = [
     'metadata.managedFields',
     'status',
 ];
+
+const TOP_LEVEL_ORDER = [
+    'apiVersion',
+    'kind',
+    'metadata',
+    'spec',
+    'data',
+    'secrets',
+    'roleRef',
+    'subjects',
+    'status',
+];
+const TOP_LEVEL_ORDER_DICT = _.makeDict(TOP_LEVEL_ORDER, x => x, () => true);
+
+function configToString(config: any, indent: number) : string
+{
+    if (!config) {
+        return '';
+    }
+
+    const newConfig = {};
+
+    for(const key of TOP_LEVEL_ORDER)
+    {
+        const value = config[key];
+        if (!_.isUndefined(value)) {
+            newConfig[key] = value;
+        }
+    }
+
+    for(const key of _.keys(config))
+    {
+        if (!TOP_LEVEL_ORDER_DICT[key]) {
+            newConfig[key] = config[key];
+        }
+    }
+
+    return jsyaml.dump(newConfig, { indent })   
+}

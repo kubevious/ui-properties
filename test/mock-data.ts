@@ -1,3 +1,4 @@
+import _ from 'the-lodash';
 import { PropsId, PropsKind } from '@kubevious/entity-meta';
 import { SnapshotPropsConfig } from '@kubevious/state-registry';
 
@@ -17,45 +18,47 @@ export const KEY_VALUE_PROPS: SnapshotPropsConfig = {
     },
 };
 
+const KUBERNETES_YAML_MANIFEST = {
+    metadata: {
+        annotations: {
+            'pv.kubernetes.io/bind-completed': 'yes',
+            'pv.kubernetes.io/bound-by-controller': 'yes',
+            'volume.beta.kubernetes.io/storage-provisioner': 'kubernetes.io/gce-pd',
+        },
+        creationTimestamp: '2020-01-18T00:50:38Z',
+        finalizers: ['kubernetes.io/pvc-protection'],
+        labels: {
+            app: 'redis',
+            name: 'redis-server',
+            'redis-node': 'true',
+            release: 'gitlab',
+        },
+        name: 'data-gitlab-redis-server-1',
+        namespace: 'gitlab',
+        resourceVersion: '2018939',
+        selfLink: '/api/v1/namespaces/gitlab/persistentvolumeclaims/data-gitlab-redis-server-1',
+        uid: '8b2d52c7-398c-11ea-b115-42010a8001d6',
+    },
+    spec: {
+        accessModes: ['ReadWriteOnce'],
+        resources: { requests: { storage: '8Gi' } },
+        storageClassName: 'standard',
+        volumeMode: 'Filesystem',
+        volumeName: 'pvc-8b2d52c7-398c-11ea-b115-42010a8001d6',
+    },
+    status: {
+        accessModes: ['ReadWriteOnce'],
+        capacity: { storage: '8Gi' },
+        phase: 'Bound',
+    },
+    apiVersion: 'v1',
+    kind: 'PersistentVolumeClaim',
+};
+
 export const YAML_PROPS: SnapshotPropsConfig = {
     kind: PropsKind.yaml,
     id: PropsId.config,
-    config: {
-        apiVersion: 'v1',
-        kind: 'PersistentVolumeClaim',
-        metadata: {
-            annotations: {
-                'pv.kubernetes.io/bind-completed': 'yes',
-                'pv.kubernetes.io/bound-by-controller': 'yes',
-                'volume.beta.kubernetes.io/storage-provisioner': 'kubernetes.io/gce-pd',
-            },
-            creationTimestamp: '2020-01-18T00:50:38Z',
-            finalizers: ['kubernetes.io/pvc-protection'],
-            labels: {
-                app: 'redis',
-                name: 'redis-server',
-                'redis-node': 'true',
-                release: 'gitlab',
-            },
-            name: 'data-gitlab-redis-server-1',
-            namespace: 'gitlab',
-            resourceVersion: '2018939',
-            selfLink: '/api/v1/namespaces/gitlab/persistentvolumeclaims/data-gitlab-redis-server-1',
-            uid: '8b2d52c7-398c-11ea-b115-42010a8001d6',
-        },
-        spec: {
-            accessModes: ['ReadWriteOnce'],
-            resources: { requests: { storage: '8Gi' } },
-            storageClassName: 'standard',
-            volumeMode: 'Filesystem',
-            volumeName: 'pvc-8b2d52c7-398c-11ea-b115-42010a8001d6',
-        },
-        status: {
-            accessModes: ['ReadWriteOnce'],
-            capacity: { storage: '8Gi' },
-            phase: 'Bound',
-        },
-    },
+    config: KUBERNETES_YAML_MANIFEST,
 };
 
 export const COUNTERS_PROPS: SnapshotPropsConfig = {
