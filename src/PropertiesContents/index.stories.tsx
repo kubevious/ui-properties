@@ -8,7 +8,8 @@ import {
     OBJECT_LIST_PROPS, TABLE_PROPS,
     TELEPORTATION_PROPS,
     YAML_PROPS,
-    TARGET_LINKS_PROPS
+    TARGET_LINKS_PROPS,
+    POD_VERSIONS_HEALTH_PROPS
 } from '../../test/mock-data';
 import React from 'react';
 
@@ -92,3 +93,10 @@ export const TeleportationProperties: Story = () => (
         <PropertiesContents group={TELEPORTATION_PROPS} />
     </div>
 );
+
+export const PodVersionsProperties: Story = () => (
+    <div style={{ background: '#1e1e1e', padding: '10px' }}>
+        <PropertiesContents group={POD_VERSIONS_HEALTH_PROPS} />
+    </div>
+);
+

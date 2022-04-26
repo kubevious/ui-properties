@@ -1537,10 +1537,10 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@kubevious/entity-meta@^1.0.45", "@kubevious/entity-meta@^1.0.56":
-  version "1.0.56"
-  resolved "https://registry.yarnpkg.com/@kubevious/entity-meta/-/entity-meta-1.0.56.tgz#e2460fee0d7ae931b1da911725e9f0aa556a9e48"
-  integrity sha512-KW9dhxn6bEGK9z4/426i8Un+/uPc1HLUoZA61okj26s+BKnB9uOte2PPGdl0tu/I0WIx2zZ9zMj21NywdfH09g==
+"@kubevious/entity-meta@^1.0.45", "@kubevious/entity-meta@^1.0.56", "@kubevious/entity-meta@^1.0.59":
+  version "1.0.59"
+  resolved "https://registry.yarnpkg.com/@kubevious/entity-meta/-/entity-meta-1.0.59.tgz#984207e458b80c36e73b57388d6428f7aaa5e6fd"
+  integrity sha512-9/vfc9iKnBG//jEXtDY+y+CrvOLM8dWcCxPNAOxcuel4g4ZPpNlOtlF3wCQgWtsDfjK+l5aWk+Rt5GYOWYQkOg==
   dependencies:
     the-lodash "^2.0.9"
 
@@ -1577,17 +1577,17 @@
     postcss "^8.2.10"
     the-lodash "^2.0.9"
 
-"@kubevious/ui-components@^1.0.220", "@kubevious/ui-components@^1.0.230":
-  version "1.0.230"
-  resolved "https://registry.yarnpkg.com/@kubevious/ui-components/-/ui-components-1.0.230.tgz#1cab77ef11dae03d69a49f7d8c5245e40bcc79d4"
-  integrity sha512-M1Ul8GEKQNfSUyQHfkXVShappPoYhA0Mk1eBJsArQAS+gHNY1I01OVJNb8Im3xuPRtvNVFRJfBzkEOhVmkOi4Q==
+"@kubevious/ui-components@^1.0.220", "@kubevious/ui-components@^1.0.234":
+  version "1.0.234"
+  resolved "https://registry.yarnpkg.com/@kubevious/ui-components/-/ui-components-1.0.234.tgz#bfda013edcfa4205909a8bf374fde0d38024adab"
+  integrity sha512-ivBTyUqwKBvKn9nrtIGF6IPvv4asWnau6SqV2DnJGCZjdlKNNUmukeEjPdqMFJX4Df99x3BmQQrybT8BemNjcA==
   dependencies:
     "@fortawesome/fontawesome-svg-core" "6.1.1"
     "@fortawesome/free-brands-svg-icons" "6.1.1"
     "@fortawesome/free-regular-svg-icons" "6.1.1"
     "@fortawesome/free-solid-svg-icons" "6.1.1"
     "@fortawesome/react-fontawesome" "0.1.18"
-    "@kubevious/entity-meta" "^1.0.56"
+    "@kubevious/entity-meta" "^1.0.59"
     "@kubevious/ui-framework" "^1.0.59"
     "@kubevious/ui-middleware" "^1.0.62"
     bootstrap "^5.0.0"

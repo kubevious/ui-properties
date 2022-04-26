@@ -8,6 +8,7 @@ import { ObjectList } from '../Components/ObjectList';
 import { Table } from '../Components/Table';
 import { Teleportation } from '../Components/Teleportation';
 import { Links } from '../Components/Links';
+import { PodVersionsHealth } from '../Components/PodVersionsHealth';
 
 import { PropsKind } from '@kubevious/entity-meta';
 import { SnapshotPropsConfig } from '@kubevious/state-registry';
@@ -49,6 +50,10 @@ PROPS_CONTROL_RESOLVER.setup(PropsKind.alertTargetList, (group) => {
 
 PROPS_CONTROL_RESOLVER.setup(PropsKind.links, (group, dn) => {
     return <Links config={group.config} options={{ relativeTo: dn }} />;
+})
+
+PROPS_CONTROL_RESOLVER.setup(PropsKind.podsVersionsHealth, (group) => {
+    return <PodVersionsHealth config={group.config} />;
 })
 
 export interface PropertiesContentsProps {
