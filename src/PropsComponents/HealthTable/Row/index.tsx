@@ -10,12 +10,14 @@ export interface RowProps {
 
 export const Row: FC<RowProps> = ({ label, metric }) => {
 
+    const count = metric?.count ?? 0;
+    const perc = metric?.perc ?? 0;
 
     return (<>
 
         <div>{label}</div>
-        <div>{metric.count}</div>
-        <div>{metric.perc}%</div>
+        <div>{count}</div>
+        <div>{perc}%</div>
 
     </>);
 

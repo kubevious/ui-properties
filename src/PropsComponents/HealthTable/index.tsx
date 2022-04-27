@@ -17,6 +17,8 @@ const YELLOW='#F5CD19';
 const RED='#EA4228';
 
 export const HealthTable: FC<HealthTableProps> = ({ config }) => {
+    
+    config = config ?? {};
 
     return (
         <div className={styles.container}>
@@ -24,7 +26,7 @@ export const HealthTable: FC<HealthTableProps> = ({ config }) => {
             <div className={styles.gauges}>
 
                 <MetricBlock title="Pods"
-                             value={config.pods.count}
+                             value={config.pods?.count}
                              imageUrl={`/img/summary/pods.svg`}
                              />
 

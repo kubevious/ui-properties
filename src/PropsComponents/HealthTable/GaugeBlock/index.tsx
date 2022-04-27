@@ -26,14 +26,17 @@ export const GaugeBlock: FC<GaugeBlockProps> = ({
         width: 150,
     }
 
-    const labelText = `${label} (${metric.count})`;
+    const count = metric?.count ?? 0;
+    const perc = metric?.perc ?? 0;
+
+    const labelText = `${label} (${count})`;
 
     return (<MetricBox className={styles.gaugeBlock} >
 
         <GaugeChart
                     arcsLength={arcsLength}
                     colors={colors}
-                    percent={metric.perc / 100} 
+                    percent={perc / 100} 
                     style={chartStyle}
                     />
 
