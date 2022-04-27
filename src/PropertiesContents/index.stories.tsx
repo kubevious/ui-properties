@@ -9,7 +9,8 @@ import {
     TELEPORTATION_PROPS,
     YAML_PROPS,
     TARGET_LINKS_PROPS,
-    POD_VERSIONS_HEALTH_PROPS
+    POD_VERSIONS_HEALTH_PROPS,
+    APP_HEALTH_TABLE_CONFIG_PROPS
 } from '../../test/mock-data';
 import React from 'react';
 
@@ -91,6 +92,12 @@ export const TargetLinksProperties: Story = () => (
 export const TeleportationProperties: Story = () => (
     <div style={{ background: '#1e1e1e', padding: '10px' }}>
         <PropertiesContents group={TELEPORTATION_PROPS} />
+    </div>
+);
+
+export const AppHealthProperties: Story = () => (
+    <div style={{ background: '#1e1e1e', padding: '10px' }}>
+        <PropertiesContents group={APP_HEALTH_TABLE_CONFIG_PROPS} />
     </div>
 );
 
