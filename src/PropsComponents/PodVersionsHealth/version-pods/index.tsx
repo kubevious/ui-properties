@@ -6,17 +6,17 @@ import { PodVersionHealthInfo } from '@kubevious/entity-meta/dist/props-config/p
 import { PodStatus } from '../pod-status';
 import { DnShortcutComponent } from '@kubevious/ui-components';
 
-export interface VersionColumnProps {
+export interface VersionPodsProps {
     config: PodVersionHealthInfo;
     dn?: string;
 }
 
-export const VersionColumn: FC<VersionColumnProps> = ({ config, dn }) => {
+export const VersionPods: FC<VersionPodsProps> = ({ config, dn }) => {
 
     const pods = config.pods ?? [];
 
     return (
-        <div className={styles.column}>
+        <div className={styles.versionPods}>
 
             <DnShortcutComponent dn={config.launcher.dn}
                                  options={{ onlyRn: true, onlyRnOverrideName: '' }} />

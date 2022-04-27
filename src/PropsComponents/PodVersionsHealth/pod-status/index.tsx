@@ -68,7 +68,7 @@ export const PodStatus: FC<PodStatusProps> = ({ config, dn }) => {
 
             <TooltipContainer
                 tooltipContentsFetcher={returnTooltipContent}
-                placement="right"
+                placement="top"
                 contents={
                     <div className={styles.podStatus}
                          style={{ background: color.bg, borderColor: color.stroke }}

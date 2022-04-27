@@ -8,10 +8,10 @@ import {
     OBJECT_LIST_PROPS, TABLE_PROPS,
     TELEPORTATION_PROPS,
     YAML_PROPS,
-    TARGET_LINKS_PROPS,
-    POD_VERSIONS_HEALTH_PROPS,
-    APP_HEALTH_TABLE_CONFIG_PROPS
+    TARGET_LINKS_PROPS
 } from '../../test/mock-data';
+import { APP_HEALTH_TABLE_CONFIG_PROPS } from '../../test/mock/health';
+import { POD_VERSIONS_HEALTH_PROPS } from '../../test/mock/pod-stages';
 import React from 'react';
 
 export default {

@@ -4,7 +4,7 @@ import _ from 'the-lodash';
 import styles from './styles.module.css';
 import { PodVersionsHealthInfo } from '@kubevious/entity-meta/dist/props-config/pods-versions-health';
 
-import { VersionColumn } from './version-column';
+import { VersionPods } from './version-pods';
 import { Label } from '@kubevious/ui-components';
 
 export interface PodVersionsHealthProps {
@@ -26,10 +26,10 @@ export const PodVersionsHealth: FC<PodVersionsHealthProps> = ({ config, dn }) =>
         <div className={styles.container}>
 
             {versions.map((x, index) => 
-                <VersionColumn key={index}
-                               config={x}
-                               dn={dn}
-                               />
+                <VersionPods key={index}
+                             config={x}
+                             dn={dn}
+                             />
             )}
 
         </div>
