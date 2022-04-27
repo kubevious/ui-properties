@@ -2,7 +2,7 @@ import _ from 'the-lodash';
 import { SnapshotPropsConfig } from '@kubevious/state-registry';
 import { PROPS_ORDER } from '@kubevious/entity-meta';
 
-// import { TeleportationItem, TeleportationDirection } from '../Components/Teleportation/types';
+// import { TeleportationItem, TeleportationDirection } from '../PropsComponents/Teleportation/types';
 
 export class PropsEnhancer
 {

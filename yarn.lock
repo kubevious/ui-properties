@@ -1577,10 +1577,10 @@
     postcss "^8.2.10"
     the-lodash "^2.0.9"
 
-"@kubevious/ui-components@^1.0.220", "@kubevious/ui-components@^1.0.234":
-  version "1.0.234"
-  resolved "https://registry.yarnpkg.com/@kubevious/ui-components/-/ui-components-1.0.234.tgz#bfda013edcfa4205909a8bf374fde0d38024adab"
-  integrity sha512-ivBTyUqwKBvKn9nrtIGF6IPvv4asWnau6SqV2DnJGCZjdlKNNUmukeEjPdqMFJX4Df99x3BmQQrybT8BemNjcA==
+"@kubevious/ui-components@^1.0.220", "@kubevious/ui-components@^1.0.236":
+  version "1.0.236"
+  resolved "https://registry.yarnpkg.com/@kubevious/ui-components/-/ui-components-1.0.236.tgz#f0eb89c0bd3d02f958de61fd47aea52ce67ab6a2"
+  integrity sha512-Tlqx3bfOfwfHL9l/ZXZ5LQSg4LgB4jqwZ1h24bTSvvaf/KqKXKekILzt45jVoLpsxOgSDJq7DVHWA0G5a4ahKg==
   dependencies:
     "@fortawesome/fontawesome-svg-core" "6.1.1"
     "@fortawesome/free-brands-svg-icons" "6.1.1"
@@ -2883,6 +2883,13 @@
   version "17.0.9"
   resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-17.0.9.tgz#441a981da9d7be117042e1a6fd3dac4b30f55add"
   integrity sha512-wIvGxLfgpVDSAMH5utdL9Ngm5Owu0VsGmldro3ORLXV8CShrL8awVj06NuEXFQ5xyaYfdca7Sgbk/50Ri1GdPg==
+  dependencies:
+    "@types/react" "*"
+
+"@types/react-gauge-chart@^0.3.1":
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/@types/react-gauge-chart/-/react-gauge-chart-0.3.1.tgz#3e9356d321dd4075e1bc2982591090536e4b28e5"
+  integrity sha512-con5hCPNerlGGAh4VTYwqpgWsITmdcngU+u0+qN77nOB4pXShI9r6dhQ6Ji0hzrHcgM7Xq2g/mNolr7AZ5j+Lg==
   dependencies:
     "@types/react" "*"
 

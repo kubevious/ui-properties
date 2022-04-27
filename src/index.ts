@@ -4,4 +4,4 @@ export { Summary } from './Summary';
 
 export { PROPS_CONTROL_RESOLVER } from './control-registry';
 
-export * from './Components/helpers'
+export * from './PropsComponents/helpers'

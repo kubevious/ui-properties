@@ -1,15 +1,15 @@
 import React, { FC } from 'react';
-import { Config } from '../Components/Config';
-import { DnList } from '../Components/DnList';
-import { KeyValueList } from '../Components/KeyValueList';
-import { AlertList } from '../Components/AlertList';
-import { Counters } from '../Components/Counters';
-import { ObjectList } from '../Components/ObjectList';
-import { Table } from '../Components/Table';
-import { Teleportation } from '../Components/Teleportation';
-import { Links } from '../Components/Links';
-import { HealthTable } from '../Components/HealthTable';
-import { PodVersionsHealth } from '../Components/PodVersionsHealth';
+import { Config } from '../PropsComponents/Config';
+import { DnList } from '../PropsComponents/DnList';
+import { KeyValueList } from '../PropsComponents/KeyValueList';
+import { AlertList } from '../PropsComponents/AlertList';
+import { Counters } from '../PropsComponents/Counters';
+import { ObjectList } from '../PropsComponents/ObjectList';
+import { Table } from '../PropsComponents/Table';
+import { Teleportation } from '../PropsComponents/Teleportation';
+import { Links } from '../PropsComponents/Links';
+import { HealthTable } from '../PropsComponents/HealthTable';
+import { PodVersionsHealth } from '../PropsComponents/PodVersionsHealth';
 
 import { PropsKind } from '@kubevious/entity-meta';
 import { SnapshotPropsConfig } from '@kubevious/state-registry';
