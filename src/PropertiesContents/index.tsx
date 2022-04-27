@@ -57,8 +57,8 @@ PROPS_CONTROL_RESOLVER.setup(PropsKind.healthTable, (group) => {
     return <HealthTable config={group.config} />;
 })
 
-PROPS_CONTROL_RESOLVER.setup(PropsKind.podsVersionsHealth, (group) => {
-    return <PodVersionsHealth config={group.config} />;
+PROPS_CONTROL_RESOLVER.setup(PropsKind.podsVersionsHealth, (group, dn) => {
+    return <PodVersionsHealth config={group.config} dn={dn} />;
 })
 
 export interface PropertiesContentsProps {

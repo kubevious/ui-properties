@@ -2,22 +2,27 @@ import React, { FC } from 'react';
 import { MetricBox } from '../MetricBox'
 import styles from './style.module.css';
 
+import cx from 'classnames';
+
 export interface MetricBlockProps {
     title?: string;
     value?: any;
     unit?: string;
-    imageUrl?: string
+    imageUrl?: string;
+    classNames?: string;
+
 }
 
 export const MetricBlock: FC<MetricBlockProps> = ({ 
     title,
     value,
     unit,
-    imageUrl
+    imageUrl,
+    classNames
 }) => {
 
     return (
-        <MetricBox className={styles.itemBlock}>
+        <MetricBox className={cx(styles.itemBlock, classNames)}>
 
             <div className={styles.counter}>
                 <div className={styles.numeric}>

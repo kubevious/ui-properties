@@ -728,7 +728,134 @@ const POD_VERSIONS_HEALTH_CONFIG: PodVersionsHealthInfo = {
             "pods": [
                 {
                     "dn": "root/logic/ns-[kubevious]/app-[kubevious-ui]/launcher-[Deployment]/replicaset-[7b479c4cf9]/pod-[fvt4l]",
+                    "date": "2021-08-01T11:41:19Z",
+                    "phase": PodPhase.Pending,
+                    "conditions": [
+                    ]
+                },
+                {
+                    "dn": "root/logic/ns-[kubevious]/app-[kubevious-ui]/launcher-[Deployment]/replicaset-[7b479c4cf9]/pod-[fvt4l]",
+                    "date": "2021-08-01T11:42:19Z",
+                    "phase": PodPhase.Running,
+                    "runStage": PodRunStage.Scheduling,
+                    "conditions": [
+                        {
+                            "type": "Initialized",
+                            "state": true
+                        },
+                        {
+                            "type": "Ready",
+                            "state": true
+                        },
+                        {
+                            "type": "ContainersReady",
+                            "state": true
+                        },
+                        {
+                            "type": "PodScheduled",
+                            "state": true
+                        }
+                    ]
+                },
+                {
+                    "dn": "root/logic/ns-[kubevious]/app-[kubevious-ui]/launcher-[Deployment]/replicaset-[7b479c4cf9]/pod-[fvt4l]",
                     "date": "2021-08-01T11:43:19Z",
+                    "phase": PodPhase.Running,
+                    "runStage": PodRunStage.Initializing,
+                    "conditions": [
+                        {
+                            "type": "Initialized",
+                            "state": true
+                        },
+                        {
+                            "type": "Ready",
+                            "state": true
+                        },
+                        {
+                            "type": "ContainersReady",
+                            "state": true
+                        },
+                        {
+                            "type": "PodScheduled",
+                            "state": true
+                        }
+                    ]
+                },
+                {
+                    "dn": "root/logic/ns-[kubevious]/app-[kubevious-ui]/launcher-[Deployment]/replicaset-[7b479c4cf9]/pod-[fvt4l]",
+                    "date": "2021-08-01T11:44:19Z",
+                    "phase": PodPhase.Running,
+                    "runStage": PodRunStage.WaitingContainersReady,
+                    "conditions": [
+                        {
+                            "type": "Initialized",
+                            "state": true
+                        },
+                        {
+                            "type": "Ready",
+                            "state": true
+                        },
+                        {
+                            "type": "ContainersReady",
+                            "state": true
+                        },
+                        {
+                            "type": "PodScheduled",
+                            "state": true
+                        }
+                    ]
+                },
+                {
+                    "dn": "root/logic/ns-[kubevious]/app-[kubevious-ui]/launcher-[Deployment]/replicaset-[7b479c4cf9]/pod-[fvt4l]",
+                    "date": "2021-08-01T11:45:19Z",
+                    "phase": PodPhase.Running,
+                    "runStage": PodRunStage.WaitingConditions,
+                    "conditions": [
+                        {
+                            "type": "Initialized",
+                            "state": true
+                        },
+                        {
+                            "type": "Ready",
+                            "state": true
+                        },
+                        {
+                            "type": "ContainersReady",
+                            "state": true
+                        },
+                        {
+                            "type": "PodScheduled",
+                            "state": true
+                        }
+                    ]
+                },
+                {
+                    "dn": "root/logic/ns-[kubevious]/app-[kubevious-ui]/launcher-[Deployment]/replicaset-[7b479c4cf9]/pod-[fvt4l]",
+                    "date": "2021-08-01T11:46:19Z",
+                    "phase": PodPhase.Running,
+                    "runStage": PodRunStage.WaitingReady,
+                    "conditions": [
+                        {
+                            "type": "Initialized",
+                            "state": true
+                        },
+                        {
+                            "type": "Ready",
+                            "state": true
+                        },
+                        {
+                            "type": "ContainersReady",
+                            "state": true
+                        },
+                        {
+                            "type": "PodScheduled",
+                            "state": true
+                        }
+                    ]
+                },
+                {
+                    "dn": "root/logic/ns-[kubevious]/app-[kubevious-ui]/launcher-[Deployment]/replicaset-[7b479c4cf9]/pod-[fvt4l]",
+                    "date": "2021-08-01T11:47:19Z",
                     "phase": PodPhase.Running,
                     "runStage": PodRunStage.Ready,
                     "conditions": [
@@ -749,7 +876,28 @@ const POD_VERSIONS_HEALTH_CONFIG: PodVersionsHealthInfo = {
                             "state": true
                         }
                     ]
-                }
+                },
+                {
+                    "dn": "root/logic/ns-[kubevious]/app-[kubevious-ui]/launcher-[Deployment]/replicaset-[7b479c4cf9]/pod-[fvt4l]",
+                    "date": "2021-08-01T11:48:19Z",
+                    "phase": PodPhase.Failed,
+                    "conditions": [
+                    ]
+                },
+                {
+                    "dn": "root/logic/ns-[kubevious]/app-[kubevious-ui]/launcher-[Deployment]/replicaset-[7b479c4cf9]/pod-[fvt4l]",
+                    "date": "2021-08-01T11:49:19Z",
+                    "phase": PodPhase.Succeeded,
+                    "conditions": [
+                    ]
+                },
+                {
+                    "dn": "root/logic/ns-[kubevious]/app-[kubevious-ui]/launcher-[Deployment]/replicaset-[7b479c4cf9]/pod-[fvt4l]",
+                    "date": "2021-08-01T11:50:19Z",
+                    "phase": PodPhase.Unknown,
+                    "conditions": [
+                    ]
+                },
             ]
         }
     ]

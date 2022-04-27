@@ -7,6 +7,7 @@ import { HealthMetric } from '../types';
 import { Label } from '@kubevious/ui-components';
 import { MetricBox } from '../../../Components/MetricBox';
 
+import cx from 'classnames';
 
 export interface GaugeBlockProps {
     label: string;
@@ -14,15 +15,18 @@ export interface GaugeBlockProps {
 
     arcsLength?: number[] | undefined;
     colors?: string[] | undefined;
+
+    classNames?: string;
 }
 
 export const GaugeBlock: FC<GaugeBlockProps> = ({ 
     label, metric,
     arcsLength, colors,
+    classNames
 }) => {
 
     const chartStyle = {
-        height: 81,
+        height: 68,
         width: 150,
     }
 
@@ -31,13 +35,15 @@ export const GaugeBlock: FC<GaugeBlockProps> = ({
 
     const labelText = `${label} (${count})`;
 
-    return (<MetricBox className={styles.gaugeBlock} >
+    return (<MetricBox className={cx(styles.gaugeBlock, classNames)} >
 
         <GaugeChart
                     arcsLength={arcsLength}
                     colors={colors}
                     percent={perc / 100} 
                     style={chartStyle}
+                    needleColor='#999999'
+                    needleBaseColor='#999999'
                     />
 
         <Label className={styles.label}

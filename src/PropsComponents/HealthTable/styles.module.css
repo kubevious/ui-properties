@@ -8,11 +8,20 @@
     gap: 10px;
 }
 
-.gauges {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
 
-    gap: 20px;
+.gauges {
+    /* display: grid;
+    grid-template-columns: 1fr 1fr; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+
+.commonBlock {
+    min-width: 150px;
+    flex-grow: 1;
 }
 
 .table {

@@ -103,7 +103,8 @@ export const AppHealthProperties: Story = () => (
 
 export const PodVersionsProperties: Story = () => (
     <div style={{ background: '#1e1e1e', padding: '10px' }}>
-        <PropertiesContents group={POD_VERSIONS_HEALTH_PROPS} />
+        <PropertiesContents group={POD_VERSIONS_HEALTH_PROPS}
+                            dn="root/logic/ns-[kubevious]/app-[kubevious-ui]" />
     </div>
 );
 

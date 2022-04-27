@@ -8,9 +8,10 @@ import { DnShortcutComponent } from '@kubevious/ui-components';
 
 export interface VersionColumnProps {
     config: PodVersionHealthInfo;
+    dn?: string;
 }
 
-export const VersionColumn: FC<VersionColumnProps> = ({ config }) => {
+export const VersionColumn: FC<VersionColumnProps> = ({ config, dn }) => {
 
     const pods = config.pods ?? [];
 
@@ -21,7 +22,7 @@ export const VersionColumn: FC<VersionColumnProps> = ({ config }) => {
                                  options={{ onlyRn: true, onlyRnOverrideName: '' }} />
 
             {pods.map((x, index) => 
-                <PodStatus key={index} config={x} />
+                <PodStatus key={index} config={x} dn={dn} />
             )}
 
         </div>

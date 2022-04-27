@@ -25,36 +25,42 @@ export const HealthTable: FC<HealthTableProps> = ({ config }) => {
 
             <div className={styles.gauges}>
 
-                <MetricBlock title="Pods"
+                <MetricBlock classNames={styles.commonBlock}
+                             title="Pods"
                              value={config.pods?.count}
                              imageUrl={`/img/summary/pods.svg`}
                              />
 
-                <GaugeBlock label="Running"
+                <GaugeBlock classNames={styles.commonBlock}
+                            label="Running"
                             metric={config.running}
                             arcsLength={[0.2, 0.3, 0.4]}
                             colors={[RED, YELLOW, GREEN]}
                             />
 
-                <GaugeBlock label="Succeeded"
+                <GaugeBlock classNames={styles.commonBlock}
+                            label="Succeeded"
                             metric={config.succeeded}
                             arcsLength={[0.5, 0.3, 0.2]}
                             colors={[RED, YELLOW, GREEN]}
                             />
 
-                <GaugeBlock label="Failed"
+                <GaugeBlock classNames={styles.commonBlock}
+                            label="Failed"
                             metric={config.failed}
                             arcsLength={[0.1, 0.2, 0.7]}
                             colors={[GREEN, YELLOW, RED]}
                             />
 
-                <GaugeBlock label="Pending"
+                <GaugeBlock classNames={styles.commonBlock}
+                            label="Pending"
                             metric={config.pending}
                             arcsLength={[0.2, 0.3, 0.5]}
                             colors={[GREEN, YELLOW, RED]}
                             />
 
-                <GaugeBlock label="Unknown"
+                <GaugeBlock classNames={styles.commonBlock}
+                            label="Unknown"
                             metric={config.unknown}
                             arcsLength={[0.1, 0.2, 0.7]}
                             colors={[GREEN, YELLOW, RED]}

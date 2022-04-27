@@ -9,9 +9,10 @@ import { Label } from '@kubevious/ui-components';
 
 export interface PodVersionsHealthProps {
     config: PodVersionsHealthInfo;
+    dn?: string;
 }
 
-export const PodVersionsHealth: FC<PodVersionsHealthProps> = ({ config }) => {
+export const PodVersionsHealth: FC<PodVersionsHealthProps> = ({ config, dn }) => {
 
     const versions = config?.versions ?? [];
 
@@ -27,7 +28,8 @@ export const PodVersionsHealth: FC<PodVersionsHealthProps> = ({ config }) => {
             {versions.map((x, index) => 
                 <VersionColumn key={index}
                                config={x}
-                                />
+                               dn={dn}
+                               />
             )}
 
         </div>
