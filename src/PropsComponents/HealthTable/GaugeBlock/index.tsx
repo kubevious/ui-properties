@@ -44,6 +44,8 @@ export const GaugeBlock: FC<GaugeBlockProps> = ({
                     style={chartStyle}
                     needleColor='#999999'
                     needleBaseColor='#999999'
+                    animDelay={100}
+                    animateDuration={1000}
                     />
 
         <Label className={styles.label}
