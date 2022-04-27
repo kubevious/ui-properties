@@ -1,7 +1,7 @@
 import _ from 'the-lodash';
 import { PropsId, PropsKind } from '@kubevious/entity-meta';
 import { SnapshotPropsConfig } from '@kubevious/state-registry';
-import { PodVersionsHealthInfo } from '@kubevious/entity-meta/dist/props-config/pods-versions-health';
+import { PodPhase, PodRunStage, PodVersionsHealthInfo } from '@kubevious/entity-meta/dist/props-config/pods-versions-health';
 
 export const KEY_VALUE_PROPS: SnapshotPropsConfig = {
     kind: PropsKind.keyValue,
@@ -719,158 +719,102 @@ export const TELEPORTATION_PROPS: SnapshotPropsConfig = {
 };
 
 const POD_VERSIONS_HEALTH_CONFIG: PodVersionsHealthInfo = {
-    versions: [
+    "versions": [
         {
-            launcher: {
-                dn: 'root/logic/ns-[gitlab]/app-[gitlab-unicorn]/launcher-[Deployment]/replicaset-[84d7dc6557]',
-                date: '2020-02-04T04:49:18Z',
-                title: '84d7dc6557',
+            "launcher": {
+                "dn": "root/logic/ns-[kubevious]/app-[kubevious-ui]/launcher-[Deployment]/replicaset-[7b479c4cf9]",
+                "date": "2021-03-30T19:21:55Z"
             },
-            pods: [
+            "pods": [
                 {
-                    dn: 'root/logic/ns-[gitlab]/app-[gitlab-unicorn]/launcher-[Deployment]/replicaset-[84d7dc6557]/pod-[k8zbh]',
-                    date: '2020-03-31T18:40:23Z',
-                    phase: 'Failed',
-                },
-                {
-                    dn: 'root/logic/ns-[gitlab]/app-[gitlab-unicorn]/launcher-[Deployment]/replicaset-[84d7dc6557]/pod-[d75ck]',
-                    date: '2020-03-31T18:40:24Z',
-                    phase: 'Failed',
-                },
-                {
-                    dn: 'root/logic/ns-[gitlab]/app-[gitlab-unicorn]/launcher-[Deployment]/replicaset-[84d7dc6557]/pod-[bbcvd]',
-                    date: '2020-03-31T19:23:34Z',
-                    phase: 'Running',
-                },
-                {
-                    dn: 'root/logic/ns-[gitlab]/app-[gitlab-unicorn]/launcher-[Deployment]/replicaset-[84d7dc6557]/pod-[xw7hr]',
-                    date: '2020-03-31T20:10:54Z',
-                    phase: 'Failed',
-                },
-                {
-                    dn: 'root/logic/ns-[gitlab]/app-[gitlab-unicorn]/launcher-[Deployment]/replicaset-[84d7dc6557]/pod-[xkxs4]',
-                    date: '2020-03-31T20:52:18Z',
-                    phase: 'Failed',
-                },
-                {
-                    dn: 'root/logic/ns-[gitlab]/app-[gitlab-unicorn]/launcher-[Deployment]/replicaset-[84d7dc6557]/pod-[wfcr5]',
-                    date: '2020-03-31T21:30:54Z',
-                    phase: 'Failed',
-                },
-            ],
-        },
-        {
-            launcher: {
-                dn: 'root/logic/ns-[gitlab]/app-[gitlab-unicorn]/launcher-[Deployment]/replicaset-[84d7dc6557]',
-                date: '2020-02-04T04:49:18Z',
-                title: '84d7dc6557',
-            },
-            pods: [
-                {
-                    dn: 'root/logic/ns-[gitlab]/app-[gitlab-unicorn]/launcher-[Deployment]/replicaset-[84d7dc6557]/pod-[2smmj]',
-                    date: '2020-03-31T23:01:10Z',
-                    phase: 'Pending',
-                },
-                {
-                    dn: 'root/logic/ns-[gitlab]/app-[gitlab-unicorn]/launcher-[Deployment]/replicaset-[84d7dc6557]/pod-[pc8qk]',
-                    date: '2020-04-01T03:40:43Z',
-                    phase: 'Running',
-                },
-                {
-                    dn: 'root/logic/ns-[gitlab]/app-[gitlab-unicorn]/launcher-[Deployment]/replicaset-[84d7dc6557]/pod-[8hbrb]',
-                    date: '2020-04-01T06:01:53Z',
-                    phase: 'Succeeded',
-                },
-                {
-                    dn: 'root/logic/ns-[gitlab]/app-[gitlab-unicorn]/launcher-[Deployment]/replicaset-[84d7dc6557]/pod-[q8gs4]',
-                    date: '2020-04-01T11:10:48Z',
-                    phase: 'Failed',
-                },
-                {
-                    dn: 'root/logic/ns-[gitlab]/app-[gitlab-unicorn]/launcher-[Deployment]/replicaset-[84d7dc6557]/pod-[vh6gk]',
-                    date: '2020-04-08T20:22:44Z',
-                    phase: 'Unknown',
-                },
-            ],
-        },
-        {
-            launcher: {
-                dn: 'root/logic/ns-[gitlab]/app-[gitlab-unicorn]/launcher-[Deployment]/replicaset-[84d7dc6557]',
-                date: '2020-02-04T04:49:18Z',
-                title: '84d7dc6557',
-            },
-            pods: [
-                {
-                    dn: 'root/logic/ns-[gitlab]/app-[gitlab-unicorn]/launcher-[Deployment]/replicaset-[84d7dc6557]/pod-[k8zbh]',
-                    date: '2020-03-31T18:40:23Z',
-                    phase: 'Failed',
-                },
-                {
-                    dn: 'root/logic/ns-[gitlab]/app-[gitlab-unicorn]/launcher-[Deployment]/replicaset-[84d7dc6557]/pod-[d75ck]',
-                    date: '2020-03-31T18:40:24Z',
-                    phase: 'Failed',
-                },
-                {
-                    dn: 'root/logic/ns-[gitlab]/app-[gitlab-unicorn]/launcher-[Deployment]/replicaset-[84d7dc6557]/pod-[bbcvd]',
-                    date: '2020-03-31T19:23:34Z',
-                    phase: 'Running',
-                },
-                {
-                    dn: 'root/logic/ns-[gitlab]/app-[gitlab-unicorn]/launcher-[Deployment]/replicaset-[84d7dc6557]/pod-[xw7hr]',
-                    date: '2020-03-31T20:10:54Z',
-                    phase: 'Failed',
-                },
-                {
-                    dn: 'root/logic/ns-[gitlab]/app-[gitlab-unicorn]/launcher-[Deployment]/replicaset-[84d7dc6557]/pod-[xkxs4]',
-                    date: '2020-03-31T20:52:18Z',
-                    phase: 'Failed',
-                },
-                {
-                    dn: 'root/logic/ns-[gitlab]/app-[gitlab-unicorn]/launcher-[Deployment]/replicaset-[84d7dc6557]/pod-[wfcr5]',
-                    date: '2020-03-31T21:30:54Z',
-                    phase: 'Failed',
-                },
-            ],
-        },
-        {
-            launcher: {
-                dn: 'root/logic/ns-[gitlab]/app-[gitlab-unicorn]/launcher-[Deployment]/replicaset-[84d7dc6557]',
-                date: '2020-02-04T04:49:18Z',
-                title: '84d7dc6557',
-            },
-            pods: [
-                {
-                    dn: 'root/logic/ns-[gitlab]/app-[gitlab-unicorn]/launcher-[Deployment]/replicaset-[84d7dc6557]/pod-[2smmj]',
-                    date: '2020-03-31T23:01:10Z',
-                    phase: 'Pending',
-                },
-                {
-                    dn: 'root/logic/ns-[gitlab]/app-[gitlab-unicorn]/launcher-[Deployment]/replicaset-[84d7dc6557]/pod-[pc8qk]',
-                    date: '2020-04-01T03:40:43Z',
-                    phase: 'Running',
-                },
-                {
-                    dn: 'root/logic/ns-[gitlab]/app-[gitlab-unicorn]/launcher-[Deployment]/replicaset-[84d7dc6557]/pod-[8hbrb]',
-                    date: '2020-04-01T06:01:53Z',
-                    phase: 'Succeeded',
-                },
-                {
-                    dn: 'root/logic/ns-[gitlab]/app-[gitlab-unicorn]/launcher-[Deployment]/replicaset-[84d7dc6557]/pod-[q8gs4]',
-                    date: '2020-04-01T11:10:48Z',
-                    phase: 'Failed',
-                },
-                {
-                    dn: 'root/logic/ns-[gitlab]/app-[gitlab-unicorn]/launcher-[Deployment]/replicaset-[84d7dc6557]/pod-[vh6gk]',
-                    date: '2020-04-08T20:22:44Z',
-                    phase: 'Unknown',
-                },
-            ],
-        },        
-    ],
+                    "dn": "root/logic/ns-[kubevious]/app-[kubevious-ui]/launcher-[Deployment]/replicaset-[7b479c4cf9]/pod-[fvt4l]",
+                    "date": "2021-08-01T11:43:19Z",
+                    "phase": PodPhase.Running,
+                    "runStage": PodRunStage.Ready,
+                    "conditions": [
+                        {
+                            "type": "Initialized",
+                            "state": true
+                        },
+                        {
+                            "type": "Ready",
+                            "state": true
+                        },
+                        {
+                            "type": "ContainersReady",
+                            "state": true
+                        },
+                        {
+                            "type": "PodScheduled",
+                            "state": true
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
 };
 
 export const POD_VERSIONS_HEALTH_PROPS: SnapshotPropsConfig = {
     "kind": PropsKind.podsVersionsHealth,
-    "id": PropsId.podsVersionsHealth,
+    "id": PropsId.podStages,
     "config": POD_VERSIONS_HEALTH_CONFIG
+}
+
+const APP_HEALTH_TABLE_CONFIG = {
+    "pods": {
+        "count": 1,
+        "perc": 100
+    },
+    "pending": {
+        "count": 0,
+        "perc": 0
+    },
+    "running": {
+        "count": 1,
+        "perc": 100
+    },
+    "succeeded": {
+        "count": 0,
+        "perc": 0
+    },
+    "failed": {
+        "count": 0,
+        "perc": 0
+    },
+    "unknown": {
+        "count": 0,
+        "perc": 0
+    },
+    "scheduling": {
+        "count": 0,
+        "perc": 0
+    },
+    "initializing": {
+        "count": 0,
+        "perc": 0
+    },
+    "waitingContainersReady": {
+        "count": 0,
+        "perc": 0
+    },
+    "waitingConditions": {
+        "count": 0,
+        "perc": 0
+    },
+    "waitingReady": {
+        "count": 0,
+        "perc": 0
+    },
+    "ready": {
+        "count": 1,
+        "perc": 100
+    }
+};
+
+
+export const APP_HEALTH_TABLE_CONFIG_PROPS: SnapshotPropsConfig = {
+    "kind": PropsKind.healthTable,
+    "id": PropsId.health,
+    "config": APP_HEALTH_TABLE_CONFIG
 }

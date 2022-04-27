@@ -1,0 +1,11 @@
+.metricBox {
+    background: #212122;
+    border-radius: 5px;
+    padding: 10px;
+    border-bottom: 2px solid #F2BF58;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

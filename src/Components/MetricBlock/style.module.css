@@ -1,0 +1,35 @@
+.itemBlock {
+    padding: 15px 20px 25px 20px;
+    min-width: 150px;
+}
+
+.counter {
+
+}
+
+.numeric {
+    font-weight: bold;
+    font-size: 50px;
+    line-height: 61px;
+    color: white;
+}
+
+.unit {
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 18px;
+    color: #CCCCCC;
+    margin-left: 5px;
+}
+
+.title {
+    font-size: 15px;
+    line-height: 18px;
+    color: #CCCCCC;
+}
+
+.itemIcon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}

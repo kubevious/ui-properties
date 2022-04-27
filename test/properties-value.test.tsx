@@ -2,7 +2,7 @@ import 'jest';
 
 import { render } from '@testing-library/react';
 
-import { PropertiesValue } from '../src/Components/helpers';
+import { PropertiesValue } from '../src/PropsComponents/helpers';
 
 describe('PropertiesValue', () => {
 
