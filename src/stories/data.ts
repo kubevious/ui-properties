@@ -445,3 +445,251 @@ export const SAMPLE_PROPS_DATA = [
     },
     TARGET_LINKS_PROPS
 ];
+
+export const SAMPLE_DN_2 = 'root/logic/ns-[longhorn-system]/app-[longhorn-driver-deployer]';
+
+export const SAMPLE_PROPS_DATA_2 = [
+    {
+      "id": "labels",
+      "kind": "key-value",
+      "config": {}
+    },
+    {
+      "id": "resources-per-pod",
+      "kind": "key-value",
+      "config": {
+        "cpu": {
+          "unit": "cores",
+          "value": 0
+        },
+        "memory": {
+          "unit": "bytes",
+          "value": 0
+        }
+      }
+    },
+    {
+      "id": "resources",
+      "kind": "key-value",
+      "config": {
+        "cpu": {
+          "unit": "cores",
+          "value": 0
+        },
+        "memory": {
+          "unit": "bytes",
+          "value": 0
+        }
+      }
+    },
+    {
+      "id": "cluster-consumption",
+      "kind": "key-value",
+      "config": {
+        "cpu": {
+          "unit": "%",
+          "value": 0
+        },
+        "memory": {
+          "unit": "%",
+          "value": 0
+        }
+      }
+    },
+    {
+      "id": "health",
+      "kind": "health-table",
+      "config": {
+        "pods": {
+          "perc": 100,
+          "count": 1
+        },
+        "ready": {
+          "perc": 0,
+          "count": 0
+        },
+        "failed": {
+          "perc": 0,
+          "count": 0
+        },
+        "pending": {
+          "perc": 100,
+          "count": 1
+        },
+        "running": {
+          "perc": 0,
+          "count": 0
+        },
+        "unknown": {
+          "perc": 0,
+          "count": 0
+        },
+        "succeeded": {
+          "perc": 0,
+          "count": 0
+        },
+        "scheduling": {
+          "perc": 0,
+          "count": 0
+        },
+        "initializing": {
+          "perc": 0,
+          "count": 0
+        },
+        "waitingReady": {
+          "perc": 0,
+          "count": 0
+        },
+        "waitingConditions": {
+          "perc": 0,
+          "count": 0
+        },
+        "waitingContainersReady": {
+          "perc": 0,
+          "count": 0
+        }
+      }
+    },
+    {
+      "id": "properties",
+      "kind": "key-value",
+      "config": {
+        "Exposed": "No",
+        "Volumes": 0,
+        "Launcher": "Deployment",
+        "Replicas": "1",
+        "Container Count": 1,
+        "Init Container Count": 1
+      }
+    },
+    {
+      "id": "target-links",
+      "kind": "links",
+      "config": {
+        "image": [
+          {
+            "dn": "root/images/repo-[dockerhub]/image-[longhornio/longhorn-manager]/tag-[v0.8.1]/ns-[longhorn-system]/app-[longhorn-driver-deployer]",
+            "path": "cont-longhorn-driver-deployer"
+          },
+          {
+            "dn": "root/images/repo-[dockerhub]/image-[longhornio/longhorn-manager]/tag-[v0.8.1]/ns-[longhorn-system]/app-[longhorn-driver-deployer]",
+            "path": "initcont-wait-longhorn-manager"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pod-stages",
+      "kind": "pods-versions-health",
+      "config": {
+        "versions": [
+          {
+            "pods": [
+              {
+                "dn": "root/logic/ns-[longhorn-system]/app-[longhorn-driver-deployer]/launcher-[Deployment]/replicaset-[58cffbd7fb]/pod-[dvj8k]",
+                "date": "2021-10-14T22:48:47Z",
+                "phase": "Pending",
+                "conditions": []
+              }
+            ],
+            "launcher": {
+              "dn": "root/logic/ns-[longhorn-system]/app-[longhorn-driver-deployer]/launcher-[Deployment]/replicaset-[58cffbd7fb]",
+              "date": "2021-10-14T22:48:47Z"
+            }
+          }
+        ]
+      }
+    }
+];
+
+
+export const SAMPLE_DN_3 = 'root/logic/ns-[longhorn-system]/app-[longhorn-driver-deployer]';
+
+export const SAMPLE_PROPS_DATA_3 = [
+    {
+      "id": "labels",
+      "kind": "key-value",
+      "config": {}
+    },
+    {
+      "id": "resources-per-pod",
+      "kind": "key-value",
+      "config": {
+        "cpu": {
+          "unit": "cores",
+          "value": 0
+        },
+        "memory": {
+          "unit": "bytes",
+          "value": 0
+        }
+      }
+    },
+    {
+      "id": "resources",
+      "kind": "key-value",
+      "config": {
+        "cpu": {
+          "unit": "cores",
+          "value": 0
+        },
+        "memory": {
+          "unit": "bytes",
+          "value": 0
+        }
+      }
+    },
+    {
+      "id": "cluster-consumption",
+      "kind": "key-value",
+      "config": {
+        "cpu": {
+          "unit": "%",
+          "value": 0
+        },
+        "memory": {
+          "unit": "%",
+          "value": 0
+        }
+      }
+    },
+    {
+      "id": "health",
+      "kind": "health-table",
+      "config": {}
+    },
+    {
+      "id": "properties",
+      "kind": "key-value",
+      "config": {
+        "Exposed": "No",
+        "Volumes": 0,
+        "Launcher": "Deployment",
+        "Replicas": "1",
+        "Container Count": 1,
+        "Init Container Count": 1
+      }
+    },
+    {
+      "id": "target-links",
+      "kind": "links",
+      "config": {
+        "image": [
+          {
+            "dn": "root/images/repo-[dockerhub]/image-[longhornio/longhorn-manager]/tag-[v0.8.1]/ns-[longhorn-system]/app-[longhorn-driver-deployer]",
+            "path": "cont-longhorn-driver-deployer"
+          },
+          {
+            "dn": "root/images/repo-[dockerhub]/image-[longhornio/longhorn-manager]/tag-[v0.8.1]/ns-[longhorn-system]/app-[longhorn-driver-deployer]",
+            "path": "initcont-wait-longhorn-manager"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pod-stages",
+      "kind": "pods-versions-health",
+      "config": {
+      }
+    }
+]
