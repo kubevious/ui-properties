@@ -1,8 +1,6 @@
 import _ from 'the-lodash';
 import React, { FC } from 'react';
 
-import styles from './styles.module.css';
-
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -12,8 +10,8 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
-
 import { Bar } from "react-chartjs-2";
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 ChartJS.register(
   CategoryScale,
@@ -24,110 +22,128 @@ ChartJS.register(
   Legend
 );
 
-import { HistogramBucket, BucketKeys } from '@kubevious/entity-meta/dist/props-config/histogram-bucket'
+
+import styles from './styles.module.css';
 
 export interface HistogramBucketChartProps {
-  config: HistogramBucket
+  title?: string;
+  dataPoints: BarDataPoint[];
+
+  borderColor?: string | string[],
+  backgroundColor?: string | string[],
+}
+
+export interface BarDataPoint
+{
+  axisLabel: string,
+  value: number,
+  dataLabel?: string,
+
+  borderColor?: string,
+  backgroundColor?: string,
 }
 
 export const HistogramBucketChart: FC<HistogramBucketChartProps> = ({
-  config
+  title,
+  dataPoints,
+  borderColor,
+  backgroundColor,
 }) => {
 
-  // const dataHorBar = {
-  //   labels: ["January", "February", "March", "April", "May"],
-  //   datasets: [
-  //     {
-  //       label: "",
-  //       backgroundColor: ["#EC932F", "red", "green"],
-  //       // borderColor: 'rgba(255,99,132,1)',
-  //       borderWidth: 0,
-  //       hoverBackgroundColor: "rgba(255,99,132,0.4)",
-  //       hoverBorderColor: "rgba(255,99,132,1)",
-  //       data: [65, 59, 80, 81, 56]
-  //     }
-  //   ]
-  // };
-  // const options = {
-  //   legend: {
-  //     display: false
-  //   },
-  //   scales: {
-  //     xAxes: [
-  //       {
-  //         gridLines: {
-  //           display: false,
-  //           drawBorder: false
-  //         },
-  //         ticks: {
-  //           display: false
-  //         }
-  //       }
-  //     ],
-  //     yAxes: [
-  //       {
-  //         gridLines: {
-  //           display: false,
-  //           drawBorder: false
-  //         },
-  //         ticks: {
-  //           display: true,
-  //           fontColor: "white"
-  //         }
-  //       }
-  //     ]
-  //   }
-  // };
-
-
-  const options = {
-    indexAxis: 'y' as const,
+  const options : React.ComponentProps<typeof Bar>['options'] = {
+    maintainAspectRatio: false,
+    indexAxis: 'y',
     elements: {
       bar: {
         borderWidth: 2,
       },
     },
+    
     responsive: true,
     plugins: {
       legend: {
-        position: 'right' as const,
+        display: false
       },
-      title: {
-        display: true,
-        text: 'Chart.js Horizontal Bar Chart',
-      },
+      datalabels: {
+        color: 'white',
+        anchor: 'center',
+        align: 'end',
+        clamp: true,
+        formatter: function(value, context) {
+          const dataPoint = dataPoints[context.dataIndex]!;
+          if (dataPoint.dataLabel) {
+            return dataPoint.dataLabel;
+          }
+          return dataPoint.value;
+        }
+      }
     },
+    scales: {
+      x: {
+          ticks: {
+            display: false
+          }
+      },
+      y: {
+          ticks: {
+            display: true,
+            color: "white"
+          }
+      }
+    }
   };
 
-  const labels = [
-    '15 min',
-    '1 hr',
-    '8 hr',
-    '1 day',
-  ];
+  if (title) {
+    options.plugins!.title = {
+      display: true,
+      text: title,
+      color: 'white'
+    }
+  }
 
-  const dataPoints = [
-    config[BucketKeys.BUCKET_15_MINS],
-    config[BucketKeys.BUCKET_1_HR],
-    config[BucketKeys.BUCKET_8_HRS],
-    config[BucketKeys.BUCKET_1_DAY],
-  ]
+  if (!backgroundColor) {
+    backgroundColor = _.chain(dataPoints)
+                   .map(x => x.backgroundColor)
+                   .filter(x => _.isNotNullOrUndefined(x))
+                   .map(x => x!)
+                   .value()
+  }
 
-  const data = {
-    labels,
+  if (!borderColor) {
+    borderColor = _.chain(dataPoints)
+                   .map(x => x.borderColor)
+                   .filter(x => _.isNotNullOrUndefined(x))
+                   .map(x => x!)
+                   .value()
+  }
+
+  if (_.isNullOrUndefined(backgroundColor) || backgroundColor.length === 0) {
+    backgroundColor = '#118ab2';
+  }
+
+  if (_.isNullOrUndefined(borderColor) || borderColor.length === 0) {
+    borderColor = backgroundColor;
+  }
+
+  const data : React.ComponentProps<typeof Bar>['data'] = {
+    labels: dataPoints.map(x => x.axisLabel),
     datasets: [
       {
-        label: 'Dataset 1',
-        data: dataPoints,
-        borderColor: 'rgb(255, 99, 132)',
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        // label: 'Dataset 1',
+        data: dataPoints.map(x => x.value),
+        borderColor: borderColor,
+        backgroundColor: backgroundColor
       }
     ],
   };
 
+  const plugins : React.ComponentProps<typeof Bar>['plugins'] = [
+    ChartDataLabels
+  ];
+
   return (
     <div className={styles.container}>
-      <Bar options={options} data={data} />
+      <Bar options={options} data={data} plugins={plugins} />
     </div>
   );
 
