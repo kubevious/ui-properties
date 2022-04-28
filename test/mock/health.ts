@@ -3,53 +3,53 @@ import { PropsId, PropsKind } from '@kubevious/entity-meta';
 import { SnapshotPropsConfig } from '@kubevious/state-registry';
 import { WorkloadHealthConfig } from '@kubevious/entity-meta/dist/props-config/app-health';
 
-const APP_HEALTH_TABLE_CONFIG : WorkloadHealthConfig = {
+export const APP_HEALTH_TABLE_CONFIG : WorkloadHealthConfig = {
     "pods": {
         "count": 1,
         "perc": 100
     },
     "pending": {
-        "count": 0,
-        "perc": 0
+        "count": 12,
+        "perc": 50
     },
     "running": {
         "count": 1,
         "perc": 100
     },
     "succeeded": {
-        "count": 0,
-        "perc": 0
+        "count": 5,
+        "perc": 33
     },
     "failed": {
-        "count": 0,
-        "perc": 0
+        "count": 3,
+        "perc": 75
     },
     "unknown": {
         "count": 0,
         "perc": 0
     },
     "scheduling": {
-        "count": 0,
-        "perc": 0
+        "count": 10,
+        "perc": 10,
     },
     "initializing": {
-        "count": 0,
-        "perc": 0
+        "count": 20,
+        "perc": 20
     },
     "waitingContainersReady": {
-        "count": 0,
-        "perc": 0
+        "count": 30,
+        "perc": 30
     },
     "waitingConditions": {
-        "count": 0,
-        "perc": 0
+        "count": 40,
+        "perc": 40
     },
     "waitingReady": {
-        "count": 0,
-        "perc": 0
+        "count": 50,
+        "perc": 50
     },
     "ready": {
-        "count": 1,
+        "count": 100,
         "perc": 100
     },
     "restartedPods": {

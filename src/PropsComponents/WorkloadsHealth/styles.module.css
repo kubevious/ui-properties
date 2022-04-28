@@ -10,8 +10,6 @@
 
 
 .gauges {
-    /* display: grid;
-    grid-template-columns: 1fr 1fr; */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -19,14 +17,33 @@
     gap: 10px;
 }
 
+
 .commonBlock {
     min-width: 150px;
     flex-grow: 1;
 }
 
-.table {
-    display: grid;
-    grid-template-columns: 3fr 1fr 1fr;
 
-    gap: 5px;
+.barCharts {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+
+.readinessStages {
+    min-height: 210px;
+    min-width: 150px;
+
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.restartedPods {
+    height: 160px;
+    min-width: 150px;
+
+    flex-grow: 1;
+    flex-shrink: 1;
 }

@@ -42,8 +42,8 @@ export const GaugeBlock: FC<GaugeBlockProps> = ({
                     colors={colors}
                     percent={perc / 100} 
                     style={chartStyle}
-                    needleColor='#999999'
-                    needleBaseColor='#999999'
+                    needleColor='#777777'
+                    needleBaseColor='#777777'
                     animate={false}
                     />
 
