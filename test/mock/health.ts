@@ -3,7 +3,7 @@ import { PropsId, PropsKind } from '@kubevious/entity-meta';
 import { SnapshotPropsConfig } from '@kubevious/state-registry';
 import { WorkloadHealthConfig } from '@kubevious/entity-meta/dist/props-config/app-health';
 
-const APP_HEALTH_TABLE_CONFIG : WorkloadHealthConfig = {
+export const APP_HEALTH_TABLE_CONFIG : WorkloadHealthConfig = {
     "pods": {
         "count": 1,
         "perc": 100
