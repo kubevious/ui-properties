@@ -1,14 +1,12 @@
 import _ from 'the-lodash';
 import React, { FC } from 'react';
 import { GaugeBlock } from './GaugeBlock'
-import { Row } from './Row';
 
 import styles from './styles.module.css';
 import { WorkloadHealthConfig, WorkloadHealthMetric } from '@kubevious/entity-meta/dist/props-config/app-health';
 import { MetricBlock } from '../../Components/MetricBlock';
 import { BarDataPoint, HistogramBucketChart } from '../../Components/HistogramBucketChart';
 import { BucketKeys } from '@kubevious/entity-meta/dist/props-config/histogram-bucket';
-
 
 export interface WorkloadsHealthProps {
     config: WorkloadHealthConfig;

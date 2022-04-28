@@ -74,7 +74,7 @@ export const HistogramBucketChart: FC<HistogramBucketChartProps> = ({
           if (dataPoint.dataLabel) {
             return dataPoint.dataLabel;
           }
-          return dataPoint.value;
+          return value;
         }
       }
     },

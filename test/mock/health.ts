@@ -9,20 +9,20 @@ export const APP_HEALTH_TABLE_CONFIG : WorkloadHealthConfig = {
         "perc": 100
     },
     "pending": {
-        "count": 0,
-        "perc": 0
+        "count": 12,
+        "perc": 50
     },
     "running": {
         "count": 1,
         "perc": 100
     },
     "succeeded": {
-        "count": 0,
-        "perc": 0
+        "count": 5,
+        "perc": 33
     },
     "failed": {
-        "count": 0,
-        "perc": 0
+        "count": 3,
+        "perc": 75
     },
     "unknown": {
         "count": 0,
