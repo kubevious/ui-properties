@@ -8,7 +8,7 @@ import { ObjectList } from '../PropsComponents/ObjectList';
 import { Table } from '../PropsComponents/Table';
 import { Teleportation } from '../PropsComponents/Teleportation';
 import { Links } from '../PropsComponents/Links';
-import { HealthTable } from '../PropsComponents/HealthTable';
+import { WorkloadsHealth } from '../PropsComponents/WorkloadsHealth';
 import { PodVersionsHealth } from '../PropsComponents/PodVersionsHealth';
 
 import { PropsKind } from '@kubevious/entity-meta';
@@ -53,8 +53,13 @@ PROPS_CONTROL_RESOLVER.setup(PropsKind.links, (group, dn) => {
     return <Links config={group.config} options={{ relativeTo: dn }} />;
 })
 
+PROPS_CONTROL_RESOLVER.setup(PropsKind.workloadsHealth, (group) => {
+    return <WorkloadsHealth config={group.config} />;
+})
+
+// TODO: TO DELETE SOME TIME LATER:
 PROPS_CONTROL_RESOLVER.setup(PropsKind.healthTable, (group) => {
-    return <HealthTable config={group.config} />;
+    return <WorkloadsHealth config={group.config} />;
 })
 
 PROPS_CONTROL_RESOLVER.setup(PropsKind.podsVersionsHealth, (group, dn) => {

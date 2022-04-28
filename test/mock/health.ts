@@ -1,8 +1,9 @@
 import _ from 'the-lodash';
 import { PropsId, PropsKind } from '@kubevious/entity-meta';
 import { SnapshotPropsConfig } from '@kubevious/state-registry';
+import { WorkloadHealthConfig } from '@kubevious/entity-meta/dist/props-config/app-health';
 
-const APP_HEALTH_TABLE_CONFIG = {
+const APP_HEALTH_TABLE_CONFIG : WorkloadHealthConfig = {
     "pods": {
         "count": 1,
         "perc": 100
@@ -50,12 +51,18 @@ const APP_HEALTH_TABLE_CONFIG = {
     "ready": {
         "count": 1,
         "perc": 100
+    },
+    "restartedPods": {
+        "15min": 2,
+        "1hr": 4,
+        "8hr": 10,
+        "1day": 15
     }
 };
 
 
 export const APP_HEALTH_TABLE_CONFIG_PROPS: SnapshotPropsConfig = {
-    "kind": PropsKind.healthTable,
+    "kind": PropsKind.workloadsHealth,
     "id": PropsId.health,
     "config": APP_HEALTH_TABLE_CONFIG
 }

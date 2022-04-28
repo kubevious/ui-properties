@@ -1,11 +1,11 @@
 import _ from 'the-lodash';
 import React, { FC } from 'react';
 
-import { HealthMetric } from '../types';
+import { WorkloadHealthMetric } from '@kubevious/entity-meta/dist/props-config/app-health';
 
 export interface RowProps {
     label: string;
-    metric: HealthMetric;
+    metric: WorkloadHealthMetric;
 }
 
 export const Row: FC<RowProps> = ({ label, metric }) => {

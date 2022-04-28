@@ -4,19 +4,19 @@ import { GaugeBlock } from './GaugeBlock'
 import { Row } from './Row';
 
 import styles from './styles.module.css';
-import { AppPodsHealth } from './types';
+import { WorkloadHealthConfig } from '@kubevious/entity-meta/dist/props-config/app-health';
 import { MetricBlock } from '../../Components/MetricBlock';
 
 
-export interface HealthTableProps {
-    config: AppPodsHealth;
+export interface WorkloadsHealthProps {
+    config: WorkloadHealthConfig;
 }
 
 const GREEN='#5BE12C';
 const YELLOW='#F5CD19';
 const RED='#EA4228';
 
-export const HealthTable: FC<HealthTableProps> = ({ config }) => {
+export const WorkloadsHealth: FC<WorkloadsHealthProps> = ({ config }) => {
     
     config = config ?? {};
 
@@ -77,6 +77,9 @@ export const HealthTable: FC<HealthTableProps> = ({ config }) => {
                 <Row label="Waiting Ready" metric={config.waitingReady}/>
                 <Row label="Ready" metric={config.ready}/>
 
+                {/* <div>
+                    {JSON.stringify(config.restartedPods, null, 4)}
+                </div> */}
             </div>
 
         </div>

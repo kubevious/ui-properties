@@ -498,7 +498,7 @@ export const SAMPLE_PROPS_DATA_2 = [
     },
     {
       "id": "health",
-      "kind": "health-table",
+      "kind": "workloads-health",
       "config": {
         "pods": {
           "perc": 100,
@@ -547,6 +547,12 @@ export const SAMPLE_PROPS_DATA_2 = [
         "waitingContainersReady": {
           "perc": 0,
           "count": 0
+        },
+        "restartedPods": {
+          "15min": 0,
+          "1hr": 0,
+          "8hr": 2,
+          "1day": 2
         }
       }
     },
@@ -655,7 +661,7 @@ export const SAMPLE_PROPS_DATA_3 = [
     },
     {
       "id": "health",
-      "kind": "health-table",
+      "kind": "workloads-health",
       "config": {}
     },
     {

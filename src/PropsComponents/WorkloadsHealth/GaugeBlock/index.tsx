@@ -3,7 +3,7 @@ import React, { FC } from 'react';
 import GaugeChart from 'react-gauge-chart'
 
 import styles from './styles.module.css';
-import { HealthMetric } from '../types';
+import { WorkloadHealthMetric } from '@kubevious/entity-meta/dist/props-config/app-health';
 import { Label } from '@kubevious/ui-components';
 import { MetricBox } from '../../../Components/MetricBox';
 
@@ -11,7 +11,7 @@ import cx from 'classnames';
 
 export interface GaugeBlockProps {
     label: string;
-    metric: HealthMetric;
+    metric: WorkloadHealthMetric;
 
     arcsLength?: number[] | undefined;
     colors?: string[] | undefined;
