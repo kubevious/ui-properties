@@ -1,0 +1,16 @@
+.container {
+
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    
+    gap: 10px;
+}
+
+.restartedPods {
+    height: 180px;
+
+    flex-grow: 1;
+    flex-shrink: 1;
+}

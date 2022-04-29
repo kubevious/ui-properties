@@ -11,6 +11,7 @@ import {
     TARGET_LINKS_PROPS
 } from '../../test/mock-data';
 import { APP_HEALTH_TABLE_CONFIG_PROPS } from '../../test/mock/health';
+import { POD_HEALTH_PROPS } from '../../test/mock/pod-health';
 import { POD_VERSIONS_HEALTH_PROPS } from '../../test/mock/pod-stages';
 import React from 'react';
 
@@ -108,3 +109,8 @@ export const PodVersionsProperties: Story = () => (
     </div>
 );
 
+export const PodHealthProperties: Story = () => (
+    <div style={{ background: '#1e1e1e', padding: '10px' }}>
+        <PropertiesContents group={POD_HEALTH_PROPS} />
+    </div>
+);

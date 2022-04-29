@@ -42,6 +42,13 @@ export const WorkloadsHealth: FC<WorkloadsHealthProps> = ({ config }) => {
                             />
 
                 <GaugeBlock classNames={styles.commonBlock}
+                            label="Pending"
+                            metric={config.pending}
+                            arcsLength={[0.2, 0.3, 0.5]}
+                            colors={[GREEN, YELLOW, RED]}
+                            />                            
+
+                <GaugeBlock classNames={styles.commonBlock}
                             label="Succeeded"
                             metric={config.succeeded}
                             arcsLength={[0.5, 0.3, 0.2]}
@@ -52,13 +59,6 @@ export const WorkloadsHealth: FC<WorkloadsHealthProps> = ({ config }) => {
                             label="Failed"
                             metric={config.failed}
                             arcsLength={[0.1, 0.2, 0.7]}
-                            colors={[GREEN, YELLOW, RED]}
-                            />
-
-                <GaugeBlock classNames={styles.commonBlock}
-                            label="Pending"
-                            metric={config.pending}
-                            arcsLength={[0.2, 0.3, 0.5]}
                             colors={[GREEN, YELLOW, RED]}
                             />
 
@@ -130,7 +130,6 @@ function makeRestartedPodsBarData(config: WorkloadHealthConfig)
             axisLabel: '15 min',
             value: restartedPods[BucketKeys.BUCKET_15_MINS],
             backgroundColor: '#9D0208'
-            
         },
         {
             axisLabel: '1 hr',
@@ -146,6 +145,11 @@ function makeRestartedPodsBarData(config: WorkloadHealthConfig)
             axisLabel: '1 day',
             value: restartedPods[BucketKeys.BUCKET_1_DAY],
             backgroundColor: '#E85D04'
+        },
+        {
+            axisLabel: 'total',
+            value: restartedPods[BucketKeys.BUCKET_TOTAL],
+            backgroundColor: '#F48C06'
         },
     ];
     return dataPoints;

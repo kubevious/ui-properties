@@ -10,6 +10,7 @@ import { Teleportation } from '../PropsComponents/Teleportation';
 import { Links } from '../PropsComponents/Links';
 import { WorkloadsHealth } from '../PropsComponents/WorkloadsHealth';
 import { PodVersionsHealth } from '../PropsComponents/PodVersionsHealth';
+import { PodHealth } from '../PropsComponents/PodHealth';
 
 import { PropsKind } from '@kubevious/entity-meta';
 import { SnapshotPropsConfig } from '@kubevious/state-registry';
@@ -57,13 +58,12 @@ PROPS_CONTROL_RESOLVER.setup(PropsKind.workloadsHealth, (group) => {
     return <WorkloadsHealth config={group.config} />;
 })
 
-// TODO: TO DELETE SOME TIME LATER:
-PROPS_CONTROL_RESOLVER.setup(PropsKind.healthTable, (group) => {
-    return <WorkloadsHealth config={group.config} />;
-})
-
 PROPS_CONTROL_RESOLVER.setup(PropsKind.podsVersionsHealth, (group, dn) => {
     return <PodVersionsHealth config={group.config} dn={dn} />;
+})
+
+PROPS_CONTROL_RESOLVER.setup(PropsKind.podHealth, (group) => {
+    return <PodHealth config={group.config} />;
 })
 
 export interface PropertiesContentsProps {

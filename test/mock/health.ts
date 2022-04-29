@@ -56,7 +56,8 @@ export const APP_HEALTH_TABLE_CONFIG : WorkloadHealthConfig = {
         "15min": 2,
         "1hr": 4,
         "8hr": 10,
-        "1day": 15
+        "1day": 15,
+        "total": 20,
     }
 };
 

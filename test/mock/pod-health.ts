@@ -8,12 +8,13 @@ const POD_HEALTH_CONFIG : PodHealthConfig = {
         "15min": 2,
         "1hr": 4,
         "8hr": 10,
-        "1day": 15
+        "1day": 15,
+        "total": 20,
     }
 };
 
 
-export const POD_HEALTH_CONFIG_PROPS: SnapshotPropsConfig = {
+export const POD_HEALTH_PROPS: SnapshotPropsConfig = {
     "kind": PropsKind.podHealth,
     "id": PropsId.health,
     "config": POD_HEALTH_CONFIG
