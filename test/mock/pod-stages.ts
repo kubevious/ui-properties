@@ -48,9 +48,8 @@ export function makePodTemplate()
         makePod(PodPhase.Running, PodRunStage.WaitingConditions),
         makePod(PodPhase.Running, PodRunStage.WaitingReady),
         makePod(PodPhase.Running, PodRunStage.Ready),
-        makePod(PodPhase.Failed),
         makePod(PodPhase.Succeeded),
-        makePod(PodPhase.Pending),
+        makePod(PodPhase.Failed),
         makePod(PodPhase.Unknown),
     ];
 }
