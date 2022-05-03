@@ -38,7 +38,7 @@ function makePod(phase: PodPhase, runStage?: PodRunStage)
     };
 }
 
-function makePodTemplate()
+export function makePodTemplate()
 {
     return [
         makePod(PodPhase.Pending),
