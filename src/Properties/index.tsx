@@ -11,7 +11,7 @@ import { PropertiesState } from './types';
 import { PropsEnhancer } from '../logic/props-exhancer';
 import { PROPS_TITLES } from '@kubevious/entity-meta';
 
-import './styles.scss';
+import styles from './styles.module.css';
 
 export class Properties extends ClassComponent<{}, PropertiesState> {
     constructor(props: {} | Readonly<{}>)
@@ -33,7 +33,7 @@ export class Properties extends ClassComponent<{}, PropertiesState> {
         const { dnParts } = this.state;
 
         return (
-            <div className="properties-owner">
+            <div className={styles.propertiesOwner}>
                 <DnPath dn={dnParts} includeLogo iconSize="xs" />
             </div>
         );
@@ -110,13 +110,13 @@ export class Properties extends ClassComponent<{}, PropertiesState> {
             <div
                 data-testid="properties"
                 id="propertiesComponent"
-                className={'properties'}
+                className={styles.properties}
             >
 
                 { isDnSelected && this._renderProps() }
 
                 { !isDnSelected && <>
-                    <div className="empty">No object selected.</div>
+                    <div className={styles.empty}>No object selected.</div>
                 </> }
 
             </div>

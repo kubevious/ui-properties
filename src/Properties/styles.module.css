@@ -13,14 +13,7 @@
   color: #a1a1a1;
 }
 
-.properties-owner {
+.propertiesOwner {
   padding: 7px 5px 6px;
   margin: 1px 0;
-}
-
-/****** EXPANDER BEGIN **********/
-
-.expander-popup {
-  width: 16px;
-  height: 16px;
 }
