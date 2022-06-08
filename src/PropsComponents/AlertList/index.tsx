@@ -1,15 +1,14 @@
 import React from 'react';
 
 import { ClassComponent } from '@kubevious/ui-framework';
-import { AlertView, MESSAGE_GROUP } from '@kubevious/ui-alerts';
+import { AlertView, MESSAGE_GROUP, MyAlert } from '@kubevious/ui-alerts';
 import { AlertListProps } from './types';
-import { Alert } from '../../types';
 
 export class AlertList extends ClassComponent<AlertListProps> {
 
-    configureAlerts = (): Alert[] => {
+    configureAlerts = (): MyAlert[] => {
         const { config } = this.props;
-        let alerts: Alert[] = [];
+        let alerts: MyAlert[] = [];
 
         for(const elem of config)
         {

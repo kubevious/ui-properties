@@ -1,8 +1,8 @@
-import { Alert } from '../../types';
+import { MyAlert } from '@kubevious/ui-alerts';
 
 export type Config = {
     targets: string[];
-    alert: Alert;
+    alert: MyAlert;
 };
 
 export type AlertListProps = {
