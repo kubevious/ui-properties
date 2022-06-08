@@ -24,8 +24,8 @@
   "dependencies": {
     "@kubevious/entity-meta": "^1.0.69",
     "@kubevious/state-registry": "^1.0.13",
-    "@kubevious/ui-alerts": "^1.0.44",
-    "@kubevious/ui-components": "^1.0.237",
+    "@kubevious/ui-alerts": "^1.0.45",
+    "@kubevious/ui-components": "^1.0.239",
     "@kubevious/ui-framework": "^1.0.59",
     "@types/react-gauge-chart": "^0.3.1",
     "bootstrap": "^5.0.0-beta3",
@@ -84,8 +84,8 @@
   "resolutions": {
     "the-lodash": "^2.0.9",
     "@kubevious/ui-framework": "^1.0.59",
-    "@kubevious/ui-components": "^1.0.237",
-    "@kubevious/ui-alerts": "^1.0.44",
+    "@kubevious/ui-components": "^1.0.239",
+    "@kubevious/ui-alerts": "^1.0.45",
     "@kubevious/entity-meta": "^1.0.69",
     "@kubevious/state-registry": "^1.0.13"
   }

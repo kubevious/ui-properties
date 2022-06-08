@@ -7,11 +7,6 @@ import { Alert } from '../../types';
 
 export class AlertList extends ClassComponent<AlertListProps> {
 
-    openRule = (ruleName: string): void => {
-        this.sharedState.set('rule_editor_selected_rule_id', ruleName);
-        this.sharedState.set('focus_rule_editor', true);
-    };
-
     configureAlerts = (): Alert[] => {
         const { config } = this.props;
         let alerts: Alert[] = [];
@@ -38,7 +33,6 @@ export class AlertList extends ClassComponent<AlertListProps> {
 
         return (
             <AlertView alerts={parsedAlerts}
-                       openRule={this.openRule}
                        groupPreset={MESSAGE_GROUP}
                        hideGroupSelector
                        skipScrollbar />
