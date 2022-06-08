@@ -7,6 +7,8 @@ import jsyaml from 'js-yaml';
 import { CodeControl, CopyClipboard, DnComponent } from '@kubevious/ui-components';
 import { app } from '@kubevious/ui-framework';
 
+import { k8sConfigToString } from '../../k8s/utils';
+
 import styles from './styles.module.css';
 
 export const sharedState = app.sharedState;
@@ -22,7 +24,7 @@ export const Config: FC<ConfigProps> = ({ config, dn, language, isMaximized }) =
     const [indent, setIndent] = useState<number>(2);
     const [editMode, setEditMode] = useState<boolean>(false);
 
-    const [code, setCode] = useState<string>(configToString(config, indent));
+    const [code, setCode] = useState<string>(k8sConfigToString(config, indent));
     const [editedConfig, setEditedConfig] = useState<string>('');
 
     const [fileName, setFileName] = useState<string>('config.yaml');
@@ -54,8 +56,8 @@ export const Config: FC<ConfigProps> = ({ config, dn, language, isMaximized }) =
 
     useEffect(() => {
         try {
-            setCode(configToString(config, indent));
-            setEditedConfig(configToString(jsyaml.load(editedConfig), indent));
+            setCode(k8sConfigToString(config, indent));
+            setEditedConfig(k8sConfigToString(jsyaml.load(editedConfig), indent));
         } catch (error) {
             sharedState.set('is_error', true);
             sharedState.set('error', { data: error });
@@ -72,7 +74,7 @@ export const Config: FC<ConfigProps> = ({ config, dn, language, isMaximized }) =
             for (const p of PATHS_TO_UNSET) {
                 _.unset(conf, p);
             }
-            setEditedConfig(configToString(conf, indent));
+            setEditedConfig(k8sConfigToString(conf, indent));
         }
     };
 
@@ -177,43 +179,3 @@ const PATHS_TO_UNSET = [
     'metadata.managedFields',
     'status',
 ];
-
-const TOP_LEVEL_ORDER = [
-    'apiVersion',
-    'kind',
-    'metadata',
-    'type',
-    'spec',
-    'data',
-    'secrets',
-    'roleRef',
-    'subjects',
-    'status',
-];
-const TOP_LEVEL_ORDER_DICT = _.makeDict(TOP_LEVEL_ORDER, x => x, () => true);
-
-function configToString(config: any, indent: number) : string
-{
-    if (!config) {
-        return '';
-    }
-
-    const newConfig = {};
-
-    for(const key of TOP_LEVEL_ORDER)
-    {
-        const value = config[key];
-        if (!_.isUndefined(value)) {
-            newConfig[key] = value;
-        }
-    }
-
-    for(const key of _.keys(config))
-    {
-        if (!TOP_LEVEL_ORDER_DICT[key]) {
-            newConfig[key] = config[key];
-        }
-    }
-
-    return jsyaml.dump(newConfig, { indent })   
-}
