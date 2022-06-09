@@ -51,7 +51,9 @@ steps:
     image: 'kubevious/node-builder:14'
     working_directory: "${{CICD_REPO_PATH}}"
     commands:
+      - mv test .test
       - npm run build
+      - mv .test test
 
   run_unit_test:
     title: Run Unit Tests
