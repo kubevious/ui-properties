@@ -29,7 +29,7 @@
     "**/*.stories.jsx",
     "**/*.stories.ts",
     "**/*.stories.tsx",
-    "**/test/mock-data.ts",
+    "**/test",
     "**/test/**/*.test.js",
     "**/test/**/*.test.ts",
     "**/test/**/*.test.jsx",
