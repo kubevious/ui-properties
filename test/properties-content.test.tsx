@@ -5,7 +5,7 @@ import { render, RenderResult } from '@testing-library/react';
 
 import { PropertiesContents } from '../src';
 
-import { KEY_VALUE_PROPS } from './mock-data';
+import { KEY_VALUE_PROPS } from './mock/data';
 
 export const renderComponent = (): RenderResult => render(<PropertiesContents group={KEY_VALUE_PROPS} />);
 

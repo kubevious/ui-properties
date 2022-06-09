@@ -1,7 +1,7 @@
 import { app } from '@kubevious/ui-framework';
 import { Story } from '@storybook/react';
 import React from 'react';
-import { SUMMARY_DATA } from '../../test/mock-data';
+import { SUMMARY_DATA } from '../../test/mock/data';
 import { Summary } from '../Summary';
 
 export default {

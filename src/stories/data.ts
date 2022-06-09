@@ -1,4 +1,4 @@
-import { TARGET_LINKS_PROPS } from "../../test/mock-data";
+import { TARGET_LINKS_PROPS } from "../../test/mock/data";
 
 export const SAMPLE_DN = 'root/logic/ns-[book]/app-[book-app]';
 

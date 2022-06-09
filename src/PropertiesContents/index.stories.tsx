@@ -9,10 +9,10 @@ import {
     TELEPORTATION_PROPS,
     YAML_PROPS,
     TARGET_LINKS_PROPS
-} from '../../test/mock-data';
+} from '../../test/mock/data';
 import { APP_HEALTH_TABLE_CONFIG_PROPS } from '../../test/mock/health';
-import { POD_HEALTH_PROPS } from '../../test/mock/pod-health';
-import { POD_VERSIONS_HEALTH_PROPS } from '../../test/mock/pod-stages';
+import { POD_HEALTH_PROPS } from '../../test/mock/podhealth';
+import { POD_VERSIONS_HEALTH_PROPS } from '../../test/mock/podstages';
 import React from 'react';
 
 export default {

@@ -2,7 +2,7 @@ import { Story } from '@storybook/react';
 import { PodStatus } from './';
 import {
     makePodTemplate
-} from '../../../../test/mock/pod-stages';
+} from '../../../../test/mock/podstages';
 import React from 'react';
 import { PodPhase, PodRunStage } from '@kubevious/entity-meta/dist/props-config/pods-versions-health';
 
