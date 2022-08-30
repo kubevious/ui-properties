@@ -4,7 +4,7 @@ import { makeDn, parseDn } from '@kubevious/entity-meta/dist';
 
 export const PropertiesValue = (value: any): JSX.Element => {
     if (_.isNullOrUndefined(value)) {
-        return <span>????</span>;
+        return <span></span>;
     }
 
     if (_.isArray(value)) {
