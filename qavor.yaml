@@ -1,0 +1,3 @@
+kind: service
+name: ui-properties
+description: ui-properties
